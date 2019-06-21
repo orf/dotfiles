@@ -21,7 +21,22 @@ then
 fi
 
 git lfs install --system
+rustup-init -y
+/usr/local/opt/fzf/install
+
+# Non-homebrew install stuff
+git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
 
 # MacOS stuff
 mkdir -p ~/Pictures/screenshots/
 defaults write com.apple.screencapture location ~/Pictures/screenshots/
+
+# User stuff
+git config --global user.name "Tom Forbes"
+git config --global user.email "tom@tomforb.es"
+git config --global core.excludesfile ~/.gitignore
+
+# Install Python versions
+pyenv latest install 3.6
+pyenv latest install 2.7
+

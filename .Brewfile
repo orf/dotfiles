@@ -60,3 +60,7 @@ brew "git-lfs"
 brew "exa"
 brew "nvm"
 brew "rustup-init"
+brew "tree"
+brew "ripgrep"
+brew "docker-completion"
+
