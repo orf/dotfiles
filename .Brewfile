@@ -6,7 +6,6 @@ brew "mas"
 mas '1Password', id:1333542190
 mas "Things", id: 904280696
 mas "WhatsApp", id: 1147396723
-mas "Airmail 3", id: 918858936
 mas "Radium", id: 597611879
 mas "Textual 7", id: 1262957439
 mas "Slack", id: 803453959
