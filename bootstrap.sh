@@ -2,10 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+if [ -d "$HOME/.dotfiles" ]
+then
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
 rm -R my-dotfiles-tmp
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
+fi
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -27,10 +30,6 @@ rustup-init -y
 # Non-homebrew install stuff
 git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
 
-# MacOS stuff
-mkdir -p ~/Pictures/screenshots/
-defaults write com.apple.screencapture location ~/Pictures/screenshots/
-
 # User stuff
 git config --global user.name "Tom Forbes"
 git config --global user.email "tom@tomforb.es"
@@ -40,3 +39,9 @@ git config --global core.excludesfile ~/.gitignore
 pyenv latest install 3.6
 pyenv latest install 2.7
 
+# MacOS stuff
+mkdir -p ~/Pictures/screenshots/
+defaults write com.apple.screencapture location ~/Pictures/screenshots/
+defaults write com.apple.finder NewWindowTargetPath file://$HOME/
+defaults write com.apple.finder AppleShowAllFiles -boolean true
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
