@@ -17,8 +17,11 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
    echo "Fish not in /etc/shells, adding"
    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+   chsh -s /usr/local/bin/fish
 fi
-chsh -s /usr/local/bin/fish
 
 git lfs install --system
 
+# MacOS stuff
+mkdir -p ~/Pictures/screenshots/
+defaults write com.apple.screencapture location ~/Pictures/screenshots/
