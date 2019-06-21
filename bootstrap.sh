@@ -15,6 +15,8 @@ echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew
 
 brew bundle -v --global
 
+open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+
 #git -C "$(brew --repo homebrew/core)" fetch --unshallow
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
