@@ -1,6 +1,8 @@
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts'
 
+brew "mas"
+
 mas '1Password', id:1333542190
 mas "Things", id: 904280696
 mas "WhatsApp", id: 1147396723
@@ -24,6 +26,8 @@ cask "istat-menus"
 cask "battle-net"
 cask "spotify"
 cask "transmission"
+cask "deckset"
+cask "postgres"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -53,3 +57,5 @@ brew "watch"
 brew "pkg-config"
 brew "fzf"
 brew "git-lfs"
+brew "exa"
+brew "nvm"
