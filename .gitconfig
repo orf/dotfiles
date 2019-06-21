@@ -10,3 +10,5 @@
 
 [commit]
 	gpgsign = true
+[core]
+	excludesfile = /Users/tom/.gitignore
