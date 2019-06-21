@@ -29,7 +29,7 @@ rustup-init -y
 /usr/local/opt/fzf/install --all
 
 # Non-homebrew install stuff
-if [ -d "$(pyenv root)/plugins/xxenv-latest" ]
+if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
 then
     git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
 fi
