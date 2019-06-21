@@ -40,8 +40,8 @@ git config --global user.email "tom@tomforb.es"
 git config --global core.excludesfile ~/.gitignore
 
 # Install Python versions
-pyenv latest install 3.6
-pyenv latest install 2.7
+pyenv latest install 3.6 -s
+pyenv latest install 2.7 -s
 
 # MacOS stuff
 mkdir -p ~/Pictures/screenshots/
