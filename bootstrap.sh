@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if [ -d "$HOME/.dotfiles" ]
+if ! [ -d "$HOME/.dotfiles" ]
 then
     git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
@@ -10,7 +10,8 @@ then
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
 fi
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# Silent install
+echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew bundle -v --global
 
