@@ -4,10 +4,10 @@ IFS=$'\n\t'
 
 if [ -d "$HOME/.dotfiles" ]
 then
-git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
-rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
-rm -R my-dotfiles-tmp
-git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
+    git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
+    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
+    rm -R my-dotfiles-tmp
+    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
 fi
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -28,7 +28,9 @@ rustup-init -y
 /usr/local/opt/fzf/install --all
 
 # Non-homebrew install stuff
-git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
+if [ -d "$(pyenv root)/plugins/xxenv-latest" ]
+    git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
+fi
 
 # User stuff
 git config --global user.name "Tom Forbes"
