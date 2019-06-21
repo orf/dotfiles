@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
-rm --recursive my-dotfiles-tmp
+rm -R my-dotfiles-tmp
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
