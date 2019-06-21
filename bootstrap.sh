@@ -5,6 +5,7 @@ IFS=$'\n\t'
 git clone --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
 rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
 rm -R my-dotfiles-tmp
+git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME status.showUntrackedFiles no
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -20,3 +21,4 @@ fi
 chsh -s /usr/local/bin/fish
 
 git lfs install --system
+
