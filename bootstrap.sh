@@ -22,7 +22,7 @@ fi
 
 git lfs install --system
 rustup-init -y
-/usr/local/opt/fzf/install
+/usr/local/opt/fzf/install --all
 
 # Non-homebrew install stuff
 git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
