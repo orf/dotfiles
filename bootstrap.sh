@@ -15,10 +15,6 @@ echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew
 
 brew bundle -v --global
 
-open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
-
-#git -C "$(brew --repo homebrew/core)" fetch --unshallow
-
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
    echo "Fish not in /etc/shells, adding"
@@ -36,6 +32,11 @@ then
     git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
 fi
 
+if ! [ -d "/Applications/Little\ Snitch\ Configuration.app" ]
+then
+    open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+fi
+
 # User stuff
 git config --global user.name "Tom Forbes"
 git config --global user.email "tom@tomforb.es"
@@ -51,3 +52,7 @@ defaults write com.apple.screencapture location ~/Pictures/screenshots/
 defaults write com.apple.finder NewWindowTargetPath file://$HOME/
 defaults write com.apple.finder AppleShowAllFiles -boolean true
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+
+echo "Bootstrapped! Unshallowing homebrew in the background"
+
+git -C "$(brew --repo homebrew/core)" fetch --unshallow &
