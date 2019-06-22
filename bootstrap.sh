@@ -32,7 +32,7 @@ then
     git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
 fi
 
-if ! [ -d "/Applications/Little\ Snitch\ Configuration.app" ]
+if ! [ -d "/Applications/Little Snitch Configuration.app" ]
 then
     open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
 fi
@@ -53,6 +53,7 @@ defaults write com.apple.finder NewWindowTargetPath file://$HOME/
 defaults write com.apple.finder AppleShowAllFiles -boolean true
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-echo "Bootstrapped! Unshallowing homebrew in the background"
+echo "Bootstrapped!"
+echo "Run the following command to unshallow homebrew:"
+echo git -C "$(brew --repo homebrew/core)" fetch --unshallow 
 
-git -C "$(brew --repo homebrew/core)" fetch --unshallow &

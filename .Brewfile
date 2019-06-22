@@ -63,4 +63,4 @@ brew "tree"
 brew "ripgrep"
 brew "docker-completion"
 brew "jq"
-
+brew "screen"
