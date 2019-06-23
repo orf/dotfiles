@@ -26,6 +26,7 @@ cask "spotify"
 cask "transmission"
 cask "deckset"
 cask "postgres"
+cask "vlc"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -64,3 +65,6 @@ brew "ripgrep"
 brew "docker-completion"
 brew "jq"
 brew "screen"
+brew "ncdu"
+brew "ipython"
+brew "htop"
