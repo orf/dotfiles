@@ -27,14 +27,14 @@ cask "transmission"
 cask "deckset"
 cask "postgres"
 cask "vlc"
+cask "dash"
+cask "micro-snitch"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-cask 'dash'
-cask 'micro-snitch'
 
 brew "fish"
 brew "python"

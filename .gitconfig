@@ -13,3 +13,7 @@
 [core]
 	excludesfile = /Users/tom/.gitignore
 	autocrlf = input
+
+[diff "pdf"]
+    binary = true
+    textconv = mdls
