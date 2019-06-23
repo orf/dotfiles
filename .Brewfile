@@ -1,5 +1,6 @@
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts'
+tap 'homebrew/cask'
 
 brew "mas"
 
@@ -68,3 +69,10 @@ brew "screen"
 brew "ncdu"
 brew "ipython"
 brew "htop"
+brew "tmux"
+brew "wget"
+brew "youtube-dl"
+brew "node"
+brew "nvm"
+brew "curl"
+brew "watchman"
