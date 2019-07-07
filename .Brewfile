@@ -77,4 +77,5 @@ brew "node"
 brew "nvm"
 brew "curl"
 brew "watchman"
+brew "defaultbrowser"
 

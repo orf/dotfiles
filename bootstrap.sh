@@ -11,7 +11,10 @@ then
 fi
 
 # Silent install
-echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! [-f "/usr/local/bin/brew" ]
+then
+	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 brew bundle -v --global
 
@@ -25,6 +28,8 @@ fi
 git lfs install --system
 rustup-init -y
 /usr/local/opt/fzf/install --all
+python3.7 -mpip install virtualfish
+defaultbrowser firefoxdeveloperedition
 
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
