@@ -3,7 +3,7 @@
 # Please adapt and uncomment the following lines:
 	name = Tom Forbes
 	email = tom@tomforb.es
-	signingkey = EB78E9C28812914F9CA968000BBE5147C22F3AF2
+	signingkey = A6E25D95
 
 [gpg]
 	program = /usr/local/bin/gpg
