@@ -30,6 +30,7 @@ cask "postgres"
 cask "vlc"
 cask "dash"
 cask "micro-snitch"
+cask "flux"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -76,3 +77,4 @@ brew "node"
 brew "nvm"
 brew "curl"
 brew "watchman"
+
