@@ -11,7 +11,7 @@ then
 fi
 
 # Silent install
-if ! [-f "/usr/local/bin/brew" ]
+if ! [ -f "/usr/local/bin/brew" ]
 then
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
