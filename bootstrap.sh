@@ -57,6 +57,9 @@ mkdir -p ~/Pictures/screenshots/
 defaults write com.apple.screencapture location ~/Pictures/screenshots/
 defaults write com.apple.finder NewWindowTargetPath file://$HOME/
 defaults write com.apple.finder AppleShowAllFiles -boolean true
+defaults write com.apple.dock autohide -boolean true
+killall Dock
+killall Finder
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
 echo "Bootstrapped!"

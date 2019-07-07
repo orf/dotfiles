@@ -25,7 +25,7 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set PATH /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $PATH
+set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $PATH
 
 set -gx NVM_DIR "$HOME/.local/share/nvm"
 set -gx CARGO_HOME "$HOME/.local/share/cargo"
