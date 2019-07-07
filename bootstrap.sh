@@ -30,6 +30,7 @@ rustup-init -y
 /usr/local/opt/fzf/install --all
 python3.7 -mpip install virtualfish
 defaultbrowser firefoxdeveloperedition
+fish -c "fisher"
 
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
