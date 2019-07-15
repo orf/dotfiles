@@ -79,3 +79,9 @@ brew "curl"
 brew "watchman"
 brew "defaultbrowser"
 
+custom_brewfile = "#{Dir.home}/.Brewfile.#{Socket.gethostname}"
+if File.file?(custom_brewfile)
+	instance_eval(File.read(custom_brewfile))
+else
+	puts "#{custom_brewfile} does not exist!"
+end
