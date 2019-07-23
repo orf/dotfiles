@@ -27,12 +27,12 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $PATH
-
 set -gx NVM_DIR "$HOME/.local/share/nvm"
 set -gx CARGO_HOME "$HOME/.local/share/cargo"
 set -gx RUSTUP_HOME "$HOME/.local/share/rustup"
 set -gx VIRTUALFISH_HOME "$HOME/.local/share/virtualfish"
+
+set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
