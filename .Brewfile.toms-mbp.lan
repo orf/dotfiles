@@ -2,4 +2,4 @@ cask "steam"
 cask "battle-net"
 cask "league-of-legends"
 cask "plex-media-server"
-
+cask "transmission"
