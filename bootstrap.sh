@@ -69,4 +69,4 @@ echo "Bootstrapped!"
 echo "Run the following command to unshallow homebrew:"
 echo git -C "$(brew --repo homebrew/core)" fetch --unshallow 
 
-sudo launchctl setenv PATH "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+sudo launchctl config user path "/usr/local/bin:$PATH"
