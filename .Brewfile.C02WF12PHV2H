@@ -1,0 +1,8 @@
+tap "onfido/tools", "git@gitlab.eu-west-1.mgmt.onfido.xyz:onfido/tools/homebrew-tools.git", "--force-auto-update"
+brew "creds"
+
+cask "tunnleblick"
+cask "zoomus"
+cask "amethyst"
+cask "beardedspice"
+
