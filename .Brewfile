@@ -79,6 +79,7 @@ brew "defaultbrowser"
 brew "cargo-completion"
 brew "pstree"
 brew "hugo"
+brew "sccache"
 
 custom_brewfile = "#{Dir.home}/.Brewfile.#{Socket.gethostname}"
 if File.file?(custom_brewfile)
