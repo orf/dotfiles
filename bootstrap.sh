@@ -43,6 +43,10 @@ then
     open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
 fi
 
+# Day One CLI
+echo "Installing day1 CLI"
+sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
+
 # User stuff
 git config --global user.name "Tom Forbes"
 git config --global user.email "tom@tomforb.es"
@@ -61,13 +65,16 @@ defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock show-recents -boolean false
 defaults write com.apple.bird optimize-storage -boolean false
 # Disable Zoom video by default
+echo "Disabling zoom video by default"
 sudo defaults write /Library/Preferences/us.zoom.config.plist ZDisableVideo 1
 killall Dock
 killall Finder
+echo "Setting firewall to stealth mode"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
 echo "Bootstrapped!"
 echo "Run the following command to unshallow homebrew:"
 echo git -C "$(brew --repo homebrew/core)" fetch --unshallow 
 
+echo "Adding /usr/local/bin to the launchctl path"
 sudo launchctl config user path "/usr/local/bin:$PATH"
