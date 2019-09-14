@@ -26,3 +26,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Secrets!
+.config/secrets.fish
