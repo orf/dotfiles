@@ -27,7 +27,7 @@ if not functions -q fisher
     fish -c fisher
 end
 
-set -gx NVM_DIR "$HOME/.local/share/nvm"
+set -gx NVM_DIR "/usr/local/opt/nvm"
 set -gx CARGO_HOME "$HOME/.local/share/cargo"
 set -gx RUSTC_WRAPPER "/usr/local/bin/sccache"
 set -gx RUSTUP_HOME "$HOME/.local/share/rustup"
