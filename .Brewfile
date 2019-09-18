@@ -7,7 +7,6 @@ brew "mas"
 mas '1Password', id:1333542190
 mas "Things", id: 904280696
 mas "WhatsApp", id: 1147396723
-mas "Radium", id: 597611879
 mas "Textual 7", id: 1262957439
 mas "Slack", id: 803453959
 mas "Magnet", id: 441258766
@@ -24,7 +23,6 @@ cask "gpg-suite"
 cask "google-chrome"
 cask "plex-media-server"
 cask "istat-menus"
-cask "spotify"
 cask "deckset"
 cask "postgres"
 cask "vlc"
