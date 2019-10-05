@@ -32,6 +32,7 @@ set -gx CARGO_HOME "$HOME/.local/share/cargo"
 set -gx RUSTC_WRAPPER "/usr/local/bin/sccache"
 set -gx RUSTUP_HOME "$HOME/.local/share/rustup"
 set -gx VIRTUALFISH_HOME "$HOME/.local/share/virtualfish"
+set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 
 set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH
 
