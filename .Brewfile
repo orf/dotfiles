@@ -1,6 +1,7 @@
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
+tap 'orf/brew'
 
 brew "mas"
 
@@ -82,6 +83,7 @@ brew "sccache"
 brew "stern"
 brew "kubectx"
 brew "dive"
+brew "git-workspace"
 
 custom_brewfile = "#{Dir.home}/.Brewfile.#{Socket.gethostname}"
 if File.file?(custom_brewfile)
