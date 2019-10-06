@@ -2,15 +2,18 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
 
-brew "mas"
 
-mas '1Password', id:1333542190
-mas "Things", id: 904280696
-mas "WhatsApp", id: 1147396723
-mas "Textual 7", id: 1262957439
-mas "Slack", id: 803453959
-mas "Magnet", id: 441258766
-mas "Day One", id:1055511498
+if ENV.has_key?('SKIP_MAS') then
+    brew "mas"
+
+    mas '1Password', id:1333542190
+    mas "Things", id: 904280696
+    mas "WhatsApp", id: 1147396723
+    mas "Textual 7", id: 1262957439
+    mas "Slack", id: 803453959
+    mas "Magnet", id: 441258766
+    mas "Day One", id:1055511498
+end
 
 cask "thingsmacsandboxhelper"
 cask "firefox-developer-edition"

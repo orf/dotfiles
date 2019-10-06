@@ -14,3 +14,4 @@ jobs:
           ./bootstrap.sh
         env:
           REPO: ${{github.workspace}}
+          SKIP_MAS: 1
