@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 REPO="${REPO:-https://github.com/orf/dotfiles.git}"
 
-if [ ! -d "$HOME/.dotfiles" ] && [ -z "${GITHUB_WORKSPACE}" ];
+if [ ! -d "$HOME/.dotfiles" ];
 then
     git clone --recurse-submodules --separate-git-dir="$HOME"/.dotfiles "${REPO}" my-dotfiles-tmp
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
