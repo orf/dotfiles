@@ -24,7 +24,7 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
    echo "Fish not in /etc/shells, adding"
    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-   chsh -s /usr/local/bin/fish
+   chsh -s /usr/local/bin/fish || true
 fi
 
 git lfs install --system
