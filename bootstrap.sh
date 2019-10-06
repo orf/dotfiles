@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if ! [ -d "$HOME/.dotfiles" ]
+if [ ! -d "$HOME/.dotfiles" ] && [ ! -z "${GITHUB_WORKSPACE}"]
 then
     git clone --recurse-submodules --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
