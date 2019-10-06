@@ -46,8 +46,10 @@ then
 fi
 
 # Day One CLI
-echo "Installing day1 CLI"
-sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
+if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
+  echo "Installing day1 CLI"
+  sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
+fi
 
 # User stuff
 git config --global user.name "Tom Forbes"
