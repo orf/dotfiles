@@ -12,3 +12,5 @@ jobs:
         shell: bash
         run: |
           ./bootstrap.sh
+        env:
+          REPO: ${{github.workspace}}
