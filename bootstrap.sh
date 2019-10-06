@@ -4,12 +4,12 @@ IFS=$'\n\t'
 
 REPO="${REPO:-https://github.com/orf/dotfiles.git}"
 
-if [ ! -d "$HOME/.dotfiles" ] && [ ! -z "${GITHUB_WORKSPACE}"]
+if [ ! -d "$HOME/.dotfiles" ] && [ -z "${GITHUB_WORKSPACE}" ];
 then
-    git clone --recurse-submodules --separate-git-dir=$HOME/.dotfiles ${REPO} my-dotfiles-tmp
-    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
+    git clone --recurse-submodules --separate-git-dir="$HOME"/.dotfiles "${REPO}" my-dotfiles-tmp
+    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
+    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
 fi
 
 # Silent install
@@ -61,7 +61,7 @@ pyenv latest install 2.7 -s
 # MacOS stuff
 mkdir -p ~/Pictures/screenshots/
 defaults write com.apple.screencapture location ~/Pictures/screenshots/
-defaults write com.apple.finder NewWindowTargetPath file://$HOME/
+defaults write com.apple.finder NewWindowTargetPath file://"$HOME"/
 defaults write com.apple.finder AppleShowAllFiles -boolean true
 defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock show-recents -boolean false
