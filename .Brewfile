@@ -73,7 +73,7 @@ brew "htop"
 brew "tmux"
 brew "wget"
 brew "youtube-dl"
-brew "node"
+brew "node", args: ["--overwrite"]
 brew "nvm"
 brew "curl"
 brew "watchman"
