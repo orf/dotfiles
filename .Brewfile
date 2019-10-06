@@ -49,7 +49,7 @@ brew "python"
 brew "pyenv"
 brew "pipenv"
 brew "rustup-init"
-brew "node", args: ["--overwrite"]
+brew "node"
 brew "nvm"
 brew "ipython"
 

@@ -16,3 +16,4 @@ jobs:
         env:
           REPO: ${{github.workspace}}
           SKIP_MAS: 1
+          HOMEBREW_BUNDLE_BREW_SKIP: "node"
