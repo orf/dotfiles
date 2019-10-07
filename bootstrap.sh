@@ -29,9 +29,8 @@ fi
 
 git lfs install --system
 
-rustup-init -y
-rustup component add clippy rustfmt
-
+fish -c "rustup-init -y"
+fish -c "rustup component add clippy rustfmt"
 /usr/local/opt/fzf/install --all
 python3.7 -mpip install virtualfish
 defaultbrowser firefoxdeveloperedition
