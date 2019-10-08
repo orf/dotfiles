@@ -2,12 +2,14 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-if ! [ -d "$HOME/.dotfiles" ]
+REPO="${REPO:-https://github.com/orf/dotfiles.git}"
+
+if [ ! -d "$HOME/.dotfiles" ];
 then
-    git clone --recurse-submodules --separate-git-dir=$HOME/.dotfiles https://github.com/orf/dotfiles.git my-dotfiles-tmp
-    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ $HOME/
+    git clone --recurse-submodules --separate-git-dir="$HOME"/.dotfiles "${REPO}" my-dotfiles-tmp
+    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
-    git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config status.showUntrackedFiles no
+    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
 fi
 
 # Silent install
@@ -22,11 +24,13 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
    echo "Fish not in /etc/shells, adding"
    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-   chsh -s /usr/local/bin/fish
+   chsh -s /usr/local/bin/fish || true
 fi
 
 git lfs install --system
-rustup-init -y
+
+fish -c "rustup-init -y"
+fish -c "rustup component add clippy rustfmt"
 /usr/local/opt/fzf/install --all
 python3.7 -mpip install virtualfish
 defaultbrowser firefoxdeveloperedition
@@ -44,8 +48,10 @@ then
 fi
 
 # Day One CLI
-echo "Installing day1 CLI"
-sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
+if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
+  echo "Installing day1 CLI"
+  sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
+fi
 
 # User stuff
 git config --global user.name "Tom Forbes"
@@ -59,7 +65,7 @@ pyenv latest install 2.7 -s
 # MacOS stuff
 mkdir -p ~/Pictures/screenshots/
 defaults write com.apple.screencapture location ~/Pictures/screenshots/
-defaults write com.apple.finder NewWindowTargetPath file://$HOME/
+defaults write com.apple.finder NewWindowTargetPath file://"$HOME"/
 defaults write com.apple.finder AppleShowAllFiles -boolean true
 defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock show-recents -boolean false
