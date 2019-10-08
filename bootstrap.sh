@@ -56,6 +56,10 @@ if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
   sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
 fi
 
+# SSH fingerprints
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
+
 # User stuff
 git config --global user.name "Tom Forbes"
 git config --global user.email "tom@tomforb.es"
