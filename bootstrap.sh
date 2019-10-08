@@ -18,7 +18,7 @@ then
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew bundle -v --global
+brew bundle -v --global || true
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
