@@ -84,7 +84,7 @@ brew "kubectx"
 brew "dive"
 brew "git-workspace"
 
-local_hostname = `scutil --get LocalHostName`
+local_hostname = `scutil --get LocalHostName`.strip
 custom_brewfile = "#{Dir.home}/.Brewfile.#{local_hostname}"
 if File.file?(custom_brewfile)
 	instance_eval(File.read(custom_brewfile))
