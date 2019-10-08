@@ -10,6 +10,8 @@ then
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
+else
+    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" pull
 fi
 
 # Silent install
