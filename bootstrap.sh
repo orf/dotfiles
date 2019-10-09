@@ -16,7 +16,6 @@ then
 !README.md
 /*
 EOF
-    git --git-dir="$DOTFILES" log
     git --git-dir="$DOTFILES" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
     ls -la my-dotfiles-tmp/
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
