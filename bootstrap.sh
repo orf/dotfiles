@@ -16,19 +16,13 @@ then
 !.github/
 !README.md
 EOF
-    cat "$DOTFILES"/info/sparse-checkout
     git --git-dir="$DOTFILES" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
-    ls -la my-dotfiles-tmp/
-    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
+    rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$DOTFILES" --work-tree="$HOME" config status.showUntrackedFiles no
 else
     git --git-dir="$DOTFILES" --work-tree="$HOME" pull
 fi
-
-echo "list:"
-ls -la "$HOME"
-exit 1
 
 # Silent install
 if ! [ -f "/usr/local/bin/brew" ]
