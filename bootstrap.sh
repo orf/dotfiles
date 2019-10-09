@@ -2,16 +2,24 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-REPO="${REPO:-https://github.com/orf/dotfiles.git}"
+REPO="${REPO:-ssh://git@github.com:orf/dotfiles.git}"
+DOTFILES_REF=${BRANCH:-master}
 
-if [ ! -d "$HOME/.dotfiles" ];
+export DOTFILES="$HOME"/.dotfiles
+
+if [ ! -d "$DOTFILES" ];
 then
-    git clone --recurse-submodules --separate-git-dir="$HOME"/.dotfiles "${REPO}" my-dotfiles-tmp
+    git clone --recurse-submodules --separate-git-dir="$DOTFILES" --no-checkout "${REPO}" my-dotfiles-tmp
+    git -C "$DOTFILES" config core.sparsecheckout true
+    ls -la "$DOTFILES"/.git/
+    echo .github/ >> "$DOTFILES"/.git/info/sparse-checkout
+    echo README.md >> "$DOTFILES"/.git/info/sparse-checkout
+    git --separate-git-dir="$DOTFILES" checkout "${DOTFILES_REF}"
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
-    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
+    git --git-dir="$DOTFILES" --work-tree="$HOME" config status.showUntrackedFiles no
 else
-    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" pull
+    git --git-dir="$DOTFILES" --work-tree="$HOME" pull
 fi
 
 # Silent install
