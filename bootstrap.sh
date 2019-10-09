@@ -13,7 +13,7 @@ then
     git -C "$DOTFILES" config --local core.sparsecheckout true
     echo .github/ >> "$DOTFILES"/info/sparse-checkout
     echo README.md >> "$DOTFILES"/info/sparse-checkout
-    git checkout --separate-git-dir="$DOTFILES"  "${DOTFILES_REF}" --recurse-submodules
+    git --git-dir="$DOTFILES" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$DOTFILES" --work-tree="$HOME" config status.showUntrackedFiles no
