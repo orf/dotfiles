@@ -11,9 +11,9 @@ if [ ! -d "$DOTFILES" ];
 then
     git clone --separate-git-dir="$DOTFILES" --no-checkout "${REPO}" my-dotfiles-tmp
     git -C "$DOTFILES" config core.sparsecheckout true
-    ls -la "$HOME"
-    echo .github/ >> "$DOTFILES"/.git/info/sparse-checkout
-    echo README.md >> "$DOTFILES"/.git/info/sparse-checkout
+    git -C "$DOTFILES" config -l
+    echo .github/ >> "$DOTFILES"/info/sparse-checkout
+    echo README.md >> "$DOTFILES"/info/sparse-checkout
     git --separate-git-dir="$DOTFILES" checkout "${DOTFILES_REF}" --recurse-submodules
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
