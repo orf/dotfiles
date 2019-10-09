@@ -15,6 +15,7 @@ then
     echo README.md >> "$DOTFILES"/info/sparse-checkout
     git --git-dir="$DOTFILES" log
     git --git-dir="$DOTFILES" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
+    ls -la my-dotfiles-tmp/
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$DOTFILES" --work-tree="$HOME" config status.showUntrackedFiles no
