@@ -10,9 +10,12 @@ export DOTFILES="$HOME"/.dotfiles
 if [ ! -d "$DOTFILES" ];
 then
     git clone --separate-git-dir="$DOTFILES" --no-checkout "${REPO}" my-dotfiles-tmp
-    git -C "$DOTFILES" config --local core.sparsecheckout true
-    echo .github/ >> "$DOTFILES"/info/sparse-checkout
-    echo README.md >> "$DOTFILES"/info/sparse-checkout
+    git --git-dir="$DOTFILES" config --local core.sparsecheckout true
+    cat <<EOF >>"$DOTFILES"/info/sparse-checkout
+!.github/
+!README.md
+/*
+EOF
     git --git-dir="$DOTFILES" log
     git --git-dir="$DOTFILES" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
     ls -la my-dotfiles-tmp/
