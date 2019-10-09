@@ -47,7 +47,11 @@ fi
 
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]
 then
-    open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+    if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" > /dev/null; then
+      open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+    else
+      echo "Cannot find little snitch installer!";
+    fi
 fi
 
 # Day One CLI
