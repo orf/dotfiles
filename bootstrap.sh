@@ -21,6 +21,7 @@ else
     git --git-dir="$DOTFILES" --work-tree="$HOME" pull
 fi
 
+echo "list:"
 ls -la "$HOME"
 exit 1
 
