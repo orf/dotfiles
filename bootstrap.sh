@@ -21,6 +21,9 @@ else
     git --git-dir="$DOTFILES" --work-tree="$HOME" pull
 fi
 
+ls -la "$HOME"
+exit 1
+
 # Silent install
 if ! [ -f "/usr/local/bin/brew" ]
 then
