@@ -10,6 +10,8 @@ then
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
+else
+    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" pull
 fi
 
 # Silent install
@@ -18,7 +20,7 @@ then
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew bundle -v --global
+brew bundle -v --global || true
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
@@ -29,10 +31,11 @@ fi
 
 git lfs install --system
 
+python3.7 -mpip install virtualfish
+
 fish -c "rustup-init -y"
 fish -c "rustup component add clippy rustfmt"
 /usr/local/opt/fzf/install --all
-python3.7 -mpip install virtualfish
 defaultbrowser firefoxdeveloperedition
 fish -c "fisher"
 
@@ -52,6 +55,10 @@ if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
   echo "Installing day1 CLI"
   sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
 fi
+
+# SSH fingerprints
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
 
 # User stuff
 git config --global user.name "Tom Forbes"

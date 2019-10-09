@@ -1,6 +1,7 @@
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
+tap 'orf/brew'
 
 # Github actions cannot install these.
 if ENV.has_key?('SKIP_MAS') then
@@ -35,6 +36,10 @@ cask "gpg-suite"
 cask "istat-menus"
 cask "deckset"
 cask "postgres"
+
+# Quicklook plugins
+cask "qlmarkdown"
+cask "quicklook-json"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -92,12 +97,14 @@ brew "kubectl"
 brew "stern"
 brew "kubectx"
 brew "dive"
+brew "git-workspace"
 
 # Other
 brew "defaultbrowser"
 brew "hugo"
 
-custom_brewfile = "#{Dir.home}/.Brewfile.#{Socket.gethostname}"
+local_hostname = `scutil --get LocalHostName`.strip
+custom_brewfile = "#{Dir.home}/.Brewfile.#{local_hostname}"
 if File.file?(custom_brewfile)
 	instance_eval(File.read(custom_brewfile))
 else
