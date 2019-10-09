@@ -9,12 +9,12 @@ export DOTFILES="$HOME"/.dotfiles
 
 if [ ! -d "$DOTFILES" ];
 then
-    git clone --recurse-submodules --separate-git-dir="$DOTFILES" --no-checkout "${REPO}" my-dotfiles-tmp
+    git clone --separate-git-dir="$DOTFILES" --no-checkout "${REPO}" my-dotfiles-tmp
     git -C "$DOTFILES" config core.sparsecheckout true
-    ls -la "$DOTFILES"/.git/
+    ls -la "$DOTFILES"
     echo .github/ >> "$DOTFILES"/.git/info/sparse-checkout
     echo README.md >> "$DOTFILES"/.git/info/sparse-checkout
-    git --separate-git-dir="$DOTFILES" checkout "${DOTFILES_REF}"
+    git --separate-git-dir="$DOTFILES" checkout "${DOTFILES_REF}" --recurse-submodules
     rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     rm -R my-dotfiles-tmp
     git --git-dir="$DOTFILES" --work-tree="$HOME" config status.showUntrackedFiles no
