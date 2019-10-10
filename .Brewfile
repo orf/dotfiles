@@ -3,16 +3,21 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask'
 tap 'orf/brew'
 
-brew "mas"
+# Github actions cannot install these.
+if ENV.has_key?('SKIP_MAS') then
+    brew "mas"
 
-mas '1Password', id:1333542190
-mas "Things", id: 904280696
-mas "WhatsApp", id: 1147396723
-mas "Textual 7", id: 1262957439
-mas "Slack", id: 803453959
-mas "Magnet", id: 441258766
-mas "Day One", id:1055511498
+    mas '1Password', id:1333542190
+    mas "Things", id: 904280696
+    mas "WhatsApp", id: 1147396723
+    mas "Textual 7", id: 1262957439
+    mas "Slack", id: 803453959
+    mas "Magnet", id: 441258766
+    mas "Day One", id:1055511498
+end
 
+
+# Core casks
 cask "thingsmacsandboxhelper"
 cask "firefox-developer-edition"
 cask "little-snitch"
@@ -20,16 +25,21 @@ cask "iterm2"
 cask "pycharm"
 cask "alfred3"
 cask "docker"
-cask "gpg-suite"
 cask "google-chrome"
-cask "plex-media-server"
+cask "flux"
+cask "micro-snitch"
+cask "vlc"
+cask "dash"
+
+# Misc apps
+cask "gpg-suite"
 cask "istat-menus"
 cask "deckset"
 cask "postgres"
-cask "vlc"
-cask "dash"
-cask "micro-snitch"
-cask "flux"
+
+# Quicklook plugins
+cask "qlmarkdown"
+cask "quicklook-json"
 
 # Fonts
 cask 'font-source-code-pro-for-powerline'
@@ -37,52 +47,61 @@ cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
+# Core brews
 brew "fish"
+brew "exa"
 brew "python"
 brew "pyenv"
 brew "pipenv"
-brew "bat"
+brew "rustup-init"
+brew "node"
+brew "nvm"
+brew "ipython"
+
+# Standard utils
+brew "wget"
 brew "git"
+brew "git-lfs"
+brew "nano"
 brew "coreutils"
 brew "findutils"
+brew "watch"
+brew "pkg-config"
+brew "screen"
+brew "ncdu"
+brew "htop"
+brew "tmux"
+brew "curl"
+
+# Useful utilities
+brew "bat"
 brew "fd"
 brew "httpie"
 brew "tokei"
-brew "docker-completion"
-brew "nano"
 brew "pv"
 brew "tldr"
-brew "wget"
-brew "watch"
-brew "pkg-config"
 brew "fzf"
-brew "git-lfs"
-brew "exa"
-brew "nvm"
-brew "rustup-init"
 brew "tree"
 brew "ripgrep"
-brew "docker-completion"
 brew "jq"
-brew "screen"
-brew "ncdu"
-brew "ipython"
-brew "htop"
-brew "tmux"
-brew "wget"
 brew "youtube-dl"
-brew "node"
-brew "nvm"
-brew "curl"
 brew "watchman"
-brew "defaultbrowser"
-brew "cargo-completion"
 brew "pstree"
-brew "hugo"
+
+# Completion
+brew "docker-completion"
+brew "cargo-completion"
+
+# Kubernetes and Docker
+brew "kubectl"
 brew "stern"
 brew "kubectx"
 brew "dive"
 brew "git-workspace"
+
+# Other
+brew "defaultbrowser"
+brew "hugo"
 
 local_hostname = `scutil --get LocalHostName`.strip
 custom_brewfile = "#{Dir.home}/.Brewfile.#{local_hostname}"

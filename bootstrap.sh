@@ -2,19 +2,37 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-REPO="${REPO:-https://github.com/orf/dotfiles.git}"
+REPO="${REPO:-ssh://git@github.com:orf/dotfiles.git}"
+DOTFILES_REF=${DOTFILES_REF:-master}
 
-if [ ! -d "$HOME/.dotfiles" ];
+export DOTFILES_GIT_DIR="$HOME"/.dotfiles
+
+if [ ! -d "$DOTFILES_GIT_DIR" ];
 then
-    git clone --recurse-submodules --separate-git-dir="$HOME"/.dotfiles "${REPO}" my-dotfiles-tmp
-    rsync --recursive --verbose --exclude '.git' my-dotfiles-tmp/ "$HOME"/
+    # The ultimate git checkout for dotfiles.
+    # Clone the dotfiles at a given reference, into a specific git directory (~/.dotfiles)
+    # We specify --no-checkout here so that we can exclude some files from the checkout
+    git clone --separate-git-dir="$DOTFILES_GIT_DIR" --no-checkout "${REPO}" my-dotfiles-tmp
+    # Enable sparse checkouts and exclude .github/ and README.md. The order matters, /* must be the first rule.
+    git --git-dir="$DOTFILES_GIT_DIR" config --local core.sparsecheckout true
+    cat <<EOF >> "$DOTFILES_GIT_DIR"/info/sparse-checkout
+/*
+!.github/
+!README.md
+EOF
+    # Checkout the dotfiles
+    git --git-dir="$DOTFILES_GIT_DIR" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
+    # Copy all files from the temporary working directory to $HOME.
+    rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/
+    # Remove the temporary directory
     rm -R my-dotfiles-tmp
-    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config status.showUntrackedFiles no
+    # Disable untracked files. We do not want to show them in our home directory!
+    git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" config status.showUntrackedFiles no
 else
-    git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" pull
+    git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull
 fi
 
-# Silent install
+# The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]
 then
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -26,6 +44,7 @@ if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
    echo "Fish not in /etc/shells, adding"
    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+   # This fails on github actions due to it having no password set. We assume it works locally.
    chsh -s /usr/local/bin/fish || true
 fi
 
@@ -47,7 +66,11 @@ fi
 
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]
 then
-    open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+    if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" > /dev/null; then
+      open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+    else
+      echo "Cannot find little snitch installer!";
+    fi
 fi
 
 # Day One CLI
