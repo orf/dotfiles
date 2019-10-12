@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-REPO="${REPO:-ssh://git@github.com:orf/dotfiles.git}"
+REPO="${REPO:-git@github.com:orf/dotfiles.git}"
 DOTFILES_REF=${DOTFILES_REF:-master}
 
 export DOTFILES_GIT_DIR="$HOME"/.dotfiles
