@@ -4,7 +4,11 @@ tap 'homebrew/cask'
 tap 'orf/brew'
 
 # Github actions cannot install these.
-puts ENV
+puts "ENV:"
+ENV.each do |key, value|
+    puts key + ' : ' + value
+end
+puts "Done"
 if !ENV.has_key?('SKIP_MAS') then
     brew "mas"
 
