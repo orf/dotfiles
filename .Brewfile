@@ -4,7 +4,7 @@ tap 'homebrew/cask'
 tap 'orf/brew'
 
 # Github actions cannot install these.
-if ENV.has_key?('SKIP_MAS') then
+if !ENV.has_key?('SKIP_MAS') then
     brew "mas"
 
     mas '1Password', id:1333542190
