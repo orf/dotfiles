@@ -15,5 +15,4 @@ jobs:
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
-          SKIP_MAS: 1
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
