@@ -4,7 +4,6 @@ name: CI
 
 jobs:
   build_and_test:
-    name: Rust project
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@master
