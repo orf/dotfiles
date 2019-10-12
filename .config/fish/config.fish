@@ -4,6 +4,7 @@ abbr -a ccwd "pwd | pbcopy"
 alias ls "exa -a"
 alias tree "ls -T"
 alias cat "bat"
+alias cs "open-project"
 abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
