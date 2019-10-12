@@ -4,6 +4,7 @@ name: CI
 
 jobs:
   build_and_test:
+    name: Test
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@master
