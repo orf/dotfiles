@@ -38,9 +38,9 @@ then
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew update
+brew update >/dev/null
 
-brew bundle -v --global || true
+brew bundle -v --global
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then

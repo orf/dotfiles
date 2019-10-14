@@ -4,6 +4,7 @@ name: CI
 
 jobs:
   build_and_test:
+    name: Test
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@master
@@ -15,5 +16,4 @@ jobs:
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
-          SKIP_MAS: 1
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
