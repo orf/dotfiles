@@ -9,9 +9,18 @@ abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
+
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx HTTPIE_CONFIG_DIR "$HOME/.config/httpie"
+set -gx HTTPIE_CONFIG_DIR "$XDG_CONFIG_HOME/httpie"
+set -gx PYCHARM_VM_OPTIONS "$XDG_CONFIG_HOME/pycharm/pycharm.vmoptions"
+set -gx IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+set -gx NODE_REPL_HISTORY "$XDG_CONFIG_HOME/node_repl_history"
+set -gx RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
+set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
+set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
+
+
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
@@ -30,9 +39,6 @@ if not functions -q fisher
 end
 
 set -gx NVM_DIR "/usr/local/opt/nvm"
-set -gx CARGO_HOME "$HOME/.local/share/cargo"
-set -gx RUSTUP_HOME "$HOME/.local/share/rustup"
-set -gx VIRTUALFISH_HOME "$HOME/.local/share/virtualfish"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 
 set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH

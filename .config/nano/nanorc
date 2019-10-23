@@ -1,1 +1,2 @@
-include /usr/local/share/nano/*.nanorc
+include ~/.config/nanorc/*.nanorc
+
