@@ -87,6 +87,7 @@ brew "jq"
 brew "youtube-dl"
 brew "watchman"
 brew "pstree"
+brew "ffmpeg"
 
 # Completion
 brew "docker-completion"
