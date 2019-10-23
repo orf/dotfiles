@@ -22,7 +22,7 @@ set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
 set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
-
+set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 
 set -gx LC_ALL en_US.UTF-8

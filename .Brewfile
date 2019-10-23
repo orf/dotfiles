@@ -69,6 +69,7 @@ brew "ncdu"
 brew "htop"
 brew "tmux"
 brew "curl"
+brew "yarn"
 
 # Useful utilities
 brew "bat"
@@ -85,6 +86,7 @@ brew "youtube-dl"
 brew "watchman"
 brew "pstree"
 brew "ffmpeg"
+brew "tealdeer"
 
 # Completion
 brew "docker-completion"
