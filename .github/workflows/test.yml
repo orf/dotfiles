@@ -5,13 +5,12 @@ name: CI
 jobs:
   build_and_test:
     name: Test
-    runs-on: macos-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
       - name: Run bootstrap
         shell: bash
         run: |
-          brew untap caskroom/versions
           ./bootstrap.sh
         env:
           REPO: ${{github.workspace}}
