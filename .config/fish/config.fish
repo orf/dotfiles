@@ -9,7 +9,8 @@ abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
-set -gx XDG_CACHE_HOME "$HOME/Library/Caches/"
+set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx HTTPIE_CONFIG_DIR "$HOME/.config/httpie"
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
