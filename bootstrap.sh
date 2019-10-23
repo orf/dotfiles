@@ -57,7 +57,7 @@ python3.7 -mpip install virtualfish
 fish -c "rustup-init -y"
 fish -c "rustup component add clippy rustfmt"
 fish -c "cargo install cargo-edit cargo-tree cargo-bloat cargo-release flamegraph cargo-cache cargo-update cargo-watch"
-/usr/local/opt/fzf/install --all
+/usr/local/opt/fzf/install --all --xdg
 defaultbrowser firefoxdeveloperedition
 fish -c "fisher"
 fish -c "nvm install"
