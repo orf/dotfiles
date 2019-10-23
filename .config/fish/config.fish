@@ -21,7 +21,7 @@ set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
 set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
-
+set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
 
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 

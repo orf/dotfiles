@@ -63,7 +63,7 @@ fish -c "nvm install"
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
 then
-    git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest
+    fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest'
 fi
 
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]
