@@ -59,6 +59,7 @@ fish -c "rustup component add clippy rustfmt"
 /usr/local/opt/fzf/install --all
 defaultbrowser firefoxdeveloperedition
 fish -c "fisher"
+fish -c "nvm install default"
 
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
