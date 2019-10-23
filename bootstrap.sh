@@ -60,7 +60,7 @@ fish -c "cargo install cargo-edit cargo-tree cargo-bloat cargo-release flamegrap
 /usr/local/opt/fzf/install --all
 defaultbrowser firefoxdeveloperedition
 fish -c "fisher"
-fish -c "nvm install --lts"
+fish -c "nvm install"
 
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
