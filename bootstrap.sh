@@ -2,13 +2,17 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+print () {
+  printf "  [ \033[00;34m..\033[0m ] %s\n" "$1"
+}
+
 REPO="${REPO:-git@github.com:orf/dotfiles.git}"
 DOTFILES_REF=${DOTFILES_REF:-master}
-
 export DOTFILES_GIT_DIR="$HOME"/.dotfiles
 
 if [ ! -d "$DOTFILES_GIT_DIR" ];
 then
+    print "Cloning dotfiles from {REPO}, branch {DOTFILES_REF}"
     # The ultimate git checkout for dotfiles.
     # Clone the dotfiles at a given reference, into a specific git directory (~/.dotfiles)
     # We specify --no-checkout here so that we can exclude some files from the checkout
@@ -31,58 +35,64 @@ EOF
     # Disable untracked files. We do not want to show them in our home directory!
     git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" config status.showUntrackedFiles no
 else
+    print "Dotfiles directory already cloned. Pulling."
     git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull
 fi
 
 # The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]
 then
+  print "Installing homebrew"
 	echo | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+print "Updating homebrew"
 brew update >/dev/null
-
+print "Installing brew bundle"
 brew bundle -v --global
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
-   echo "Fish not in /etc/shells, adding"
+   print "Fish not in /etc/shells, adding"
    echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
    # This fails on github actions due to it having no password set. We assume it works locally.
    chsh -s /usr/local/bin/fish || true
 fi
 
+print "Installing misc utilities (git lfs, virtualfish, fzf, nvm)"
 git lfs install --system
-
 python3.7 -mpip install virtualfish
-
-fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
-fish -c "cargo install cargo-edit cargo-tree cargo-bloat cargo-release flamegraph cargo-cache cargo-update cargo-watch"
 fish -c "/usr/local/opt/fzf/install --all --xdg"
-defaultbrowser firefoxdeveloperedition
 fish -c "nvm install"
+defaultbrowser firefoxdeveloperedition
+
+print "Installing rustup"
+fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
 
 # Non-homebrew install stuff
 if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
 then
+    print "Installing xxenv-latest"
     fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git "$(pyenv root)"/plugins/xxenv-latest'
 fi
 
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]
 then
     if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" > /dev/null; then
+      print "Opening little snitch"
       open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
     else
-      echo "Cannot find little snitch installer!";
+      print "Cannot find little snitch installer!";
     fi
 fi
 
 # Day One CLI
 if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
-  echo "Installing day1 CLI"
+  print "Installing day1 CLI"
   sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
 fi
 
+print "Configuring git"
 # SSH fingerprints
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
@@ -92,10 +102,7 @@ git config --global user.name "Tom Forbes"
 git config --global user.email "tom@tomforb.es"
 git config --global core.excludesfile ~/.gitignore
 
-# Install Python versions
-pyenv latest install 3.6 -s
-pyenv latest install 2.7 -s
-
+print "Configuring MacOS defaults"
 # MacOS stuff
 mkdir -p ~/Pictures/screenshots/
 defaults write com.apple.screencapture location ~/Pictures/screenshots/
@@ -105,16 +112,23 @@ defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock show-recents -boolean false
 defaults write com.apple.bird optimize-storage -boolean false
 # Disable Zoom video by default
-echo "Disabling zoom video by default"
 sudo defaults write /Library/Preferences/us.zoom.config.plist ZDisableVideo 1
 killall Dock
 killall Finder
-echo "Setting firewall to stealth mode"
+print "Setting firewall to stealth mode"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-echo "Bootstrapped!"
-echo "Run the following command to unshallow homebrew:"
-echo git -C "$(brew --repo homebrew/core)" fetch --unshallow 
+print "Bootstrapped!"
+print "Run the following command to unshallow homebrew:"
+echo git -C "$(brew --repo homebrew/core)" fetch --unshallow
 
-echo "Adding /usr/local/bin to the launchctl path"
+print "Adding /usr/local/bin to the launchctl path"
 sudo launchctl config user path "/usr/local/bin:$PATH"
+
+print "Running slow operation: installing cargo dependencies"
+fish -c "cargo install cargo-edit cargo-tree cargo-bloat cargo-release flamegraph cargo-cache cargo-update cargo-watch"
+
+print "Installing Python versions"
+# Install Python versions
+pyenv latest install 3.6 -s
+pyenv latest install 2.7 -s
