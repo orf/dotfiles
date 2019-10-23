@@ -29,7 +29,7 @@ EOF
     # Update the submodules. This requires changing directory, as git submodule does not work with --work-tree
     cd my-dotfiles-tmp/ && git --git-dir="$DOTFILES_GIT_DIR" submodule update --init && cd ../
     # Copy all files from the temporary working directory to $HOME.
-    rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/
+    rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/ -q
     # Remove the temporary directory
     rm -R my-dotfiles-tmp
     # Disable untracked files. We do not want to show them in our home directory!
