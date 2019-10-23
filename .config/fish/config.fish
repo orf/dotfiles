@@ -19,7 +19,8 @@ set -gx NODE_REPL_HISTORY "$XDG_CONFIG_HOME/node_repl_history"
 set -gx RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
 set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
-
+set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
+set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
@@ -33,13 +34,9 @@ eval (python3 -m virtualfish auto_activation compat_aliases global_requirements 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
-
-set -gx NVM_DIR "/usr/local/opt/nvm"
-set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 
 set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH
 

@@ -4,3 +4,8 @@
 [submodule ".config/nanorc"]
 	path = .config/nanorc
 	url = https://github.com/scopatz/nanorc.git
+[submodule ".config/nvm"]
+	path = .config/nvm
+	url = https://github.com/nvm-sh/nvm.git
+	branch = v0.35.0
+
