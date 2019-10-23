@@ -53,7 +53,6 @@ brew "exa"
 brew "python"
 brew "pyenv"
 brew "pipenv"
-brew "rustup-init"
 brew "ipython"
 
 # Standard utils
