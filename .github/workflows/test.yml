@@ -11,7 +11,6 @@ jobs:
       - name: Run bootstrap
         shell: bash
         run: |
-          brew untap caskroom/versions
           ./bootstrap.sh
         env:
           REPO: ${{github.workspace}}
