@@ -49,7 +49,13 @@ fi
 print "Updating homebrew"
 brew update >/dev/null
 print "Installing brew bundle"
-brew bundle -v --global
+if ! brew bundle -v --global &> /tmp/bundle-output
+then
+  cat /tmp/bundle-output
+  print "There was an error installing homebrew dependencies."
+  print "You can view the bundle output above for diagnostics."
+  exit 1
+fi
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
 then
