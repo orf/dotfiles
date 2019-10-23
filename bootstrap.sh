@@ -21,7 +21,9 @@ then
 !README.md
 EOF
     # Checkout the dotfiles
-    git --git-dir="$DOTFILES_GIT_DIR" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}" --recurse-submodules
+    git --git-dir="$DOTFILES_GIT_DIR" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}"
+    # Update the submodules. This requires changing directory, as git submodule does not work with --work-tree
+    cd my-dotfiles-tmp/ && git --git-dir="$DOTFILES_GIT_DIR" submodule update --init && cd ../
     # Copy all files from the temporary working directory to $HOME.
     rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/
     # Remove the temporary directory
