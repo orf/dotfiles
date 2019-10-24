@@ -138,10 +138,6 @@ run_cmd killall Dock Finder
 print "Setting firewall to stealth mode"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-print "Bootstrapped!"
-print "Run the following command to unshallow homebrew:"
-print git -C "$(brew --repo homebrew/core)" fetch --unshallow
-
 print "Adding /usr/local/bin to the launchctl path"
 sudo launchctl config user path "/usr/local/bin:$PATH"
 
