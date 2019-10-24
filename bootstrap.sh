@@ -71,7 +71,6 @@ then
 	run_cmd /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-run_cmd brew update
 run_cmd brew bundle -v --global
 
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
