@@ -22,5 +22,5 @@ jobs:
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
-          SKIP_SLOW_DEPENDENCIES: "1"
+          SKIP_SLOW_DEPENDENCIES: "0"
           HOMEBREW_BUNDLE_BREW_SKIP: "node"

@@ -31,6 +31,7 @@ run_cmd() {
   fi
 }
 
+SKIP_SLOW_DEPENDENCIES="${SKIP_SLOW_DEPENDENCIES:-0}"
 REPO="${REPO:-git@github.com:orf/dotfiles.git}"
 DOTFILES_REF=${DOTFILES_REF:-master}
 export DOTFILES_GIT_DIR="$HOME"/.dotfiles
@@ -141,7 +142,7 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 print "Adding /usr/local/bin to the launchctl path"
 sudo launchctl config user path "/usr/local/bin:$PATH"
 
-if [ -z "${SKIP_SLOW_DEPENDENCIES}" ];
+if [ "${SKIP_SLOW_DEPENDENCIES}" == "1" ];
 then
   print "Running slow operation: installing cargo dependencies"
   run_cmd fish -c "cargo install cargo-edit cargo-tree cargo-bloat cargo-release flamegraph cargo-cache cargo-update cargo-watch"
