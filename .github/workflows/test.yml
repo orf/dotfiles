@@ -8,6 +8,10 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
+      # For macOS catalina, remove when it reaches GA in github actions
+      - name: Install ZSH
+        run: |
+          brew install zsh
       - name: Run bootstrap
         shell: bash
         run: |
@@ -18,4 +22,5 @@ jobs:
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
+          SKIP_SLOW_DEPENDENCIES: "0"
           HOMEBREW_BUNDLE_BREW_SKIP: "node"
