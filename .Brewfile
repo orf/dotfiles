@@ -87,6 +87,9 @@ brew "pstree"
 brew "ffmpeg"
 brew "tealdeer"
 
+# Security stuff (?)
+brew "wpscan"
+
 # Completion
 brew "docker-completion"
 brew "cargo-completion"
