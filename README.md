@@ -1,5 +1,7 @@
 # My Dotfiles
 
+[![Actions Status](https://github.com/orf/dotfiles/workflows/CI/badge.svg)](https://github.com/orf/dotfiles/actions)
+
 ## Pre-installation
 
 1. Log into the Mac app store
