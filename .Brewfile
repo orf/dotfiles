@@ -36,6 +36,7 @@ cask "gpg-suite"
 cask "istat-menus"
 cask "deckset"
 cask "postgres"
+cask "handbrake"
 
 # Quicklook plugins
 cask "qlmarkdown"
