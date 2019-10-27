@@ -11,6 +11,7 @@ unless ENV.has_key?('CI') then
     mas "Things", id: 904280696
     mas "WhatsApp", id: 1147396723
     mas "Textual 7", id: 1262957439
+    mas "GIF Brewery 3 by Gfycat", id: 1081413713
 #    mas "Slack", id: 803453959
     mas "Magnet", id: 441258766
     mas "Day One", id:1055511498
