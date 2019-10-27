@@ -18,7 +18,7 @@ jobs:
           # Need to unlink Node here, as node@6 is installed :(
           brew unlink node@6
 
-          ./bootstrap.sh
+          ./.bootstrap.sh
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
