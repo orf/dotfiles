@@ -88,6 +88,7 @@ brew "watchman"
 brew "pstree"
 brew "ffmpeg"
 brew "tealdeer"
+brew "git-workspace"
 
 # Security stuff (?)
 brew "wpscan"
@@ -101,7 +102,6 @@ brew "kubectl"
 brew "stern"
 brew "kubectx"
 brew "dive"
-brew "git-workspace"
 
 # Other
 brew "defaultbrowser"
