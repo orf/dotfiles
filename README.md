@@ -24,4 +24,7 @@ update your dotfiles. e.g:
 
 It expands to `git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME`.
 
+## Layout
+
+Most stuff lives under `.config`. I use a Brewfile to store my Homebrew dependencies, and you can add machine-specific dependencies by creating a Brewfile file with the computers hostname in the path.
 
