@@ -68,8 +68,8 @@ fi
 # The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]
 then
-  print "Installing homebrew"
-	run_cmd /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   print "Installing homebrew"
+   run_cmd /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 run_cmd brew update
