@@ -4,5 +4,3 @@ brew "creds"
 cask "tunnleblick"
 cask "zoomus"
 cask "amethyst"
-cask "beardedspice"
-
