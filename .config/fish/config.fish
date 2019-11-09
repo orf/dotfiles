@@ -52,4 +52,6 @@ if test -e ~/.config/secrets.fish
     source ~/.config/secrets.fish
 end
 
+# Color schemes
+set fish_color_command $pure_color_normal
 

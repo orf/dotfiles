@@ -14,7 +14,9 @@ unless ENV.has_key?('CI') then
     mas "GIF Brewery 3 by Gfycat", id: 1081413713
 #    mas "Slack", id: 803453959
     mas "Magnet", id: 441258766
-    mas "Day One", id:1055511498
+    mas "Day One", id: 1055511498
+    mas "DNS-SD Browser", id: 1381004916
+    mas "WiFi Explorer Lite", id: 1408727408
 end
 
 
