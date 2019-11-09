@@ -94,7 +94,7 @@ run_cmd defaultbrowser firefoxdeveloperedition
 run_cmd fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
 
 # Non-homebrew install stuff
-if ! [ -d "$(pyenv root)/plugins/xxenv-latest" ]
+if ! [ -d "$(fish -c 'pyenv root')/plugins/xxenv-latest" ]
 then
     print "Installing xxenv-latest"
     run_cmd fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git "(pyenv root)"/plugins/xxenv-latest'
