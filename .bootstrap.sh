@@ -69,7 +69,9 @@ fi
 if ! [ -f "/usr/local/bin/brew" ]
 then
    print "Installing homebrew"
-   run_cmd /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+   brew_script_location = $(mktmp)/brew_install
+   run_cmd curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install --output $brew_script_location
+   run_cmd /usr/bin/ruby $brew_script_location
 fi
 
 run_cmd brew update
