@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh --emulate sh
+#!/bin/zsh --emulate sh
 set -euo pipefail
 IFS=$'\n\t'
 
