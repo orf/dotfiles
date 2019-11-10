@@ -1,19 +1,19 @@
-#!/usr/local/bin/zsh --emulate sh
+#!/bin/zsh --emulate sh
 set -euo pipefail
 IFS=$'\n\t'
 
-print () {
+print() {
   # strict mode my ass 🤷‍
   local IFS=" "
   printf "\r\033[2K  [ \033[00;32m%s\033[0m ] %s\n" "$(date +'%r')" "$*"
 }
 
-fail () {
+fail() {
   local IFS=" "
   printf "\r\033[2K  [ \033[00;31m%s\033[0m ] 🛑 %s\n" "$(date +'%r')" "$*"
 }
 
-info () {
+info() {
   local IFS=" "
   printf "  [ \033[00;34m%s\033[0m ] %s\n" "$(date +'%r')" "$*"
 }
@@ -21,13 +21,20 @@ info () {
 run_cmd() {
   output_file=$(mktemp)
   info "Running" "$@"
-  # shellcheck disable=SC2068
-  if ! $@ &> "${output_file}"
-  then
-    cat "${output_file}"
-    fail "There was an error running" "$@"
-    fail "You can view the bundle output above for diagnostics."
-    exit 1
+  if command -v "ptail"; then
+    # shellcheck disable=SC2068
+    if ! $@ | tee "${output_file}" | ptail; then
+      fail "There was an error running" "$@"
+      fail "You can view the full output file here: ${output_file}"
+    fi
+  else
+    # shellcheck disable=SC2068
+    if ! $@ &>"${output_file}"; then
+      cat "${output_file}"
+      fail "There was an error running" "$@"
+      fail "You can view the output above for diagnostics."
+      exit 1
+    fi
   fi
 }
 
@@ -36,53 +43,54 @@ REPO="${REPO:-git@github.com:orf/dotfiles.git}"
 DOTFILES_REF=${DOTFILES_REF:-master}
 export DOTFILES_GIT_DIR="$HOME"/.dotfiles
 
-if [ ! -d "$DOTFILES_GIT_DIR" ];
-then
-    print "Cloning dotfiles from ${REPO}, branch ${DOTFILES_REF}"
-    # The ultimate git checkout for dotfiles.
-    # Clone the dotfiles at a given reference, into a specific git directory (~/.dotfiles)
-    # We specify --no-checkout here so that we can exclude some files from the checkout
-    run_cmd git clone --separate-git-dir="$DOTFILES_GIT_DIR" --no-checkout "${REPO}" my-dotfiles-tmp
-    # Enable sparse checkouts and exclude .github/ and README.md. The order matters, /* must be the first rule.
-    run_cmd git --git-dir="$DOTFILES_GIT_DIR" config --local core.sparsecheckout true
-    cat <<EOF >> "$DOTFILES_GIT_DIR"/info/sparse-checkout
+if [ ! -d "$DOTFILES_GIT_DIR" ]; then
+  print "Cloning dotfiles from ${REPO}, branch ${DOTFILES_REF}"
+  # The ultimate git checkout for dotfiles.
+  # Clone the dotfiles at a given reference, into a specific git directory (~/.dotfiles)
+  # We specify --no-checkout here so that we can exclude some files from the checkout
+  run_cmd git clone --separate-git-dir="$DOTFILES_GIT_DIR" --no-checkout "${REPO}" my-dotfiles-tmp
+  # Enable sparse checkouts and exclude .github/ and README.md. The order matters, /* must be the first rule.
+  run_cmd git --git-dir="$DOTFILES_GIT_DIR" config --local core.sparsecheckout true
+  cat <<EOF >>"$DOTFILES_GIT_DIR"/info/sparse-checkout
 /*
 !.github/
 !README.md
 EOF
-    # Checkout the dotfiles
-    run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}"
-    # Update the submodules. This requires changing directory, as git submodule does not work with --work-tree
-    cd my-dotfiles-tmp/ && run_cmd git --git-dir="$DOTFILES_GIT_DIR" submodule update --init && cd ../
-    # Copy all files from the temporary working directory to $HOME.
-    run_cmd rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/ -q
-    # Remove the temporary directory
-    rm -R my-dotfiles-tmp
-    # Disable untracked files. We do not want to show them in our home directory!
-    git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" config status.showUntrackedFiles no
+  # Checkout the dotfiles
+  run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree=my-dotfiles-tmp/ checkout "${DOTFILES_REF}"
+  # Update the submodules. This requires changing directory, as git submodule does not work with --work-tree
+  cd my-dotfiles-tmp/ && run_cmd git --git-dir="$DOTFILES_GIT_DIR" submodule update --init && cd ../
+  # Copy all files from the temporary working directory to $HOME.
+  run_cmd rsync --recursive --verbose --links --exclude '.git' my-dotfiles-tmp/ "$HOME"/ -q
+  # Remove the temporary directory
+  rm -R my-dotfiles-tmp
+  # Disable untracked files. We do not want to show them in our home directory!
+  git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" config status.showUntrackedFiles no
 else
-    print "Dotfiles directory already cloned. Pulling."
-    run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull
+  print "Dotfiles directory already cloned. Pulling."
+  run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull
 fi
 
 # The "echo |" ensures it's a silent install.
-if ! [ -f "/usr/local/bin/brew" ]
-then
-   print "Installing homebrew"
-   brew_script_location=$(mktemp)
-   run_cmd curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install --output $brew_script_location
-   run_cmd /usr/bin/ruby $brew_script_location
+if ! [ -f "/usr/local/bin/brew" ]; then
+  print "Installing homebrew"
+  brew_script_location=$(mktemp)
+  run_cmd curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install --output "$brew_script_location"
+  run_cmd /usr/bin/ruby "$brew_script_location"
 fi
+
+# Install ptail, used in run_cmd
+run_cmd brew tap orf/brew
+run_cmd brew install ptail
 
 run_cmd brew update
 run_cmd brew bundle -v --global
 
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
-then
-   print "Fish not in /etc/shells, adding"
-   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-   # This fails on github actions due to it having no password set. We assume it works locally.
-   chsh -s /usr/local/bin/fish || true
+if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
+  print "Fish not in /etc/shells, adding"
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  # This fails on github actions due to it having no password set. We assume it works locally.
+  chsh -s /usr/local/bin/fish || true
 fi
 
 print "Installing misc utilities (git lfs, virtualfish, fzf, nvm)"
@@ -94,20 +102,18 @@ run_cmd defaultbrowser firefoxdeveloperedition
 run_cmd fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
 
 # Non-homebrew install stuff
-if ! [ -d "$(fish -c 'pyenv root')/plugins/xxenv-latest" ]
-then
-    print "Installing xxenv-latest"
-    run_cmd fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git (pyenv root)/plugins/xxenv-latest'
+if ! [ -d "$(fish -c 'pyenv root')/plugins/xxenv-latest" ]; then
+  print "Installing xxenv-latest"
+  run_cmd fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git (pyenv root)/plugins/xxenv-latest'
 fi
 
-if ! [ -d "/Applications/Little Snitch Configuration.app" ]
-then
-    if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" > /dev/null; then
-      print "Opening little snitch"
-      run_cmd open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
-    else
-      print "Cannot find little snitch installer!";
-    fi
+if ! [ -d "/Applications/Little Snitch Configuration.app" ]; then
+  if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" >/dev/null; then
+    print "Opening little snitch"
+    run_cmd open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
+  else
+    print "Cannot find little snitch installer!"
+  fi
 fi
 
 # Day One CLI
@@ -118,8 +124,8 @@ fi
 
 print "Configuring git"
 # SSH fingerprints
-ssh-keyscan github.com >> ~/.ssh/known_hosts 2>&1
-ssh-keyscan gitlab.com >> ~/.ssh/known_hosts 2>&1
+ssh-keyscan github.com >>~/.ssh/known_hosts 2>&1
+ssh-keyscan gitlab.com >>~/.ssh/known_hosts 2>&1
 
 # User stuff
 git config --global user.name "Tom Forbes"
@@ -144,8 +150,7 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 print "Adding /usr/local/bin to the launchctl path"
 sudo launchctl config user path "/usr/local/bin:$PATH"
 
-if [ "${SKIP_SLOW_DEPENDENCIES}" == "0" ];
-then
+if [ "${SKIP_SLOW_DEPENDENCIES}" == "0" ]; then
   print "Running slow operation: installing cargo dependencies"
   run_cmd fish -c "cargo install --force cargo-edit cargo-tree cargo-bloat cargo-release flamegraph cargo-cache cargo-update cargo-watch"
 
