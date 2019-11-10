@@ -151,8 +151,8 @@ then
 
   print "Installing Python versions"
   # Install Python versions
-  run_cmd pyenv latest install 3.6 -s
-  run_cmd pyenv latest install 2.7 -s
+  run_cmd fish -c "pyenv latest install 3.6 -s"
+  run_cmd fish -c "pyenv latest install 2.7 -s"
 fi
 
 print "Bootstrapped!"
