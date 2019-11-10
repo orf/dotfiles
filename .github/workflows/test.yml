@@ -11,7 +11,7 @@ jobs:
       - name: Run bootstrap
         shell: bash
         run: |
-          ./.bootstrap.sh
+          ./.bootstrap.sh | tee
         env:
           REPO: ${{github.workspace}}
           DOTFILES_REF: ${{github.sha}}
