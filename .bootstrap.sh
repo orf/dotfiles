@@ -23,9 +23,10 @@ run_cmd() {
   info "Running" "$@"
   if command -v "ptail"; then
     # shellcheck disable=SC2068
-    if ! $@ | tee "${output_file}" | ptail; then
+    if ! $@ 2>&1 | tee "${output_file}" | ptail; then
       fail "There was an error running" "$@"
       fail "You can view the full output file here: ${output_file}"
+      exit 1
     fi
   else
     # shellcheck disable=SC2068
