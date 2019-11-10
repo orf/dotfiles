@@ -8,10 +8,6 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
-      # For macOS catalina, remove when it reaches GA in github actions
-      - name: Install ZSH
-        run: |
-          brew install zsh
       - name: Run bootstrap
         shell: bash
         run: |
