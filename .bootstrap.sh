@@ -21,7 +21,7 @@ info() {
 run_cmd() {
   output_file=$(mktemp)
   info "Running" "$@"
-  if command -v "ptail"; then
+  if command -v "ptail" > /dev/null; then
     # shellcheck disable=SC2068
     if ! $@ 2>&1 | tee "${output_file}" | ptail; then
       fail "There was an error running" "$@"
