@@ -5,6 +5,7 @@ alias ls "exa -a"
 alias tree "ls -T"
 alias cat "bat"
 alias cs "open-project"
+alias js "cd-project"
 abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
