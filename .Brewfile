@@ -33,6 +33,7 @@ cask "flux"
 cask "micro-snitch"
 cask "vlc"
 cask "dash"
+cask "slack"
 
 # Misc apps
 cask "gpg-suite"
