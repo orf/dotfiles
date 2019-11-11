@@ -8,6 +8,7 @@ alias cs "open-project"
 alias js "cd-project"
 abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
+alias "tmpenv" temp-virtualenv
 
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 
