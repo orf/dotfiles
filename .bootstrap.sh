@@ -90,9 +90,9 @@ run_cmd brew bundle -v --global
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
   print "Fish not in /etc/shells, adding"
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-  # This fails on github actions due to it having no password set. We assume it works locally.
-  chsh -s /usr/local/bin/fish || true
 fi
+# This fails on github actions due to it having no password set. We assume it works locally.
+chsh -s /usr/local/bin/fish || true
 
 print "Installing misc utilities (git lfs, virtualfish, fzf, nvm)"
 run_cmd git lfs install
