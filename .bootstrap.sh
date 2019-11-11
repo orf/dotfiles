@@ -96,7 +96,6 @@ chsh -s /usr/local/bin/fish || true
 
 print "Installing misc utilities (git lfs, virtualfish, fzf, nvm)"
 run_cmd git lfs install
-run_cmd python3.7 -mpip install virtualfish
 run_cmd fish -c "/usr/local/opt/fzf/install --all --xdg"
 run_cmd fish -c "nvm install"
 run_cmd defaultbrowser firefoxdeveloperedition
