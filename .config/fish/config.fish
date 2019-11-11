@@ -33,8 +33,6 @@ set -gx GPG_TTY (tty)
 
 status --is-interactive; and source (pyenv init -|psub)
 
-eval (python3 -m virtualfish auto_activation compat_aliases global_requirements projects)
-
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 if not functions -q fisher
