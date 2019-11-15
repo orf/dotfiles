@@ -94,10 +94,13 @@ fi
 # This fails on github actions due to it having no password set. We assume it works locally.
 chsh -s /usr/local/bin/fish || true
 
-print "Installing misc utilities (git lfs, virtualfish, fzf, nvm)"
+print "Installing misc utilities (git lfs, fzf, nvm)"
 run_cmd git lfs install
 run_cmd fish -c "/usr/local/opt/fzf/install --all --xdg"
 run_cmd fish -c "nvm install"
+run_cmd curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+run_cmd fish -c "fisher"
+
 run_cmd defaultbrowser firefoxdeveloperedition
 run_cmd fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
 
