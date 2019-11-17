@@ -69,7 +69,7 @@ EOF
   git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" config status.showUntrackedFiles no
 else
   print "Dotfiles directory already cloned. Pulling."
-  run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull
+  run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull --recurse-submodules
 fi
 
 # The "echo |" ensures it's a silent install.
