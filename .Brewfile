@@ -75,6 +75,7 @@ brew "htop"
 brew "tmux"
 brew "curl"
 brew "yarn"
+brew "awscli"
 
 # Useful utilities
 brew "bat"
