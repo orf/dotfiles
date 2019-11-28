@@ -106,6 +106,7 @@ brew "kubectl"
 brew "stern"
 brew "kubectx"
 brew "dive"
+brew "octant"
 
 # Other
 brew "defaultbrowser"
