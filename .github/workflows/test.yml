@@ -8,6 +8,16 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
+      - name: Cache Homebrew Cellar
+        uses: actions/cache@v1
+        with:
+          path: /usr/local/Cellar/
+          key: ${{ runner.os }}-cellar
+      - name: Cache Homebrew Opt
+        uses: actions/cache@v1
+        with:
+          path: /usr/local/opt/
+          key: ${{ runner.os }}-opt
       - name: Run bootstrap
         shell: bash
         run: |
