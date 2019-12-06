@@ -30,7 +30,7 @@ run_cmd() {
     fi
   else
     # shellcheck disable=SC2068
-    if ! $@ &>"${output_file}"; then
+    if ! $@ &>>"${output_file}"; then
       cat "${output_file}"
       fail "There was an error running" "$@"
       fail "You can view the output above for diagnostics."
