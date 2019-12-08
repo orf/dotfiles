@@ -86,7 +86,7 @@ fi
 # This fails on github actions due to it having no password set. We assume it works locally.
 chsh -s /usr/local/bin/fish || true
 
-if !is_mac; then
+if ! IS_MAC; then
     echo "OS is not MacOS, skipping bootstrapping"
     exit
 fi
