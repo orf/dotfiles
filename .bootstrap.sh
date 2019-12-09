@@ -79,17 +79,17 @@ else
   run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull --recurse-submodules
 fi
 
+if [ "$IS_MAC" = false ]; then
+    echo "OS is not MacOS, skipping bootstrapping"
+    exit
+fi
+
 if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
   print "Fish not in /etc/shells, adding"
   echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
 fi
 # This fails on github actions due to it having no password set. We assume it works locally.
 chsh -s /usr/local/bin/fish || true
-
-if [ "$IS_MAC" = false ]; then
-    echo "OS is not MacOS, skipping bootstrapping"
-    exit
-fi
 
 # The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]; then
