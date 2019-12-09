@@ -35,7 +35,7 @@ status --is-interactive; and command -v pyenv 1>/dev/null 2>&1; and source (pyen
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH
+set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin /usr/sbin/ $CARGO_HOME/bin/ $PATH
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
