@@ -13,6 +13,7 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx POETRY_HOME "$XDG_CONFIG_HOME/poetry"
 set -gx HTTPIE_CONFIG_DIR "$XDG_CONFIG_HOME/httpie"
 set -gx PYCHARM_VM_OPTIONS "$XDG_CONFIG_HOME/pycharm/pycharm.vmoptions"
 set -gx IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
@@ -35,7 +36,7 @@ status --is-interactive; and source (pyenv init -|psub)
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $PATH
+set PATH /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin $PATH
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"

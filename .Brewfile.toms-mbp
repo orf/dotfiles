@@ -1,6 +1,5 @@
 cask "steam"
 cask "league-of-legends"
-cask "plex-media-server"
 cask "transmission"
 
 mas 'Paprika Recipe Manager 3', id:1303222628
