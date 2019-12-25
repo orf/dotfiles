@@ -76,6 +76,7 @@ brew "tmux"
 brew "curl"
 brew "yarn"
 brew "awscli"
+brew "terraform"
 
 # Useful utilities
 brew "bat"

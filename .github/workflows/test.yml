@@ -11,6 +11,7 @@ jobs:
       - name: Run bootstrap
         shell: bash
         run: |
+          brew unlink node@12
           ./.bootstrap.sh | tee
         env:
           REPO: ${{github.workspace}}

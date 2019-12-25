@@ -30,7 +30,7 @@ run_cmd() {
     fi
   else
     # shellcheck disable=SC2068
-    if ! $@ &>"${output_file}"; then
+    if ! $@ &>>"${output_file}"; then
       cat "${output_file}"
       fail "There was an error running" "$@"
       fail "You can view the output above for diagnostics."
@@ -42,6 +42,13 @@ run_cmd() {
 SKIP_SLOW_DEPENDENCIES="${SKIP_SLOW_DEPENDENCIES:-0}"
 REPO="${REPO:-git@github.com:orf/dotfiles.git}"
 DOTFILES_REF=${DOTFILES_REF:-master}
+
+if [[ $(uname) == "Darwin" ]]; then
+IS_MAC=true
+else
+IS_MAC=false
+fi
+
 export DOTFILES_GIT_DIR="$HOME"/.dotfiles
 
 if [ ! -d "$DOTFILES_GIT_DIR" ]; then
@@ -72,6 +79,18 @@ else
   run_cmd git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" pull --recurse-submodules
 fi
 
+if [ "$IS_MAC" = false ]; then
+    echo "OS is not MacOS, skipping bootstrapping"
+    exit
+fi
+
+if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
+  print "Fish not in /etc/shells, adding"
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+fi
+# This fails on github actions due to it having no password set. We assume it works locally.
+chsh -s /usr/local/bin/fish || true
+
 # The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]; then
   print "Installing homebrew"
@@ -87,19 +106,12 @@ run_cmd brew install ptail
 run_cmd brew update
 run_cmd brew bundle -v --global
 
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
-  print "Fish not in /etc/shells, adding"
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-fi
-# This fails on github actions due to it having no password set. We assume it works locally.
-chsh -s /usr/local/bin/fish || true
-
 print "Installing misc utilities (git lfs, fzf, nvm)"
 run_cmd git lfs install
 run_cmd fish -c "/usr/local/opt/fzf/install --all --xdg"
-run_cmd fish -c "nvm install"
 run_cmd curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 run_cmd fish -c "fisher"
+run_cmd fish -c "nvm install"
 
 run_cmd defaultbrowser firefoxdeveloperedition
 run_cmd fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
