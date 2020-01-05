@@ -41,6 +41,7 @@ cask "istat-menus"
 cask "deckset"
 cask "postgres"
 cask "handbrake"
+cask "postico"
 
 # Quicklook plugins
 cask "qlmarkdown"
@@ -94,6 +95,7 @@ brew "pstree"
 brew "ffmpeg"
 brew "tealdeer"
 brew "git-workspace"
+brew "pgcli"
 
 # Security stuff (?)
 brew "wpscan"
