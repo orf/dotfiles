@@ -115,7 +115,6 @@ brew "octant"
 brew "defaultbrowser"
 brew "hugo"
 brew "jupyterlab"
-brew "serverless"
 
 local_hostname = `scutil --get LocalHostName`.strip
 custom_brewfile = "#{Dir.home}/.Brewfile.#{local_hostname}"
