@@ -59,6 +59,7 @@ brew "exa"
 brew "python"
 brew "pyenv"
 brew "pipenv"
+brew "poetry"
 brew "ipython"
 
 # Standard utils
