@@ -17,6 +17,7 @@ unless ENV.has_key?('CI') then
     mas "Day One", id: 1055511498
     mas "DNS-SD Browser", id: 1381004916
     mas "WiFi Explorer Lite", id: 1408727408
+    mas "GoodNotes", id: 1480793815
 end
 
 
