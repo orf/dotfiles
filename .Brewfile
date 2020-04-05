@@ -62,6 +62,7 @@ brew "pyenv"
 brew "pipenv"
 brew "poetry"
 brew "ipython"
+brew "pipx"
 
 # Standard utils
 brew "wget"

@@ -26,6 +26,8 @@ set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
 set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
+set -gx PIPX_HOME "$XDG_CONFIG_HOME/pipx"
+set -gx PIPX_BIN_DIR "$PIPX_HOME/bin"
 
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
@@ -37,7 +39,7 @@ status --is-interactive; and command -v pyenv 1>/dev/null 2>&1; and source (pyen
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 
-set PATH /usr/local/lib/ruby/gems/2.6.0/bin/ /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin /usr/sbin $PATH
+set PATH /usr/local/lib/ruby/gems/2.6.0/bin/ /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH 
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
