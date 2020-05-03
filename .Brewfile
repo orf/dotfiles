@@ -112,7 +112,7 @@ brew "kubectl"
 brew "stern"
 brew "kubectx"
 brew "dive"
-brew "octant"
+brew "derailed/k9s/k9s"
 
 # Other
 brew "defaultbrowser"
