@@ -123,7 +123,7 @@ if ! [ -d "$(fish -c 'pyenv root')/plugins/xxenv-latest" ]; then
 fi
 
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]; then
-  if compgen -G "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" >/dev/null; then
+  if [[ -n "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" ]]; then
     print "Opening little snitch"
     run_cmd open /usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg
   else
