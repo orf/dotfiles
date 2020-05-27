@@ -43,6 +43,7 @@ cask "istat-menus"
 cask "deckset"
 cask "postgres"
 cask "handbrake"
+cask "intel-power-gadget"
 
 # Quicklook plugins
 cask "qlmarkdown"
