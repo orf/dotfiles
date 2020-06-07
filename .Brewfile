@@ -18,6 +18,7 @@ unless ENV.has_key?('CI') then
     mas "DNS-SD Browser", id: 1381004916
     mas "WiFi Explorer Lite", id: 1408727408
 #    mas "GoodNotes", id: 1480793815
+   cask "intel-power-gadget"
 end
 
 
@@ -43,7 +44,6 @@ cask "istat-menus"
 cask "deckset"
 cask "postgres"
 cask "handbrake"
-cask "intel-power-gadget"
 
 # Quicklook plugins
 cask "qlmarkdown"
