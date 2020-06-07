@@ -9,3 +9,9 @@
 	url = https://github.com/nvm-sh/nvm.git
 	branch = v0.35.0
 
+[submodule "/Users/tom/.config/asdf/plugins/python"]
+	path = /Users/tom/.config/asdf/plugins/python
+	url = https://github.com/danhper/asdf-python.git
+[submodule "/Users/tom/.config/asdf/plugins/nodejs"]
+	path = /Users/tom/.config/asdf/plugins/nodejs
+	url = https://github.com/asdf-vm/asdf-nodejs.git

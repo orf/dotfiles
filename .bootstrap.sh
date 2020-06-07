@@ -117,11 +117,6 @@ run_cmd defaultbrowser firefoxdeveloperedition
 run_cmd fish -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y -c clippy rustfmt"
 
 # Non-homebrew install stuff
-if ! [ -d "$(fish -c 'pyenv root')/plugins/xxenv-latest" ]; then
-  print "Installing xxenv-latest"
-  run_cmd fish -c 'git clone https://github.com/momo-lab/xxenv-latest.git (pyenv root)/plugins/xxenv-latest'
-fi
-
 if ! [ -d "/Applications/Little Snitch Configuration.app" ]; then
   if [[ -n "/usr/local/Caskroom/little-snitch/*/LittleSnitch-*.dmg" ]]; then
     print "Opening little snitch"
@@ -130,12 +125,8 @@ if ! [ -d "/Applications/Little Snitch Configuration.app" ]; then
     print "Cannot find little snitch installer!"
   fi
 fi
-
-# Day One CLI
-if [ -f "/Applications/Day\ One.app/Contents/Resources/install_cli.sh" ]; then
-  print "Installing day1 CLI"
-  sudo bash /Applications/Day\ One.app/Contents/Resources/install_cli.sh
-fi
+# NodeJS asdf stuff
+bash ~/.config/asdf/plugins/nodejs/bin/import-release-team-keyring
 
 print "Configuring git"
 # SSH fingerprints

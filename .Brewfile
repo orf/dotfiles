@@ -59,7 +59,7 @@ cask 'font-source-serif-pro'
 brew "fish"
 brew "exa"
 brew "python"
-brew "pyenv"
+brew "asdf"
 brew "pipenv"
 brew "poetry"
 brew "ipython"

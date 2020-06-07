@@ -23,7 +23,7 @@ set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
 set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
-set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
+set -gx ASDF_DATA_DIR "$XDG_CONFIG_HOME/asdf"
 set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 set -gx PIPX_HOME "$XDG_CONFIG_HOME/pipx"
@@ -34,7 +34,7 @@ set -gx LANG en_US.UTF-8
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx GPG_TTY (tty)
 
-status --is-interactive; and command -v pyenv 1>/dev/null 2>&1; and source (pyenv init -|psub)
+source /usr/local/opt/asdf/asdf.fish
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

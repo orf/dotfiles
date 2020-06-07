@@ -1,6 +1,7 @@
 cask "steam"
 cask "league-of-legends"
 cask "transmission"
+cask "discord"
 
 mas 'Paprika Recipe Manager 3', id:1303222628
 mas 'Numbers', id:409203825
