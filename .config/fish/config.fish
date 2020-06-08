@@ -34,12 +34,10 @@ set -gx LANG en_US.UTF-8
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -gx GPG_TTY (tty)
 
-source /usr/local/opt/asdf/asdf.fish
-
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 
-set PATH /usr/local/lib/ruby/gems/2.6.0/bin/ /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH 
+set PATH /usr/local/lib/ruby/gems/2.6.0/bin/ /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
@@ -57,3 +55,6 @@ set fish_color_command $pure_color_normal
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
+
+source /usr/local/opt/asdf/asdf.fish
+
