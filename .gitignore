@@ -29,3 +29,6 @@ Temporary Items
 
 # Secrets!
 .config/secrets.fish
+
+# Virtualenv files
+.venv/
