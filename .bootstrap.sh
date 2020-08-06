@@ -125,8 +125,6 @@ if ! [ -d "/Applications/Little Snitch Configuration.app" ]; then
     print "Cannot find little snitch installer!"
   fi
 fi
-# NodeJS asdf stuff
-bash ~/.config/asdf/plugins/nodejs/bin/import-release-team-keyring
 
 print "Configuring git"
 # SSH fingerprints

@@ -10,9 +10,9 @@ abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
-
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
 set -gx POETRY_HOME "$XDG_CONFIG_HOME/poetry"
 set -gx HTTPIE_CONFIG_DIR "$XDG_CONFIG_HOME/httpie"
 set -gx PYCHARM_VM_OPTIONS "$XDG_CONFIG_HOME/pycharm/pycharm.vmoptions"
@@ -23,7 +23,6 @@ set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
 set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
-set -gx ASDF_DATA_DIR "$XDG_CONFIG_HOME/asdf"
 set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 set -gx PIPX_HOME "$XDG_CONFIG_HOME/pipx"
@@ -56,5 +55,6 @@ set fish_color_command $pure_color_normal
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
 
-source /usr/local/opt/asdf/asdf.fish
-
+if command -v pyenv 1>/dev/null 2>&1
+	pyenv init - | source
+end
