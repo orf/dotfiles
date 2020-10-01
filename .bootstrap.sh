@@ -1,5 +1,5 @@
 #!/bin/zsh --emulate sh
-set -euo pipefail
+set -uo pipefail
 IFS=$'\n\t'
 
 print() {
