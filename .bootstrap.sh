@@ -1,5 +1,3 @@
-# shellcheck disable=SC2096
-# shellcheck disable=SC2096
 #!/bin/zsh --emulate sh
 set -euo pipefail
 IFS=$'\n\t'
