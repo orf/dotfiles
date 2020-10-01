@@ -20,7 +20,6 @@ info() {
 
 _run_cmd() {
   output_file=$(mktemp)
-  info "Running" "$@"
   if command -v "ptail" > /dev/null; then
     # shellcheck disable=SC2068
     if ! $@ 2>&1 | tee "${output_file}" | ptail; then
@@ -41,6 +40,7 @@ _run_cmd() {
 }
 
 run_cmd() {
+  info "Running" "$@"
   # shellcheck disable=SC2068
   if ! _run_cmd $@; then
     exit 1
@@ -48,6 +48,7 @@ run_cmd() {
 }
 
 run_cmd_ignore_errors() {
+  info "Running (ignoring errors)" "$@"
   # shellcheck disable=SC2068
   _run_cmd $@
 }
