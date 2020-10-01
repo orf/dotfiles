@@ -1,3 +1,5 @@
+# shellcheck disable=SC2096
+# shellcheck disable=SC2096
 #!/bin/zsh --emulate sh
 set -euo pipefail
 IFS=$'\n\t'
@@ -18,7 +20,7 @@ info() {
   printf "  [ \033[00;34m%s\033[0m ] %s\n" "$(date +'%r')" "$*"
 }
 
-run_cmd() {
+_run_cmd() {
   output_file=$(mktemp)
   info "Running" "$@"
   if command -v "ptail" > /dev/null; then
@@ -26,7 +28,7 @@ run_cmd() {
     if ! $@ 2>&1 | tee "${output_file}" | ptail; then
       fail "There was an error running" "$@"
       fail "You can view the full output file here: ${output_file}"
-      exit 1
+      return 1
     fi
   else
     # shellcheck disable=SC2068
@@ -34,9 +36,22 @@ run_cmd() {
       cat "${output_file}"
       fail "There was an error running" "$@"
       fail "You can view the output above for diagnostics."
-      exit 1
+      return 1
     fi
   fi
+  return 0
+}
+
+run_cmd() {
+  # shellcheck disable=SC2068
+  if ! _run_cmd $@; then
+    exit 1
+  fi
+}
+
+run_cmd_ignore_errors() {
+  # shellcheck disable=SC2068
+  _run_cmd $@
 }
 
 SKIP_SLOW_DEPENDENCIES="${SKIP_SLOW_DEPENDENCIES:-0}"
@@ -84,13 +99,6 @@ if [ "$IS_MAC" = false ]; then
     exit
 fi
 
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
-  print "Fish not in /etc/shells, adding"
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-fi
-# This fails on github actions due to it having no password set. We assume it works locally.
-chsh -s /usr/local/bin/fish || true
-
 # The "echo |" ensures it's a silent install.
 if ! [ -f "/usr/local/bin/brew" ]; then
   print "Installing homebrew"
@@ -104,7 +112,14 @@ run_cmd brew tap orf/brew
 run_cmd brew install ptail
 
 run_cmd brew update
-run_cmd brew bundle -v --global
+run_cmd_ignore_errors brew bundle -v --global
+
+if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
+  print "Fish not in /etc/shells, adding"
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+fi
+# This fails on github actions due to it having no password set. We assume it works locally.
+chsh -s /usr/local/bin/fish || true
 
 print "Installing misc utilities (git lfs, fzf, nvm)"
 run_cmd git lfs install
