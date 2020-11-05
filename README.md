@@ -10,7 +10,7 @@
 
 ## Install
 
-Run `curl https://raw.githubusercontent.com/orf/dotfiles/master/.bootstrap.sh | bash`
+Run `curl https://raw.githubusercontent.com/orf/dotfiles/master/.bootstrap.sh | zsh`
 
 This will add the configuration files present in this repository to your 
 home directory.
