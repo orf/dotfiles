@@ -11,6 +11,8 @@ alias copy-venv "echo (pwd)/.venv/bin/python | pbcopy"
 abbr -a dotfiles "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias cloc "tokei"
 
+set -gx AWS_DEFAULT_REGION "eu-west-1"
+
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
