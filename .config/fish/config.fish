@@ -16,7 +16,6 @@ set -gx AWS_DEFAULT_REGION "eu-west-1"
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
 set -gx POETRY_HOME "$XDG_CONFIG_HOME/poetry"
 set -gx HTTPIE_CONFIG_DIR "$XDG_CONFIG_HOME/httpie"
 set -gx PYCHARM_VM_OPTIONS "$XDG_CONFIG_HOME/pycharm/pycharm.vmoptions"
@@ -39,7 +38,6 @@ set -gx GPG_TTY (tty)
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-
 set PATH /usr/local/lib/ruby/gems/2.6.0/bin/ /Users/tom/Library/Python/3.7/bin /Applications/Postgres.app/Contents/Versions/latest/bin ~/.cargo/bin/ $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
 
 if status --is-interactive
@@ -59,6 +57,11 @@ set fish_color_command $pure_color_normal
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/__tabtab.fish ]; and . ~/.config/tabtab/__tabtab.fish; or true
 
+# Pyenv setup
+set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 if command -v pyenv 1>/dev/null 2>&1
-	pyenv init - | source
+	status is-login; and pyenv init --path | source
+    pyenv init - | source
 end
