@@ -1,5 +1,0 @@
-tap "onfido/tools", "git@gitlab.eu-west-1.mgmt.onfido.xyz:onfido/tools/homebrew-tools.git"
-brew "creds"
-
-cask "zoomus"
-cask "amethyst"
