@@ -58,7 +58,7 @@ brew "tmux"
 brew "curl"
 brew "yarn"
 brew "awscli"
-brew "terraform
+brew "terraform"
 
 # Useful utilities
 brew "tokei"
