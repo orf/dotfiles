@@ -1,6 +1,10 @@
-#!/bin/bash
+#!/bin/zsh --emulate sh
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+temp=$(mktemp)
+
+cat <<EOF > $temp
+
+tap "derailed/k9s"
 
 # App Store Apps
 brew "mas"
@@ -13,34 +17,43 @@ cask "micro-snitch"
 cask "vlc"
 cask "dash"
 cask "alfred"
+cask "bartender"
+cask "batteries"
 cask "docker"
 cask "istat-menus"
-cask "postgres"
+cask "postgres-unofficial"  # postgres.appfi
 cask "deckset"
 cask "intel-power-gadget"
+cask "jetbrains-toolbox"
+cask "mullvadvpn"
+cask "1password"
 
 # Quicklook plugins
 cask "qlmarkdown"
 cask "quicklook-json"
 
-# Fonts
+# Fonts - needs svn for some reason?
+brew "svn"
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
 # Core brews
-brew "fish"
 brew "python"
 brew "pyenv"
 brew "poetry"
 brew "ipython"
 brew "pipx"
-
 brew "exa"
 brew "bat"
 brew "fd"
 brew "httpie"
+brew "chezmoi"
+
+# Fish utils
+brew "fish"
+brew "fisher"
 
 # Standard utils
 brew "wget"
@@ -72,12 +85,11 @@ brew "watchman"
 brew "pstree"
 brew "ffmpeg"
 brew "tealdeer"
-brew "git-workspace"
 brew "pgcli"
-
-# Completion
-brew "docker-completion"
-brew "cargo-completion"
+brew "gpg"
+brew "gping"
+brew "git-workspace"
+brew "nanorc"
 
 # Kubernetes and Docker
 brew "kubectl"
@@ -90,3 +102,7 @@ brew "derailed/k9s/k9s"
 brew "defaultbrowser"
 
 EOF
+
+HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file=$temp
+
+brew cleanup --prune=all -s
