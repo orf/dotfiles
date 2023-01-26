@@ -22,3 +22,6 @@ if ! grep -Fxq "/opt/homebrew/bin/fish" /etc/shells; then
 fi
 
 chsh -s /opt/homebrew/bin/fish
+
+# Fix key permissions
+chmod 600 ~/.ssh/id_ed25519*
