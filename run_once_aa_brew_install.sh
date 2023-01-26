@@ -24,7 +24,6 @@ cask "docker"
 cask "istat-menus"
 cask "postgres-unofficial"  # postgres.appfi
 cask "deckset"
-cask "intel-power-gadget"
 cask "jetbrains-toolbox"
 cask "mullvadvpn"
 cask "1password"
