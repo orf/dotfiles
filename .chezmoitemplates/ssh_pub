@@ -1,0 +1,1 @@
+{{ onepasswordRead "op://chezmoi/ssh/public key" }}
