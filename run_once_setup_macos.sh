@@ -13,12 +13,12 @@ killall Dock Finder
 print "Setting firewall to stealth mode"
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
-print "Adding /usr/local/bin to the launchctl path"
-sudo launchctl config user path "/usr/local/bin:$PATH"
+print "Adding /opt/homebrew/bin/fish to the launchctl path"
+sudo launchctl config user path "/opt/homebrew/bin:$PATH"
 
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells; then
+if ! grep -Fxq "/opt/homebrew/bin/fish" /etc/shells; then
   print "Fish not in /etc/shells, adding"
-  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  echo "/opt/homebrew/bin/fish" | sudo tee -a /etc/shells
 fi
 
-chsh -s /usr/local/bin/fish
+chsh -s /opt/homebrew/bin/fish
