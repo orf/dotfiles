@@ -50,11 +50,4 @@ source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
 # Color schemes
 set fish_color_command $pure_color_normal
 
-# Pyenv setup
-set -gx PYENV_ROOT "$XDG_CONFIG_HOME/pyenv"
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-
-if command -v pyenv 1>/dev/null 2>&1
-	status is-login; and pyenv init --path | source
-    pyenv init - | source
-end
+set -g async_prompt_functions _pure_prompt_git
