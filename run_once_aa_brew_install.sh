@@ -12,6 +12,7 @@ brew "mas"
 mas "Magnet", id: 441258766
 
 # Core casks
+cask "iterm2"
 cask "firefox-developer-edition"
 cask "little-snitch"
 cask "micro-snitch"
