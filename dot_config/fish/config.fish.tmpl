@@ -43,6 +43,7 @@ set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
     source "$BASE16_SHELL/profile_helper.fish"
+    base16-materia
 end
 
 source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
