@@ -5,6 +5,7 @@ temp=$(mktemp)
 cat <<EOF > $temp
 
 tap "derailed/k9s"
+tap "homebrew/cask-versions"
 
 # App Store Apps
 brew "mas"
