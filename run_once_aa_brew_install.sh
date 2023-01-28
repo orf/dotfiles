@@ -102,6 +102,9 @@ brew "derailed/k9s/k9s"
 # Other
 brew "defaultbrowser"
 
+# Common build deps
+brew "cmake"
+
 EOF
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file=$temp
