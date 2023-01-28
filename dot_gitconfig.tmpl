@@ -10,11 +10,11 @@
 #[gpg "ssh"]
 #  allowedSignersFile = {{ joinPath .chezmoi.homeDir ".config/git/allowed_signers" | quote}}
 
-[commit]
-  gpgsign = true
+#[commit]
+#  gpgsign = true
 
-[tag]
-  gpgsign = true
+#[tag]
+#  gpgsign = true
 
 [core]
   excludesfile = /Users/tom/.gitignore
