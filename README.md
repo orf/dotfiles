@@ -10,7 +10,10 @@ Then run:
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install --cask 1password 1password-cli && brew install chezmoi
-op account add --email=tom@tomforb.es --address=my.1password.com
+```
+Then follow the 1password CLI setup instructions [here](https://developer.1password.com/docs/cli/get-started/#sign-in). Then run:
+
+```shell
 eval $(op signin)
-$ sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply orf
+chezmoi init --apply orf
 ```
