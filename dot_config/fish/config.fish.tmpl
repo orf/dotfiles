@@ -11,6 +11,7 @@ alias cloc "tokei"
 
 set -gx AWS_DEFAULT_REGION "eu-west-1"
 
+set -gx BAT_THEME "zenburn"
 set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx POETRY_HOME "$XDG_CONFIG_HOME/poetry"
@@ -25,6 +26,7 @@ set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
 set -gx PIPX_HOME "$XDG_CONFIG_HOME/pipx"
 set -gx PIPX_BIN_DIR "$PIPX_HOME/bin"
+set -gx TEALDEER_CONFIG_DIR ~/.config/tealdeer/
 
 set -gx EDITOR "charm --wait"
 
@@ -37,7 +39,7 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
-set PATH "/Users/tom/Library/Application Support/JetBrains/Toolbox/scripts" /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
+set PATH {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts" /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
 
 if status --is-interactive
     set BASE16_SHELL "$HOME/.config/base16-shell/"
