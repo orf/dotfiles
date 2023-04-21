@@ -1,0 +1,13 @@
+<dict>
+    <key>enabled_context_menu</key>
+    <false/>
+    <key>enabled_services_menu</key>
+    <false/>
+    <key>presentation_modes</key>
+    <dict>
+        <key>ContextMenu</key>
+        <false/>
+        <key>ServicesMenu</key>
+        <false/>
+    </dict>
+</dict>

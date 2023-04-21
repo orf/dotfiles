@@ -7,6 +7,18 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true
 defaults write com.apple.dock autohide -boolean true
 defaults write com.apple.dock show-recents -boolean false
 defaults write com.apple.bird optimize-storage -boolean false
+
+VALUE="$(cat "$(chezmoi source-path)"/preferences/keyboard_shortcuts.xml)"
+
+defaults write pbs NSServicesStatus \
+  -dict-add \
+  'com.apple.Terminal - Open man Page in Terminal - openManPage' \
+  "$VALUE"
+defaults write pbs NSServicesStatus \
+  -dict-add \
+  'com.apple.Terminal - Search man Page Index in Terminal - searchManPages' \
+  "$VALUE"
+
 # Disable Zoom video by default
 sudo defaults write /Library/Preferences/us.zoom.config.plist ZDisableVideo 1
 killall Dock Finder
