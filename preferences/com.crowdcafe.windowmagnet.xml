@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>6215</real>
+	<key>appAlreadyLaunchedKey</key>
+	<true/>
+	<key>bezelDisplayTime</key>
+	<real>1</real>
+	<key>centerWindowComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>31</integer>
+		<key>modifierFlags</key>
+		<integer>1572864</integer>
+	</dict>
+	<key>expandWindowCenterThirdComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>126</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>expandWindowEastComboKey</key>
+	<dict/>
+	<key>expandWindowLeftThirdComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>123</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>expandWindowLeftTwoThirdsComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>39</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>expandWindowNorthComboKey</key>
+	<dict/>
+	<key>expandWindowRightThirdComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>124</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>expandWindowRightTwoThirdsComboKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>42</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>expandWindowSouthComboKey</key>
+	<dict/>
+	<key>expandWindowWestComboKey</key>
+	<dict/>
+	<key>lastRatedVersion</key>
+	<string>2.11.0</string>
+	<key>launchAtLogin</key>
+	<true/>
+	<key>usageCount</key>
+	<integer>2816</integer>
+	<key>userAppBlacklist</key>
+	<array/>
+</dict>
+</plist>
