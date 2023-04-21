@@ -51,6 +51,7 @@ brew "bat"
 brew "fd"
 brew "httpie"
 brew "chezmoi"
+brew "asdf"
 
 # Fish utils
 brew "fish"
