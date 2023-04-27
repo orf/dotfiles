@@ -21,7 +21,6 @@ cask "dash"
 cask "alfred"
 cask "bartender"
 cask "batteries"
-cask "docker"
 cask "istat-menus"
 cask "postgres-unofficial"  # postgres.appfi
 cask "deckset"
@@ -94,6 +93,7 @@ brew "git-workspace"
 brew "nanorc"
 
 # Kubernetes and Docker
+brew "podman"
 brew "kubectl"
 brew "stern"
 brew "kubectx"
