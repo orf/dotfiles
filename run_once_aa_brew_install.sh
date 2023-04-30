@@ -6,6 +6,7 @@ cat <<EOF > $temp
 
 tap "derailed/k9s"
 tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
 
 # App Store Apps
 brew "mas"
