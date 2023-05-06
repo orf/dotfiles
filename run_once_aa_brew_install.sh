@@ -29,6 +29,7 @@ cask "deckset"
 cask "jetbrains-toolbox"
 cask "mullvadvpn"
 cask "1password"
+cask "1password-cli"
 
 # Quicklook plugins
 cask "qlmarkdown"
@@ -93,7 +94,6 @@ brew "gpg"
 brew "gping"
 brew "git-workspace"
 brew "nanorc"
-brew "1password-cli"
 
 # Kubernetes and Docker
 brew "podman"
