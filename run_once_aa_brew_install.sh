@@ -54,6 +54,7 @@ brew "fd"
 brew "httpie"
 brew "chezmoi"
 brew "asdf"
+brew "nushell"
 
 # Fish utils
 brew "fish"
