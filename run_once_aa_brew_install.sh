@@ -11,6 +11,7 @@ tap "homebrew/cask-fonts"
 # App Store Apps
 brew "mas"
 mas "Magnet", id: 441258766
+mas "ShellHistory", id: 1564015476
 
 # Core casks
 cask "iterm2"
