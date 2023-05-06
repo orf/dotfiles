@@ -38,8 +38,6 @@ set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
 set PATH {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts" /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
 
 if status --is-interactive
@@ -48,11 +46,11 @@ if status --is-interactive
     base16-materia
 end
 
-source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
-
 # Color schemes
 set fish_color_command $pure_color_normal
 
+source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/history.fish
+source ~/.config/iterm2/shell_integration.fish
