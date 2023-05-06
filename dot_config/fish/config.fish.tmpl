@@ -53,8 +53,6 @@ source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
 # Color schemes
 set fish_color_command $pure_color_normal
 
-set -g async_prompt_functions _pure_prompt_git
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/history.fish
