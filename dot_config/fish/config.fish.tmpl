@@ -53,4 +53,6 @@ source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/history.fish
-source ~/.config/iterm2/shell_integration.fish
+
+# Disabled, causes issues with pure shell.
+#source ~/.config/iterm2/shell_integration.fish
