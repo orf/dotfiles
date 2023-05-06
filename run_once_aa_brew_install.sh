@@ -93,6 +93,7 @@ brew "gpg"
 brew "gping"
 brew "git-workspace"
 brew "nanorc"
+brew "1password-cli"
 
 # Kubernetes and Docker
 brew "podman"
