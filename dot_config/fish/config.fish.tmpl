@@ -41,9 +41,17 @@ set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
 set PATH {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts" /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
 
 if status --is-interactive
+    # Inlined here for performance, so we don't evaluate every theme on startup.
     set BASE16_SHELL "$HOME/.config/base16-shell/"
-    source "$BASE16_SHELL/profile_helper.fish"
-    base16-materia
+
+    if test -e ~/.base16_theme
+        set -l SCRIPT_NAME (basename (realpath ~/.base16_theme) .sh)
+        set -gx BASE16_THEME (string match 'base16-*' $BASE16_THEME  | string sub -s (string length 'base16-*'))
+        eval sh '"'(realpath ~/.base16_theme)'"'
+    end
+
+    # source "$BASE16_SHELL/profile_helper.fish"
+    # base16-materia
 end
 
 # Color schemes
