@@ -12,8 +12,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ env.HOMEBREW_CACHE }}/downloads/*
-          key: homebrew-cache
-          restore-keys: homebrew-cache
+          key: homebrew-cache-${{ hashFiles('run_once_aa_brew_install.sh') }}
+          restore-keys: homebrew-cache-
       - run: brew install chezmoi
       - uses: actions/setup-python@v4
         with:

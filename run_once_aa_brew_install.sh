@@ -116,4 +116,4 @@ mas "ShellHistory", id: 1564015476
 EOF
 fi
 
-brew deps -n --union --full-name $(brew bundle list --file="$temp") | xargs -P20 -n10 brew fetch -q
+brew deps -n --union --full-name $(brew bundle list --file="$temp") | xargs -P20 -n10 brew fetch --retry -q
