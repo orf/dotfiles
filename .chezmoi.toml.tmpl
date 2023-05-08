@@ -1,0 +1,7 @@
+[secret]
+    command = "op"
+
+{{ if eq .chezmoi.username "runner" }}
+[scriptEnv]
+    CI = "true"
+{{ end }}
