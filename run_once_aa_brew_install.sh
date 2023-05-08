@@ -1,6 +1,9 @@
 #!/bin/zsh
 set -eu -o pipefail
 
+echo "Is CI?:"
+ruby -e "puts(!ENV.has_value?('CI'))"
+
 brew tap "derailed/k9s"
 
 temp=$(mktemp)
@@ -8,7 +11,6 @@ temp=$(mktemp)
 cat <<EOF > $temp
 
 is_not_ci = !ENV.has_value?("CI")
-puts "CI: #{is_not_ci}"
 
 # Core brews
 brew "python"
