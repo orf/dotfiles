@@ -2,7 +2,7 @@
 set -eu -o pipefail
 
 echo "Is CI?:"
-ruby -e "puts(!ENV.has_value?('CI'))"
+ruby -e "puts(ENV.has_value?('CI'))"
 
 brew tap "derailed/k9s"
 
