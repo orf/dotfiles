@@ -4,6 +4,7 @@ jobs:
   test:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@v3
       - run: brew install chezmoi python
       - run: ./github/mock_onepassword/cli.py
       - run: chezmoi init https://github.com/orf/dotfiles.git
