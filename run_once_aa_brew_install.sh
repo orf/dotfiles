@@ -2,7 +2,6 @@
 set -eu -o pipefail
 
 brew tap "derailed/k9s"
-brew tap "homebrew/cask-fonts"
 
 temp=$(mktemp)
 
@@ -78,6 +77,8 @@ brew "cmake"
 EOF
 
 if [[ ! -v CI ]]; then
+  brew tap "homebrew/cask-fonts"
+
   cat >> "$temp" <<EOF
 
 # Fonts - needs svn for some reason?
