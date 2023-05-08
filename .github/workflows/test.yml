@@ -16,6 +16,7 @@ jobs:
           brew deps -n --union --full-name $(cat all_files) > all_deps
           echo 'ALL_DEPS_LIST<<EOF' >> $GITHUB_OUTPUT
           cat all_files all_deps | sort | uniq | xargs -I@ echo /usr/local/Cellar/@/  >> $GITHUB_OUTPUT
+          cat all_files all_deps | sort | uniq | xargs -I@ echo /urs/local/bin/@  >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Configure Homebrew cache
