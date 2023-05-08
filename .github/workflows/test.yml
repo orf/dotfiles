@@ -11,9 +11,15 @@ jobs:
       - name: Configure Homebrew cache
         uses: actions/cache@v3
         with:
-          path: ${{ env.HOMEBREW_CACHE }}/downloads/*
+          path: ${{ env.HOMEBREW_CACHE }}/
           key: homebrew-cache-${{ hashFiles('run_once_aa_brew_install.sh') }}
           restore-keys: homebrew-cache-
+      - name: Configure Homebrew cellar
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/Cellar/
+          key: homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
+          restore-keys: homebrew-cellar-
       - run: brew install chezmoi
       - uses: actions/setup-python@v4
         with:

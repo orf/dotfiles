@@ -7,6 +7,8 @@ temp=$(mktemp)
 
 cat <<EOF > $temp
 
+is_not_ci = !ENV.has_value?("CI")
+
 # Core brews
 brew "python"
 brew "poetry"
@@ -39,7 +41,7 @@ brew "htop"
 brew "tmux"
 brew "curl"
 brew "yarn"
-brew "awscli"
+brew "awscli", link: is_not_ci
 brew "terraform"
 
 # Useful utilities
