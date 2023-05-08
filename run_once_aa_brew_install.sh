@@ -8,6 +8,7 @@ temp=$(mktemp)
 cat <<EOF > $temp
 
 is_not_ci = !ENV.has_value?("CI")
+puts "CI: #{is_not_ci}"
 
 # Core brews
 brew "python"
