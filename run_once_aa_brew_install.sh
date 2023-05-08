@@ -5,14 +5,6 @@ temp=$(mktemp)
 cat <<EOF > $temp
 
 tap "derailed/k9s"
-tap "homebrew/cask-fonts"
-
-# Fonts - needs svn for some reason?
-brew "svn"
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
 
 # Core brews
 brew "python"
@@ -86,6 +78,15 @@ EOF
 
 if [[ ! -v CI ]]; then
   cat >> "$temp" <<EOF
+
+tap "homebrew/cask-fonts"
+
+# Fonts - needs svn for some reason?
+brew "svn"
+cask 'font-source-code-pro-for-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
 
 # Core casks
 cask "iterm2"
