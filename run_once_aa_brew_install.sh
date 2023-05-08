@@ -9,9 +9,11 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
 # App Store Apps
-brew "mas"
-mas "Magnet", id: 441258766
-mas "ShellHistory", id: 1564015476
+unless ENV["CI"] do
+  brew "mas"
+  mas "Magnet", id: 441258766
+  mas "ShellHistory", id: 1564015476
+end
 
 # Core casks
 cask "iterm2"
