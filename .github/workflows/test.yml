@@ -11,7 +11,7 @@ jobs:
       - name: Configure Homebrew cache
         uses: actions/cache@v3
         with:
-          path: ${{ env.HOMEBREW_CACHE }}
+          path: ${{ env.HOMEBREW_CACHE }}/downloads/*
           key: homebrew-cache
           restore-keys: homebrew-cache
       - run: brew install chezmoi
