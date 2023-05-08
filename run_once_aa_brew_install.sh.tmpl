@@ -1,6 +1,9 @@
 #!/bin/zsh
 set -eu -o pipefail
 
+echo "Is CI?:"
+ruby -e "puts(ENV.has_value?('CI'))"
+
 brew tap "derailed/k9s"
 
 temp=$(mktemp)
@@ -10,6 +13,13 @@ cat {{ joinPath .chezmoi.sourceDir "Brewfile" | quote }} > $temp
 if [[ ! -v CI ]]; then
   cat {{ joinPath .chezmoi.sourceDir "Brewfile.cask" | quote }} >> $temp
 fi
+
+deps=$(mktemp)
+all_deps=$(mktemp)
+brew bundle list --file=Brewfile > "${deps}"
+brew deps -n --union --full-name $(cat "$deps") > "${all_deps}"
+
+cat "${deps}" "${all_deps}" | sort | uniq | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
 
