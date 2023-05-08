@@ -1,10 +1,11 @@
 #!/bin/zsh
 
+brew tap "derailed/k9s"
+brew tap "homebrew/cask-fonts"
+
 temp=$(mktemp)
 
 cat <<EOF > $temp
-
-tap "derailed/k9s"
 
 # Core brews
 brew "python"
@@ -77,8 +78,6 @@ EOF
 
 if [[ ! -v CI ]]; then
   cat >> "$temp" <<EOF
-
-tap "homebrew/cask-fonts"
 
 # Fonts - needs svn for some reason?
 brew "svn"
