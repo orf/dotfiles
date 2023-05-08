@@ -1,4 +1,4 @@
-#!/bin/zsh --emulate sh
+#!/bin/zsh
 set -uo pipefail
 
 # This is probably better? https://zacwe.st/2021/09/14/managing-preference-plists-under-chezmoi/

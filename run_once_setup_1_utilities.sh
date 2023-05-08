@@ -1,4 +1,4 @@
-#!/bin/zsh --emulate sh
+#!/bin/zsh
 set -uo pipefail
 
 print "Configuring git"

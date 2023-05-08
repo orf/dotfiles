@@ -1,4 +1,4 @@
-#!/bin/zsh --emulate sh
+#!/bin/zsh
 set -uo pipefail
 
 print "Adding /opt/homebrew/bin/fish to the launchctl path"

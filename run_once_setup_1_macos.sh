@@ -1,4 +1,4 @@
-#!/bin/zsh --emulate sh
+#!/bin/zsh
 set -uo pipefail
 
 defaults write com.apple.screencapture location ~/Documents/screenshots/
