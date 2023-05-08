@@ -2,8 +2,11 @@
 
 {{ template "shell_variables" }}
 
- export ZSH="$HOME/.config/oh-my-zsh"
+export ZSH="$HOME/.config/oh-my-zsh"
 ZSH_THEME="robbyrussell"
+
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 # adding shhist to PATH, so we can use it from Terminal
 PATH="${PATH}:/Applications/ShellHistory.app/Contents/Helpers"
