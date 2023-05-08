@@ -1,23 +1,23 @@
-set -gx AWS_DEFAULT_REGION "eu-west-1"
-set -gx BAT_THEME "zenburn"
-set -gx XDG_CACHE_HOME "$HOME/Library/Caches"
-set -gx XDG_CONFIG_HOME "$HOME/.config"
-set -gx POETRY_HOME "$XDG_CONFIG_HOME/poetry"
-set -gx HTTPIE_CONFIG_DIR "$XDG_CONFIG_HOME/httpie"
-set -gx IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
-set -gx NODE_REPL_HISTORY "$XDG_CONFIG_HOME/node_repl_history"
-set -gx RUSTUP_HOME "$XDG_CONFIG_HOME/rustup"
-set -gx CARGO_HOME "$XDG_CONFIG_HOME/cargo"
-set -gx VIRTUALFISH_HOME "$XDG_CONFIG_HOME/virtualfish"
-set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
-set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
-set -gx GIT_WORKSPACE "$HOME/PycharmProjects/"
-set -gx PIPX_HOME "$XDG_CONFIG_HOME/pipx"
-set -gx PIPX_BIN_DIR "$PIPX_HOME/bin"
-set -gx TEALDEER_CONFIG_DIR ~/.config/tealdeer/
-set -gx EDITOR "charm --wait"
-set -gx LC_ALL en_US.UTF-8
-set -gx LANG en_US.UTF-8
-set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
-set -gx HOMEBREW_NO_ENV_HINTS 1
-set -gx HOMEBREW_AUTO_UPDATE_SECS 86400
+export AWS_DEFAULT_REGION="eu-west-1"
+export BAT_THEME="zenburn"
+export XDG_CACHE_HOME="$HOME/Library/Caches"
+export XDG_CONFIG_HOME="$HOME/.config"
+export POETRY_HOME="$XDG_CONFIG_HOME/poetry"
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export NODE_REPL_HISTORY="$XDG_CONFIG_HOME/node_repl_history"
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export VIRTUALFISH_HOME="$XDG_CONFIG_HOME/virtualfish"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GIT_WORKSPACE="$HOME/PycharmProjects/"
+export PIPX_HOME="$XDG_CONFIG_HOME/pipx"
+export PIPX_BIN_DIR="$PIPX_HOME/bin"
+export TEALDEER_CONFIG_DIR=~/.config/tealdeer/
+export EDITOR="charm --wait"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_AUTO_UPDATE_SECS=86400
