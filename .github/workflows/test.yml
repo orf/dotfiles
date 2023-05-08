@@ -11,11 +11,10 @@ jobs:
       - name: Configure Homebrew cache
         uses: actions/cache@v3
         with:
-          path: |
-            ${{ env.HOMEBREW_CACHE }}/homebrew/
+          path: ${{ env.HOMEBREW_CACHE }}
           key: homebrew-cache
           restore-keys: homebrew-cache
-      - run: brew install chezmoi --verbose --debug
+      - run: brew install chezmoi
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
