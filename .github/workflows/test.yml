@@ -4,5 +4,7 @@ jobs:
   test:
     runs-on: macos-latest
     steps:
-      - run: brew install chezmoi
-      - run: chezmoi init --apply orf --branch=${{ github.sha }}
+      - run: brew install chezmoi python
+      - run: chezmoi init https://github.com/orf/dotfiles.git
+      - run: chezmoi git reset --hard ${{ github.sha }}
+      - run: chezmoi apply
