@@ -12,7 +12,7 @@ if [[ ! -v CI ]]; then
 fi
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
-#
-#if [[ ! -v CI ]]; then
-#  brew cleanup --prune=all -s
-#fi
+
+if [[ ! -v CI ]]; then
+  brew cleanup --prune=all -s
+fi
