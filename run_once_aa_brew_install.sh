@@ -127,9 +127,9 @@ deps_temp=$(mktemp)
 brew deps -n --union --full-name $(cat "$top_level_temp") > "$deps_temp"
 
 cat "$deps_temp" "$top_level_temp" | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
-
-HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
-
-if [[ ! -v CI ]]; then
-  brew cleanup --prune=all -s
-fi
+#
+#HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
+#
+#if [[ ! -v CI ]]; then
+#  brew cleanup --prune=all -s
+#fi
