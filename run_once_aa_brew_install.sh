@@ -8,13 +8,6 @@ tap "derailed/k9s"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
-# App Store Apps
-if not ENV["CI"] do
-  brew "mas"
-  mas "Magnet", id: 441258766
-  mas "ShellHistory", id: 1564015476
-end
-
 # Core casks
 cask "iterm2"
 cask "firefox-developer-edition"
@@ -113,6 +106,15 @@ brew "defaultbrowser"
 brew "cmake"
 
 EOF
+
+if [[ ! -v CI ]]; then
+  cat >> "$temp" <<EOF
+# App Store Apps
+brew "mas"
+mas "Magnet", id: 441258766
+mas "ShellHistory", id: 1564015476
+EOF
+fi
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
 

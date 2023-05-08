@@ -5,13 +5,14 @@ jobs:
     runs-on: macos-latest
     env:
       HOMEBREW_NO_INSTALL_CLEANUP: "TRUE"
+      HOMEBREW_CACHE: ${{ runner.temp }}/homebrew/
     steps:
       - uses: actions/checkout@v3
       - name: Configure Homebrew cache
         uses: actions/cache@v3
         with:
           path: |
-            ~/Library/Caches/Homebrew/downloads/*-chezmoi-*
+            ${{ runner.temp }}/homebrew/
           key: homebrew-cache
           restore-keys: homebrew-cache
       - run: brew install chezmoi --verbose --debug
