@@ -15,3 +15,5 @@ __shhist_prompt() {
 if ! [[ "${PROMPT_COMMAND}" =~ .*__shhist_prompt.* ]]; then
   PROMPT_COMMAND="__shhist_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 fi
+
+. "/Users/tom.forbes/.config/cargo/env"
