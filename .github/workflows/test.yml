@@ -10,6 +10,7 @@ jobs:
       - run: echo "HOMEBREW_CACHE=${RUNNER_TEMP}/homebrew/" >> $GITHUB_ENV
       - id: brew-deps
         run: |
+          brew tap "derailed/k9s"
           brew bundle list --file=Brewfile > all_files
           brew deps -n --union --full-name $(cat all_files) > all_deps
           echo 'ALL_DEPS_LIST<<EOF' >> $GITHUB_OUTPUT
