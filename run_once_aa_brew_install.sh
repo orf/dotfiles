@@ -8,28 +8,6 @@ tap "derailed/k9s"
 tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
-# Core casks
-cask "iterm2"
-cask "firefox-developer-edition"
-cask "little-snitch"
-cask "micro-snitch"
-cask "vlc"
-cask "dash"
-cask "alfred"
-cask "bartender"
-cask "batteries"
-cask "istat-menus"
-cask "postgres-unofficial"  # postgres.appfi
-cask "deckset"
-cask "jetbrains-toolbox"
-cask "mullvadvpn"
-cask "1password"
-cask "1password-cli"
-
-# Quicklook plugins
-cask "qlmarkdown"
-cask "quicklook-json"
-
 # Fonts - needs svn for some reason?
 brew "svn"
 cask 'font-source-code-pro-for-powerline'
@@ -109,6 +87,29 @@ EOF
 
 if [[ ! -v CI ]]; then
   cat >> "$temp" <<EOF
+
+# Core casks
+cask "iterm2"
+cask "firefox-developer-edition"
+cask "little-snitch"
+cask "micro-snitch"
+cask "vlc"
+cask "dash"
+cask "alfred"
+cask "bartender"
+cask "batteries"
+cask "istat-menus"
+cask "postgres-unofficial"  # postgres.appfi
+cask "deckset"
+cask "jetbrains-toolbox"
+cask "mullvadvpn"
+cask "1password"
+cask "1password-cli"
+
+# Quicklook plugins
+cask "qlmarkdown"
+cask "quicklook-json"
+
 # App Store Apps
 brew "mas"
 mas "Magnet", id: 441258766
