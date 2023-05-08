@@ -1,0 +1,8 @@
+name: test
+on: [push]
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - run: brew install chezmoi
+      - run: chezmoi init --apply orf --branch=${{ github.sha }}
