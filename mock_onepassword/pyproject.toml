@@ -1,5 +1,6 @@
 [project]
 name = "mock_onepassword"
+version = "0.0.1"
 
 [project.scripts]
 op = "mock_onepassword.cli:main"
