@@ -5,6 +5,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - run: brew install chezmoi python
+      - run: ./github/mock_onepassword/cli.py
       - run: chezmoi init https://github.com/orf/dotfiles.git
       - run: chezmoi git reset --hard ${{ github.sha }}
       - run: chezmoi apply
