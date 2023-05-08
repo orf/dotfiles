@@ -1,4 +1,4 @@
-#!/bin/zsh --emulate sh
+#!/bin/zsh
 
 temp=$(mktemp)
 
@@ -9,7 +9,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
 # App Store Apps
-unless ENV["CI"] do
+if not ENV["CI"] do
   brew "mas"
   mas "Magnet", id: 441258766
   mas "ShellHistory", id: 1564015476
@@ -114,6 +114,8 @@ brew "cmake"
 
 EOF
 
-HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file=$temp
+HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
 
-brew cleanup --prune=all -s
+if [[ ! -v CI ]]; then
+  brew cleanup --prune=all -s
+fi
