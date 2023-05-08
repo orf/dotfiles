@@ -8,7 +8,6 @@ tap "derailed/k9s"
 
 # Core brews
 brew "python"
-brew "pyenv"
 brew "poetry"
 brew "ipython"
 brew "pipx"
