@@ -32,7 +32,7 @@ brew "htop"
 brew "tmux"
 brew "curl"
 brew "yarn"
-brew "awscli", link: false
+#brew "awscli", link: false
 brew "terraform"
 
 # Useful utilities
