@@ -117,9 +117,3 @@ EOF
 fi
 
 brew deps -n --union --full-name "$(brew bundle list --file="$temp")" | xargs -P20 -n10 brew fetch -q
-
-HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
-
-if [[ ! -v CI ]]; then
-  brew cleanup --prune=all -s
-fi
