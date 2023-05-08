@@ -41,5 +41,7 @@ jobs:
       - run: pip install .
         working-directory: mock_onepassword/
       - run: chezmoi init file://${GITHUB_WORKSPACE}
-      - run: chezmoi data
+      - name: Clear up old links
+        run: |
+          rm '/usr/local/bin/aws'
       - run: chezmoi apply
