@@ -16,14 +16,14 @@ jobs:
           restore-keys: | 
             homebrew-cache-${{ hashFiles('run_once_aa_brew_install.sh') }}
             homebrew-cache-
-      - name: Configure Homebrew cellar
-        uses: actions/cache@v3
-        with:
-          path: /usr/local/Cellar/
-          key: homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
-          restore-keys: |
-            homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
-            homebrew-cellar-
+#      - name: Configure Homebrew cellar
+#        uses: actions/cache@v3
+#        with:
+#          path: /usr/local/Cellar/
+#          key: homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
+#          restore-keys: |
+#            homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
+#            homebrew-cellar-
       - run: brew install chezmoi
       - uses: actions/setup-python@v4
         with:
@@ -31,4 +31,4 @@ jobs:
       - run: pip install .
         working-directory: mock_onepassword/
       - run: chezmoi init file://${GITHUB_WORKSPACE}
-      - run: chezmoi apply
+      - run: chezmoi apply -C ${GITHUB_WORKSPACE}/.chezmoi.ci.toml
