@@ -40,5 +40,6 @@ jobs:
           python-version: '3.10'
       - run: pip install .
         working-directory: mock_onepassword/
-      - run: chezmoi init file://${GITHUB_WORKSPACE} -c ${GITHUB_WORKSPACE}/.chezmoi.ci.toml
-      - run: chezmoi apply -c ${GITHUB_WORKSPACE}/.chezmoi.ci.toml
+      - run: chezmoi init file://${GITHUB_WORKSPACE}
+      - run: chezmoi data
+      - run: chezmoi apply
