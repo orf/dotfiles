@@ -117,7 +117,13 @@ mas "ShellHistory", id: 1564015476
 EOF
 fi
 
-brew deps -n --union --full-name $(brew bundle list --file="$temp") | xargs -P20 -n10 brew fetch --retry -q
+top_level_temp=$(mktemp)
+brew bundle list --file="$temp" > "$top_level_temp"
+
+deps_temp=$(mktemp)
+brew deps -n --union --full-name $(cat "$top_level_temp") > "$deps_temp"
+
+cat "$deps_temp" "$top_level_temp" | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
 
