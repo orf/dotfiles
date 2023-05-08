@@ -15,8 +15,8 @@ jobs:
           key: homebrew-cache
           restore-keys: homebrew-cache
       - run: brew install chezmoi python
-      - run: ls -la ./mock_onepassword/
-      - run: ./mock_onepassword/cli.py
+      - run: pip install -e .
+        working-directory: mock_onepassword/
 #      - run: chezmoi init file://${GITHUB_WORKSPACE}
 #      - run: chezmoi git -- reset --hard ${{ github.sha }}
 #      - run: chezmoi apply
