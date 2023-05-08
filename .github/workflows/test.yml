@@ -31,4 +31,4 @@ jobs:
       - run: pip install .
         working-directory: mock_onepassword/
       - run: chezmoi init file://${GITHUB_WORKSPACE}
-      - run: chezmoi apply -C ${GITHUB_WORKSPACE}/.chezmoi.ci.toml
+      - run: chezmoi apply -c ${GITHUB_WORKSPACE}/.chezmoi.ci.toml
