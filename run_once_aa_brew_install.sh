@@ -1,4 +1,5 @@
 #!/bin/zsh
+set -eu -o pipefail
 
 brew tap "derailed/k9s"
 brew tap "homebrew/cask-fonts"
