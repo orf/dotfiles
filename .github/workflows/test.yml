@@ -11,7 +11,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/Library/Caches/Homebrew/*
+            ~/Library/Caches/Homebrew/downloads/*
           key: homebrew-cache
           restore-keys: homebrew-cache
       - run: brew install chezmoi python
