@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -eu -o pipefail
 
-echo "Is CI?:"
+echo "Is CI?: ${CI}"
 ruby -e "puts(ENV.has_value?('CI'))"
 
 brew tap "derailed/k9s"
