@@ -116,6 +116,8 @@ mas "ShellHistory", id: 1564015476
 EOF
 fi
 
+brew bundle list --all --file="$temp" | xargs -n1 brew fetch --deps
+
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
 
 if [[ ! -v CI ]]; then
