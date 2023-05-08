@@ -34,7 +34,7 @@ end
 set fish_color_command $pure_color_normal
 
 source {{ (joinPath .chezmoi.homeDir ".config/fish/secrets.fish") | quote }}
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv fish)"
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
 source ~/.config/fish/history.fish
 
