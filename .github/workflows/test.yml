@@ -7,8 +7,15 @@ jobs:
       HOMEBREW_NO_INSTALL_CLEANUP: "TRUE"
     steps:
       - uses: actions/checkout@v3
+      - name: Configure Homebrew cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/Library/Caches/Homebrew/*
+          key: homebrew-cache
+          restore-keys: homebrew-cache
       - run: brew install chezmoi python
-      - run: ./github/mock_onepassword/cli.py
+      - run: ./mock_onepassword/cli.py
       - run: chezmoi init https://github.com/orf/dotfiles.git
       - run: chezmoi git -- reset --hard ${{ github.sha }}
       - run: chezmoi apply
