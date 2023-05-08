@@ -8,21 +8,29 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "HOMEBREW_CACHE=${RUNNER_TEMP}/homebrew/" >> $GITHUB_ENV
+#      - id: get brew deps
+#        run: |
+#          brew bundle list --file=Brewfile > all_files
+#          brew deps -n --union --full-name $(cat all_files) > all_deps
+#          echo 'ALL_DEPS_LIST<<EOF' >> $GITHUB_OUTPUT
+#          curl https://example.lab >> $GITHUB_OUTPUT
+#          echo 'EOF' >> $GITHUB_OUTPUT
+
       - name: Configure Homebrew cache
         uses: actions/cache@v3
         with:
           path: ${{ env.HOMEBREW_CACHE }}/
-          key: homebrew-cache-${{ hashFiles('run_once_aa_brew_install.sh') }}
+          key: homebrew-cache-${{ hashFiles('Brewfile') }}
           restore-keys: | 
-            homebrew-cache-${{ hashFiles('run_once_aa_brew_install.sh') }}
+            homebrew-cache-${{ hashFiles('Brewfile') }}
             homebrew-cache-
 #      - name: Configure Homebrew cellar
 #        uses: actions/cache@v3
 #        with:
 #          path: /usr/local/Cellar/
-#          key: homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
+#          key: homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh.tmpl') }}
 #          restore-keys: |
-#            homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh') }}
+#            homebrew-cellar-${{ hashFiles('run_once_aa_brew_install.sh.tmpl') }}
 #            homebrew-cellar-
       - run: brew install chezmoi
       - uses: actions/setup-python@v4

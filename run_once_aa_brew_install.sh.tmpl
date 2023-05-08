@@ -1,0 +1,18 @@
+#!/bin/zsh
+set -eu -o pipefail
+
+brew tap "derailed/k9s"
+
+temp=$(mktemp)
+
+cat {{ joinPath .chezmoi.sourceDir "Brewfile" | quote }} > $temp
+
+if [[ ! -v CI ]]; then
+  cat {{ joinPath .chezmoi.sourceDir "Brewfile.cask" | quote }} >> $temp
+fi
+
+HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
+#
+#if [[ ! -v CI ]]; then
+#  brew cleanup --prune=all -s
+#fi
