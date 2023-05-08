@@ -1,0 +1,17 @@
+PATH="${PATH}:/Applications/ShellHistory.app/Contents/Helpers"
+__shhist_session="${RANDOM}"
+
+__shhist_prompt() {
+    local __exit_code="${?:-1}"
+
+    if [[ -n "${COMP_LINE}" ]]; then
+        return ${__exit_code}
+    fi
+
+    HISTTIMEFORMAT="%s " \history 1 | sudo --preserve-env --user ${SUDO_USER:-${LOGNAME}} shhist insert --session ${TERM_SESSION_ID:-${__shhist_session}} --username ${LOGNAME} --hostname $(hostname) --exit-code ${__exit_code} --shell bash
+    return ${__exit_code}
+}
+
+if ! [[ "${PROMPT_COMMAND}" =~ .*__shhist_prompt.* ]]; then
+  PROMPT_COMMAND="__shhist_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+fi
