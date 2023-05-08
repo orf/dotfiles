@@ -5,7 +5,6 @@ temp=$(mktemp)
 cat <<EOF > $temp
 
 tap "derailed/k9s"
-tap "homebrew/cask-versions"
 tap "homebrew/cask-fonts"
 
 # Fonts - needs svn for some reason?
@@ -99,7 +98,7 @@ cask "alfred"
 cask "bartender"
 cask "batteries"
 cask "istat-menus"
-cask "postgres-unofficial"  # postgres.appfi
+cask "postgres-unofficial"  # postgres.app
 cask "deckset"
 cask "jetbrains-toolbox"
 cask "mullvadvpn"
