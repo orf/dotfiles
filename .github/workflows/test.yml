@@ -41,7 +41,9 @@ jobs:
       - run: pip install .
         working-directory: mock_onepassword/
       - run: chezmoi init file://${GITHUB_WORKSPACE}
-      - name: Clear up old links
+      - name: Force link awscli
+        # This causes the brewfile install to fail. Hack around it for now.
         run: |
-          rm '/usr/local/bin/aws'
+          brew install awscli
+          brew link --overwrite awscli
       - run: chezmoi apply

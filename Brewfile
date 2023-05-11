@@ -52,6 +52,7 @@ brew "gpg"
 brew "gping"
 brew "git-workspace"
 brew "nanorc"
+brew "pre-commit"
 
 # Kubernetes and Docker
 brew "podman"
