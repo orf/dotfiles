@@ -44,6 +44,6 @@ jobs:
       - name: Force link awscli
         # This causes the brewfile install to fail. Hack around it for now.
         run: |
-          brew install awscli
-          brew link --overwrite awscli
+          brew install awscli || true
+          brew link --overwrite awscli || true
       - run: chezmoi apply
