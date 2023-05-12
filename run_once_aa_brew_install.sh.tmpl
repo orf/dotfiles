@@ -18,8 +18,9 @@ brew deps -n --union --full-name $(cat "$deps") > "${all_deps}"
 
 cat "${deps}" "${all_deps}" | sort | uniq | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
 
-HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --cleanup --no-lock --file="$temp"
+HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --no-lock --file="$temp"
 
 if [[ ! -v CI ]]; then
+  echo "Running brew cleanup"
   brew cleanup --prune=all -s
 fi
