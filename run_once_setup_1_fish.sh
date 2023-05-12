@@ -1,4 +1,4 @@
 #!/bin/zsh
 
-fish -c "/opt/homebrew/opt/fzf/install --all --xdg"
+fish -c "$(brew --prefix fzf)/install --all --xdg"
 fish -c "fisher update"
