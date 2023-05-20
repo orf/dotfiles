@@ -57,6 +57,10 @@ brew "graphviz"
 brew "entr"
 brew "gh"
 
+# Cargo plugins
+brew "cargo-watch"
+brew "cargo-release"
+
 # Kubernetes and Docker
 brew "podman"
 brew "kubectl"
