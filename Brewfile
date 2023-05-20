@@ -53,6 +53,9 @@ brew "gping"
 brew "git-workspace"
 brew "nanorc"
 brew "pre-commit"
+brew "graphviz"
+brew "entr"
+brew "gh"
 
 # Kubernetes and Docker
 brew "podman"
@@ -64,6 +67,9 @@ brew "derailed/k9s/k9s"
 
 # Other
 brew "defaultbrowser"
+
+# For alfred plugins
+brew "php"
 
 # Common build deps
 brew "cmake"
