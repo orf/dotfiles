@@ -15,7 +15,10 @@ alias streamsum "awk '{s+=\$1} END {print s}'"
 
 set -gx GPG_TTY (tty)
 
-set PATH {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts" /Applications/Postgres.app/Contents/Versions/latest/bin $CARGO_HOME/bin/ $POETRY_NAME/bin $PIPX_BIN_DIR /usr/sbin $PATH
+fish_add_path -m {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts"
+fish_add_path -m /Applications/Postgres.app/Contents/Versions/latest/bin
+fish_add_path -m $CARGO_HOME/bin/
+fish_add_path -m /usr/sbin
 
 if status --is-interactive
     # Inlined here for performance, so we don't evaluate every theme on startup.
@@ -26,9 +29,6 @@ if status --is-interactive
         set -gx BASE16_THEME (string match 'base16-*' $BASE16_THEME  | string sub -s (string length 'base16-*'))
         eval sh '"'(realpath ~/.base16_theme)'"'
     end
-
-    # source "$BASE16_SHELL/profile_helper.fish"
-    # base16-materia
 end
 
 # Color schemes
