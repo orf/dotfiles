@@ -60,6 +60,7 @@ brew "gh"
 # Cargo plugins
 brew "cargo-watch"
 brew "cargo-release"
+brew "cargo-outdated"
 
 # Kubernetes and Docker
 brew "podman"
