@@ -3,4 +3,4 @@
 
 pycharm_path=$(rg "open -na \"(.*/pycharm)\"" "{{ (joinPath .chezmoi.homeDir "Library/Application Support/JetBrains/Toolbox/scripts") }}/pycharm" -or '$1')
 
-./"$pycharm_path" --wait diff "$@"
+open -na "$pycharm_path" -W --args diff "$@"

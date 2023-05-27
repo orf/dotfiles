@@ -46,7 +46,7 @@
   tool = pycharm
 
 [difftool "pycharm"]
-  cmd = charmdiff diff "$LOCAL" "$REMOTE"
+  cmd = charmdiff.sh "$LOCAL" "$REMOTE"
 
 [mergetool "pycharm"]
   cmd = pycharm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
