@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+# The pycharm launcher messes up with --wait.
+
+pycharm_path=$(rg "open -na \"(.*/pycharm)\"" "{{ (joinPath .chezmoi.homeDir "Library/Application Support/JetBrains/Toolbox/scripts") }}/pycharm" -or '$1')
+
+./"$pycharm_path" --wait diff "$@"

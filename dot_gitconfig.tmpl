@@ -34,7 +34,23 @@
   rebase = false
 
 [init]
-  defaultBranch = master
+  defaultBranch = main
+
+[diff]
+  tool = pycharm
+
+[difftool]
+  prompt = false
+
+[merge]
+  tool = pycharm
+
+[difftool "pycharm"]
+  cmd = charmdiff diff "$LOCAL" "$REMOTE"
+
+[mergetool "pycharm"]
+  cmd = pycharm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  keepBackup = false
 
 [url "ssh://git@github.com/octoenergy/"]
   insteadOf = https://github.com/octoenergy/
