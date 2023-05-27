@@ -1,3 +1,11 @@
 [diff]
     command = "git"
     args = ["difftool"]
+
+[merge]
+    command = "git"
+    args = ["mergetool"]
+
+[edit]
+    command = "pycharm"
+    args = ["--wait"]
