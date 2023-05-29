@@ -1,5 +1,5 @@
 tap "derailed/k9s"
-tap "noborus/tap/ov"
+tap "noborus/tap"
 
 # Core brews
 brew "python"
