@@ -15,8 +15,9 @@ else
 fi
 
 appDir="$HOME/Library/PreferencePanes/SwiftDefaultApps.prefPane/Contents/Resources/ThisAppDoesNothing.app"
-
-# Remove quanrantine flag
-xattr -d com.apple.quarantine "$appDir"
-# Open the app
-open "$appDir"
+if [ -f "$appDir" ]; then
+  # Remove quanrantine flag
+  xattr -d com.apple.quarantine "$appDir" || true
+  # Open the app
+  open "$appDir"
+fi
