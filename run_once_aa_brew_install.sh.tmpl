@@ -1,6 +1,8 @@
 #!/bin/zsh
 set -eu -o pipefail
 
+# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ include "Brewfile.cask" | sha256sum }}
+
 brew tap "derailed/k9s"
 
 temp=$(mktemp)
