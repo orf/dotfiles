@@ -56,6 +56,7 @@ brew "pre-commit"
 brew "graphviz"
 brew "entr"
 brew "gh"
+brew "git-delta"
 
 # Cargo plugins
 brew "cargo-watch"
