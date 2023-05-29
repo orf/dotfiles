@@ -57,6 +57,7 @@ brew "graphviz"
 brew "entr"
 brew "gh"
 brew "git-delta"
+brew "swiftdefaultappsprefpane"
 
 # Cargo plugins
 brew "cargo-watch"

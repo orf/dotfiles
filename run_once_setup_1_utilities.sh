@@ -13,3 +13,10 @@ if defaultbrowser | grep -q "firefoxdeveloperedition"; then
 else
    echo "Not setting defaultbrowser as firefoxdeveloperedition is not available"
 fi
+
+appDir="$HOME/Library/PreferencePanes/SwiftDefaultApps.prefPane/Contents/Resources/ThisAppDoesNothing.app"
+
+# Remove quanrantine flag
+xattr -d com.apple.quarantine "$appDir"
+# Open the app
+open "$appDir"
