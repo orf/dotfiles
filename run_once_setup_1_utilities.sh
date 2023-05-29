@@ -15,7 +15,7 @@ else
 fi
 
 appDir="$HOME/Library/PreferencePanes/SwiftDefaultApps.prefPane/Contents/Resources/ThisAppDoesNothing.app"
-if [ -f "$appDir" ]; then
+if [ -d "$appDir" ]; then
   echo "$appDir exists, setting up"
   # Remove quanrantine flag
   xattr -d com.apple.quarantine "$appDir" || true
