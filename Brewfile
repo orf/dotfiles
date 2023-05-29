@@ -1,4 +1,5 @@
 tap "derailed/k9s"
+tap "noborus/tap/ov"
 
 # Core brews
 brew "python"
@@ -58,6 +59,7 @@ brew "entr"
 brew "gh"
 brew "git-delta"
 brew "swiftdefaultappsprefpane"
+brew "noborus/tap/ov"
 
 # Cargo plugins
 brew "cargo-watch"
