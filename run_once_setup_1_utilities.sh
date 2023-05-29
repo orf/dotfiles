@@ -21,6 +21,7 @@ if [ -d "$appDir" ]; then
   xattr -d com.apple.quarantine "$appDir" || true
   # Open the app
   open "$appDir"
+  echo "Setup complete"
 else
   echo "$appDir does not exist, not opening"
 fi
