@@ -25,6 +25,9 @@ cask "mullvadvpn"
 cask "1password", args: {"adopt": ""}
 cask "1password-cli"
 
+# Default apps changing
+cask "swiftdefaultappsprefpane"
+
 # Quicklook plugins
 cask "qlmarkdown"
 cask "quicklook-json"
@@ -34,5 +37,3 @@ brew "mas"
 mas "Magnet", id: 441258766
 mas "ShellHistory", id: 1564015476
 
-# Default apps
-cask "swiftdefaultappsprefpane"

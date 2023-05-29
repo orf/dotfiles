@@ -58,7 +58,7 @@ brew "graphviz"
 brew "entr"
 brew "gh"
 brew "git-delta"
-brew "noborus/tap/ov"
+brew "ov" # From noborus/tap/
 
 # Cargo plugins
 brew "cargo-watch"
