@@ -58,7 +58,6 @@ brew "graphviz"
 brew "entr"
 brew "gh"
 brew "git-delta"
-brew "swiftdefaultappsprefpane"
 brew "noborus/tap/ov"
 
 # Cargo plugins

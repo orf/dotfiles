@@ -33,3 +33,6 @@ cask "quicklook-json"
 brew "mas"
 mas "Magnet", id: 441258766
 mas "ShellHistory", id: 1564015476
+
+# Default apps
+cask "swiftdefaultappsprefpane"
