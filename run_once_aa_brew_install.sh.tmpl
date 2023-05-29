@@ -17,7 +17,8 @@ if [[ -v CI ]]; then
   deps=$(mktemp)
   all_deps=$(mktemp)
   brew bundle list --file=Brewfile > "${deps}"
-  brew deps -n --union --full-name "$(cat "$deps")" > "${all_deps}"
+  # shellcheck disable=SC2046
+  brew deps -n --union --full-name $(cat "$deps") > "${all_deps}"
 
   cat "${deps}" "${all_deps}" | sort | uniq | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
 fi
