@@ -19,6 +19,7 @@
 [core]
   excludesfile = /Users/tom/.gitignore
   autocrlf = input
+  pager = "delta"
 # fsmonitor = /Users/tom/.config/git/watchman.pl
 
 [filter "lfs"]
@@ -38,12 +39,14 @@
 
 [diff]
   tool = pycharm
+  colorMoved = "default"
 
 [difftool]
   prompt = false
 
 [merge]
   tool = pycharm
+  conflictstyle = "diff3"
 
 [difftool "pycharm"]
   cmd = charmdiff.sh "$LOCAL" "$REMOTE"
@@ -54,3 +57,11 @@
 
 [url "ssh://git@github.com/octoenergy/"]
   insteadOf = https://github.com/octoenergy/
+
+[interactive]
+    diffFilter = "delta --color-only"
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
