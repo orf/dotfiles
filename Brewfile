@@ -22,21 +22,23 @@ brew "fisher"
 brew "wget"
 brew "git"
 brew "git-lfs"
-brew "nano"
-brew "coreutils"
-brew "findutils"
-brew "watch"
-brew "pkg-config"
-brew "screen"
-brew "ncdu"
-brew "htop"
-brew "tmux"
 brew "curl"
 brew "yarn"
 brew "awscli", link: !ENV['CI']
 brew "terraform"
 
+# GNU stuff
+brew "gnu-sed"
+brew "coreutils"
+brew "findutils"
+brew "parallel"
+brew "screen"
+brew "nano"
+brew "watch"
+brew "htop"
+
 # Useful utilities
+brew "ncdu"
 brew "tokei"
 brew "pv"
 brew "fzf"
@@ -59,6 +61,7 @@ brew "entr"
 brew "gh"
 brew "git-delta"
 brew "ov" # From noborus/tap/
+brew "skopeo"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
@@ -82,3 +85,4 @@ brew "php"
 
 # Common build deps
 brew "cmake"
+brew "pkg-config"

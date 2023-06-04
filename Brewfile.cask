@@ -1,4 +1,5 @@
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 
 # Fonts - needs svn for some reason?
 brew "svn"
