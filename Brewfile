@@ -61,6 +61,7 @@ brew "git-delta"
 brew "ov" # From noborus/tap/
 
 # Cargo plugins
+brew "rust", link: false  # Don't link, as it clashes with rustup.
 brew "cargo-watch"
 brew "cargo-release"
 brew "cargo-outdated"

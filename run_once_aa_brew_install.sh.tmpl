@@ -27,5 +27,6 @@ HOMEBREW_NO_INSTALL_CLEANUP=1 brew bundle --verbose --no-lock --file="$temp"
 
 if [[ ! -v CI ]]; then
   echo "Running brew cleanup"
+  brew bundle cleanup --file="$temp" --force
   brew cleanup
 fi

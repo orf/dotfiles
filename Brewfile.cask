@@ -36,4 +36,4 @@ cask "quicklook-json"
 brew "mas"
 mas "Magnet", id: 441258766
 mas "ShellHistory", id: 1564015476
-
+mas "UTM Virtual Machines", id: 1538878817
