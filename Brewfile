@@ -63,6 +63,8 @@ brew "git-delta"
 brew "ov" # From noborus/tap/
 brew "skopeo"
 brew "twine-pypi"
+brew "go"
+brew "xsv"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
