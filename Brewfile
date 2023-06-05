@@ -65,6 +65,8 @@ brew "skopeo"
 brew "twine-pypi"
 brew "go"
 brew "xsv"
+brew "shfmt"
+brew "shellcheck"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
