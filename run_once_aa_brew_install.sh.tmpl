@@ -23,7 +23,7 @@ if [[ -v CI ]]; then
   cat "${deps}" "${all_deps}" | sort | uniq | xargs -P20 -n10 brew fetch --retry -q | grep -v 'SHA256: '
 fi
 
-HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-lock --file="$temp"
+HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-lock --file="$temp" --no-upgrade
 
 if [[ ! -v CI ]]; then
   echo "Running brew cleanup"
