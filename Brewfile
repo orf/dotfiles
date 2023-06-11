@@ -68,6 +68,7 @@ brew "xsv"
 brew "shfmt"
 brew "shellcheck"
 brew "glow"
+brew "sd"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
