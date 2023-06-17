@@ -9,6 +9,7 @@ alias cs "open-project"
 alias js "cd-project"
 alias copy-venv "echo (pwd)/.venv/bin/python | pbcopy"
 alias cloc "tokei"
+alias hex "hexyl"
 alias streamsum "awk '{s+=\$1} END {print s}'"
 
 {{ template "shell_variables" }}
@@ -47,6 +48,7 @@ if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
 end
 
 source ~/.config/fish/history.fish
+source ~/.config/fish/pure.fish
 
 # Disabled, causes issues with pure shell.
 #source ~/.config/iterm2/shell_integration.fish
