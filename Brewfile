@@ -29,6 +29,7 @@ brew "terraform"
 
 # GNU stuff
 brew "gnu-sed"
+brew "gnu-tar"
 brew "coreutils"
 brew "findutils"
 brew "parallel"
@@ -70,6 +71,7 @@ brew "shellcheck"
 brew "glow"
 brew "sd"
 brew "hexyl"
+brew "miller"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
