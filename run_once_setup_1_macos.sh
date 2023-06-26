@@ -17,3 +17,8 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
 
 # Fix key permissions
 chmod 600 ~/.ssh/id_ed25519*
+
+# Enable locate
+if [[ ! -v CI ]]; then
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+fi

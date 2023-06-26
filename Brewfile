@@ -97,3 +97,6 @@ brew "php"
 # Common build deps
 brew "cmake"
 brew "pkg-config"
+
+# for fix-code-permissions.sh
+brew "duti"
