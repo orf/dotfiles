@@ -28,7 +28,6 @@ cask "1password-cli"
 
 # Other apps
 cask "notion"
-cask "logitech-presentation"
 
 # Default apps changing
 cask "swiftdefaultappsprefpane"
