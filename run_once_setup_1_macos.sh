@@ -13,7 +13,7 @@ defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 sudo defaults write /Library/Preferences/us.zoom.config.plist ZDisableVideo 1
 killall Dock Finder
 print "Setting firewall to stealth mode"
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on || true
 
 # Fix key permissions
 chmod 600 ~/.ssh/id_ed25519*
