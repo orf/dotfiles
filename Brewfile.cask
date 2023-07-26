@@ -5,8 +5,8 @@ tap "homebrew/cask-versions"
 brew "svn"
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask 'font-source-sans-3'
+cask 'font-source-serif-4'
 
 # Core casks
 cask "iterm2"
