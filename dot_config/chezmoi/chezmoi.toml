@@ -1,6 +1,6 @@
 [diff]
     command = "git"
-    args = ["difftool", "--no-index"]
+    args = ["difftool", "--no-index", "{{ .Destination }}", "{{ .Target }}"]
 
 [merge]
     command = "git"
