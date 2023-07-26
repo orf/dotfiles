@@ -9,3 +9,8 @@
 [edit]
     command = "pycharm"
     args = ["--wait"]
+
+[[textconv]]
+pattern = "**/*.plist"
+command = "plutil"
+args = ["-convert", "xml1", "-o", "-", "-"]
