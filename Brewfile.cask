@@ -23,7 +23,7 @@ cask "postgres-unofficial"  # postgres.app
 cask "deckset"
 cask "jetbrains-toolbox"
 cask "mullvadvpn"
-cask "1password"
+cask "1password", args: {"adopt": ""}
 cask "1password-cli"
 
 # Other apps
