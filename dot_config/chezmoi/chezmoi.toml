@@ -1,10 +1,10 @@
-[diff]
-    command = "git"
-    args = ["difftool"]
-
-[merge]
-    command = "git"
-    args = ["mergetool"]
+#[diff]
+#    command = "git"
+#    args = ["difftool", "--no-index"]
+#
+#[merge]
+#    command = "git"
+#    args = ["mergetool"]
 
 [edit]
     command = "pycharm"
