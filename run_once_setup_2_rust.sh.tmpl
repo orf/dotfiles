@@ -1,6 +1,8 @@
 #!/bin/zsh
 set -uo pipefail
 
+{{ template "shell_variables" }}
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- '-y'
-source "$HOME/.cargo/env"
+source "$CARGO_HOME/env"
 rustup toolchain install nightly
