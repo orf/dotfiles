@@ -5,6 +5,7 @@ set -uo pipefail
 
 osascript -e 'quit app "Magnet"'
 defaults import com.crowdcafe.windowmagnet.xml "$(chezmoi source-path)/preferences/com.crowdcafe.windowmagnet.xml"
+defaults import com.crowdcafe.windowmagnet "$(chezmoi source-path)/preferences/com.crowdcafe.windowmagnet.xml"
 osascript -e 'tell app "Magnet" to activate'
 
 
