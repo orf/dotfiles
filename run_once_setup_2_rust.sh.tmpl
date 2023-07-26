@@ -1,7 +1,9 @@
 #!/bin/zsh
 set -uo pipefail
 
-{{ template "shell_variables" }}
+export XDG_CONFIG_HOME="$HOME/.config"
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- '-y'
 source "$CARGO_HOME/env"
