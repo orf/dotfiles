@@ -72,6 +72,7 @@ brew "glow"
 brew "sd"
 brew "hexyl"
 brew "miller"
+brew "steampipe"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
