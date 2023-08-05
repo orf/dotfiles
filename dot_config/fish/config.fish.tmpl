@@ -19,7 +19,7 @@ set -gx GPG_TTY (tty)
 
 fish_add_path -mP {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts"
 fish_add_path -mP /Applications/Postgres.app/Contents/Versions/latest/bin
-fish_add_path -mP $CARGO_HOME/bin/
+
 fish_add_path -mP /usr/sbin
 
 if status --is-interactive
@@ -43,6 +43,8 @@ if test -e /opt/homebrew/bin/brew
 else
     eval "$(/usr/local/bin/brew shellenv fish)"
 end
+
+fish_add_path -mP $CARGO_HOME/bin/
 
 if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
     source /opt/homebrew/opt/asdf/libexec/asdf.fish
