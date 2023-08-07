@@ -20,6 +20,7 @@ brew "fisher"
 
 # Standard utils
 brew "wget"
+brew "wget2"
 brew "git"
 brew "git-lfs"
 brew "curl"
