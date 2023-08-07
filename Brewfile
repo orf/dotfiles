@@ -27,6 +27,7 @@ brew "curl"
 brew "yarn"
 brew "awscli", link: !ENV['CI']
 brew "terraform"
+brew "aws-vault"
 
 # GNU stuff
 brew "gnu-sed"
