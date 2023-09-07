@@ -5,7 +5,7 @@ This repo configures dotfiles for MacOS with the following tools:
 * [git workspace](https://github.com/orf/git-workspace)
 * Rust
 * Modern cli replacements:
-   * [exa](https://github.com/ogham/exa) for `ls`
+   * [eza](https://github.com/eza-community/eza) for `ls`
    * [bat](https://github.com/sharkdp/bat) for `cat`
    * [tokei](https://github.com/XAMPPRocky/tokei) for `cloc`
 
