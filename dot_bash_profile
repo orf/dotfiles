@@ -17,3 +17,5 @@ if ! [[ "${PROMPT_COMMAND}" =~ .*__shhist_prompt.* ]]; then
 fi
 
 . {{ (joinPath .chezmoi.homeDir ".config/cargo/env") | quote }}
+
+alias docker=podman
