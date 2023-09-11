@@ -36,6 +36,10 @@ cask "swiftdefaultappsprefpane"
 cask "qlmarkdown"
 cask "quicklook-json"
 
+# Annoying stuff
+cask "zoom"
+cask "google-chrome"
+
 # App Store Apps
 brew "mas"
 mas "Magnet", id: 441258766
