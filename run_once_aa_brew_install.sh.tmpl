@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -eu -o pipefail
 
-# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ include "Brewfile.cask" | sha256sum }}
+# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" | sha256sum }}
 
 brew tap "derailed/k9s"
 
