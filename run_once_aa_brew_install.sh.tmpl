@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -eu -o pipefail
 
-# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" (dict "fqdn" .chezmoi.fqdnHostname) | sha256sum }}
+# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | sha256sum }}
 
 brew tap "derailed/k9s"
 
@@ -10,7 +10,7 @@ temp=$(mktemp)
 cat {{ joinPath .chezmoi.sourceDir "Brewfile" | quote }} > "$temp"
 
 if [[ ! -v CI ]]; then
-  cat {{ includeTemplate "Brewfile.cask.tmpl" (dict "fqdn" .chezmoi.fqdnHostname) | quote }} >> "$temp"
+  cat {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | quote }} >> "$temp"
 fi
 
 if [[ -v CI ]]; then
