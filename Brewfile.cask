@@ -26,6 +26,9 @@ cask "mullvadvpn"
 cask "1password", args: {"adopt": true}
 cask "1password-cli"
 
+# Data utils
+cask "clickhouse"
+
 # Other apps
 cask "notion"
 
