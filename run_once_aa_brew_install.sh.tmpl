@@ -10,7 +10,7 @@ temp=$(mktemp)
 cat {{ joinPath .chezmoi.sourceDir "Brewfile" | quote }} > "$temp"
 
 if [[ ! -v CI ]]; then
-  cat {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | quote }} >> "$temp"
+  echo {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | quote }} >> "$temp"
 fi
 
 if [[ -v CI ]]; then
