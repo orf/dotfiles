@@ -39,9 +39,11 @@ cask "swiftdefaultappsprefpane"
 cask "qlmarkdown"
 cask "quicklook-json"
 
+{{ if not (contains "OCTO-MAC-" .chezmoi.fqdnHostname "runner") }}
 # Annoying stuff
-cask "zoom", {"adopt": true}
-cask "google-chrome", {"adopt": true}
+cask "zoom"
+cask "google-chrome"
+{{ end }}
 
 # App Store Apps
 brew "mas"
