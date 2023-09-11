@@ -39,7 +39,7 @@ cask "swiftdefaultappsprefpane"
 cask "qlmarkdown"
 cask "quicklook-json"
 
-{{ if not (contains "OCTO-MAC-" .chezmoi.fqdnHostname) }}
+{{ if not (contains "OCTO-MAC-" .fqdn) }}
 # Annoying stuff
 cask "zoom"
 cask "google-chrome"
