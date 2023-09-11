@@ -37,8 +37,8 @@ cask "qlmarkdown"
 cask "quicklook-json"
 
 # Annoying stuff
-cask "zoom"
-cask "google-chrome"
+cask "zoom", {"adopt": true}
+cask "google-chrome", {"adopt": true}
 
 # App Store Apps
 brew "mas"
