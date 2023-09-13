@@ -77,6 +77,7 @@ brew "miller"
 brew "steampipe"
 brew "duckdb"
 brew "unar"
+brew "libmagic"
 
 # Cargo plugins
 brew "rust", link: false  # Don't link, as it clashes with rustup.
