@@ -1,3 +1,4 @@
+export ASDF_DIR="/opt/homebrew/opt/asdf/libexec/"
 export AWS_DEFAULT_REGION="eu-west-1"
 export BAT_THEME="zenburn"
 export XDG_CACHE_HOME="$HOME/Library/Caches"
