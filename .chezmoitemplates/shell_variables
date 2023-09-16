@@ -20,9 +20,11 @@ export EDITOR="pycharm --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-export HOMEBREW_NO_ENV_HINTS=1
-export HOMEBREW_AUTO_UPDATE_SECS=86400
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 export STEAMPIPE_INSTALL_DIR="$XDG_CONFIG_HOME/steampipe"
+
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_AUTO_UPDATE_SECS=86400
+export HOMEBREW_CASK_OPTS="--no-quarantine"
