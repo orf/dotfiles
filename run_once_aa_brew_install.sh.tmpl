@@ -24,9 +24,3 @@ if [[ -v CI ]]; then
 fi
 
 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-lock --file="$temp" --no-upgrade
-
-if [[ ! -v CI ]]; then
-  echo "Running brew cleanup"
-  brew bundle cleanup --file="$temp" --force
-  brew cleanup
-fi
