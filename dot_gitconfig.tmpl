@@ -21,7 +21,7 @@
   autocrlf = input
   pager = "delta"
   attributesfile = {{ (joinPath .chezmoi.homeDir ".gitattributes") | quote }}
-# fsmonitor = /Users/tom/.config/git/watchman.pl
+  fsmonitor = {{ (joinPath .chezmoi.homeDir ".config/git/watchman.pl") | quote }}
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
