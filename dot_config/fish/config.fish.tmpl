@@ -51,6 +51,11 @@ if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
 end
 
 set -g async_prompt_functions _pure_prompt_git
+set -g pure_enable_container_detection false
+set -g pure_separate_prompt_on_error true
+set -g pure_show_subsecond_command_duration true
+set -g pure_threshold_command_duration 2
+
 source ~/.config/fish/history.fish
 source ~/.config/fish/pure.fish
 
