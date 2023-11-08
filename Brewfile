@@ -40,6 +40,11 @@ brew "nano"
 brew "watch"
 brew "htop"
 
+# My tools
+brew "gping"
+brew "git-workspace"
+brew "hq"
+
 # Useful utilities
 brew "ncdu"
 brew "tokei"
@@ -56,8 +61,6 @@ brew "tealdeer"
 brew "pgcli"
 brew "litecli"
 brew "gpg"
-brew "gping"
-brew "git-workspace"
 brew "nanorc"
 brew "pre-commit"
 brew "graphviz"
