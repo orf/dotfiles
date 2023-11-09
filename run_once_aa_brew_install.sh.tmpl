@@ -1,5 +1,6 @@
 #!/bin/zsh
 set -eu -o pipefail
+set -o xtrace
 
 # Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | sha256sum }}
 
