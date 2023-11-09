@@ -8,7 +8,7 @@ if [ ! -n "$__shhist_session" ]
     end
 end
 
-function shist_postexec -e fish_postexec
+function _shist_postexec -e fish_postexec
 
     set __shhist_status $status
 
