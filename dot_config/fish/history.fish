@@ -8,8 +8,8 @@ if [ ! -n "$__shhist_session" ]
     end
 end
 
-functions --copy fish_prompt fish_prompt_original
-function fish_prompt
+function shist_postexec -e fish_postexec
+
     set __shhist_status $status
 
     if fish_is_root_user
@@ -18,7 +18,5 @@ function fish_prompt
         set __shhist_user $LOGNAME
     end
 
-    \history --show-time="%s " -1 | sudo --preserve-env --user $__shhist_user /Applications/ShellHistory.app/Contents/Helpers/shhist insert --session $__shhist_session --username $LOGNAME --hostname (hostname) --exit-code $__shhist_status --shell fish
-
-    fish_prompt_original;
+    echo (date +%s) $argv | sudo --preserve-env --user $__shhist_user /Applications/ShellHistory.app/Contents/Helpers/shhist insert --session $__shhist_session --username $LOGNAME --hostname (prompt_hostname) --exit-code $__shhist_status --shell fish
 end
