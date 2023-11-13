@@ -24,6 +24,7 @@ export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 export STEAMPIPE_INSTALL_DIR="$XDG_CONFIG_HOME/steampipe"
+export PGRX_PGCLI=true
 
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_AUTO_UPDATE_SECS=86400
