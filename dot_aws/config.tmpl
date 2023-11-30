@@ -1,0 +1,7 @@
+[profile personal]
+aws_access_key_id = {{ onepasswordRead "op://AWS/IAM User/access key" }}
+aws_secret_access_key = {{ onepasswordRead "op://AWS/IAM User/secret key" }}
+region = eu-west-1
+s3 =
+  signature_version = s3v4
+  max_concurrent_requests = 100
