@@ -95,7 +95,6 @@ brew "stern"
 brew "kubectx"
 brew "dive"
 brew "derailed/k9s/k9s"
-brew "docker-credential-helper-ecr"
 
 # Other
 brew "defaultbrowser"
