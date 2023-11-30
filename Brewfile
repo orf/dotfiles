@@ -90,7 +90,6 @@ brew "cargo-release"
 brew "cargo-outdated"
 
 # Kubernetes and Docker
-brew "podman"
 brew "kubectl"
 brew "stern"
 brew "kubectx"
