@@ -14,7 +14,7 @@ alias hex "hexyl"
 alias pstree "pstree -w"
 alias streamsum "awk '{s+=\$1} END {print s}'"
 
-{{ template "shell_variables" }}
+{{ template "shell_variables" . }}
 
 set -gx GPG_TTY (tty)
 
