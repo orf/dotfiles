@@ -1,0 +1,4 @@
+{{ if (hasPrefix "GG" .chezmoi.fqdnHostname) }}
+[global]
+index-url = https://{{ onepasswordRead "op://chezmoi/gg-gitlab/pypi-host" }}
+{{ end }}

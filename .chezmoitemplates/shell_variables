@@ -32,3 +32,7 @@ export PGRX_PGCLI=true
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_AUTO_UPDATE_SECS=86400
 export HOMEBREW_CASK_OPTS="--no-quarantine"
+
+{{ if (hasPrefix "GG" .chezmoi.fqdnHostname) }}
+export PYPI_HOST={{ onepasswordRead "op://chezmoi/gg-gitlab/pypi-host" | quote }}
+{{ end }}
