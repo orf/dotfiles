@@ -7,4 +7,6 @@ vcs = "git"
 protocol = "sparse"
 
 [build]
+rustc-wrapper = "sccache"
+incremental = false
 rustflags = ["-C", "target-cpu=native"]

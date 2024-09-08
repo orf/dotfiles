@@ -13,6 +13,7 @@ brew "httpie"
 brew "chezmoi"
 brew "asdf"
 brew "nushell"
+brew "starship"
 
 # Fish utils
 brew "fish"
