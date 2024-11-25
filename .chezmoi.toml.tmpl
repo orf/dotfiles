@@ -8,3 +8,16 @@ CI = "true"
 
 [data]
 is_work_machine = {{ hasPrefix "GG" .chezmoi.hostname }}
+
+[merge]
+command = "git"
+args = ["mergetool"]
+
+[edit]
+command = "pycharm"
+args = ["--wait"]
+
+[[textconv]]
+pattern = "**/*.plist"
+command = "/bin/zsh"
+args = ["-c", "plutil -convert json -o - - | jq"]
