@@ -6,4 +6,5 @@ mock_onepassword/
 
 {{- if .is_work_machine }}
 .ssh/config
+.aws/config
 {{- end }}
