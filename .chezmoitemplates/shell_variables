@@ -3,7 +3,7 @@ export ASDF_DIR="/opt/homebrew/opt/asdf/libexec/"
 {{- if not .is_work_machine }}
 export AWS_DEFAULT_REGION="eu-west-1"
 export AWS_DEFAULT_PROFILE="personal"
-{{-end }}
+{{- end }}
 
 export BAT_THEME="zenburn"
 export XDG_CACHE_HOME="$HOME/Library/Caches"
