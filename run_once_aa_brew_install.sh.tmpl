@@ -2,7 +2,7 @@
 set -eu -o pipefail
 set -o xtrace
 
-# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | sha256sum }}
+# Brewfile hash: {{ include "Brewfile" | sha256sum }} {{ includeTemplate "Brewfile.cask.tmpl" . | sha256sum }}
 
 brew tap "derailed/k9s"
 
@@ -11,7 +11,7 @@ temp=$(mktemp)
 cat {{ joinPath .chezmoi.sourceDir "Brewfile" | quote }} > "$temp"
 
 if [[ ! -v CI ]]; then
-  echo {{ includeTemplate "Brewfile.cask.tmpl" (dict "chezmoi" .chezmoi) | quote }} >> "$temp"
+  echo {{ includeTemplate "Brewfile.cask.tmpl" . | quote }} >> "$temp"
 fi
 
 if [[ -v CI ]]; then
