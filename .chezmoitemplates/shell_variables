@@ -1,6 +1,6 @@
 export ASDF_DIR="/opt/homebrew/opt/asdf/libexec/"
 
-{{- if .is_work_machine }}
+{{- if not .is_work_machine }}
 export AWS_DEFAULT_REGION="eu-west-1"
 export AWS_DEFAULT_PROFILE="personal"
 {{-end }}

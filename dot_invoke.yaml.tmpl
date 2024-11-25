@@ -1,4 +1,4 @@
-{{ if (hasPrefix "GG" .chezmoi.fqdnHostname) }}
+{{- if .is_work_machine }}
 tasks:
     collection_name: "owl_cli"
-{{ end }}
+{{- end }}

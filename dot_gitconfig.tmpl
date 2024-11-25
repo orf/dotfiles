@@ -1,8 +1,22 @@
 # This is Git's per-user configuration file.
+{{- not if .is_work_machine }}
 [user]
   name = Tom Forbes
   email = {{ .email | quote }}
   signingKey = {{ template "ssh_pub" . | quote }}
+
+{{- else }}
+[user]
+    email = tom.forbes@gitguardian.com
+    signingkey = 30A656298213BA4B
+
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg]
+	format = openpgp
+{{- end }}
 
 #[gpg]
 #  format = ssh
@@ -16,12 +30,13 @@
 #[tag]
 #  gpgsign = true
 
+
 [core]
   excludesfile = {{ (joinPath .chezmoi.homeDir ".gitignore") | quote }}
   autocrlf = input
   pager = "delta"
   attributesfile = {{ (joinPath .chezmoi.homeDir ".gitattributes") | quote }}
-  fsmonitor = true
+  fsmonitor = false
   untrackedcache = true
 
 [filter "lfs"]

@@ -1,5 +1,5 @@
-{{ if (hasPrefix "GG" .chezmoi.fqdnHostname) }}
+{{- if .is_work_machine }}
 machine {{ onepasswordRead "op://chezmoi/gg-gitlab/gitlab-host" }}
      login __token__
      password {{ onepasswordRead "op://chezmoi/gg-gitlab/pypi-key" }}
-{{ end }}
+{{- end }}

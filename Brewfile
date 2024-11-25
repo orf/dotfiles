@@ -99,7 +99,6 @@ brew "derailed/k9s/k9s"
 
 # Other
 brew "defaultbrowser"
-brew "hugo"
 
 # For alfred plugins
 brew "php"
