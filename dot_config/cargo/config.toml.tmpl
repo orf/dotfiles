@@ -3,10 +3,6 @@ name = "Tom Forbes"
 email = {{ .email | quote }}
 vcs = "git"
 
-[registries.crates-io]
-protocol = "sparse"
-
 [build]
 rustc-wrapper = "sccache"
-incremental = false
 rustflags = ["-C", "target-cpu=native"]
