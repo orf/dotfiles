@@ -1,7 +1,10 @@
 [secret]
-    command = "op"
+command = "op"
 
 {{ if eq .chezmoi.username "runner" }}
 [scriptEnv]
-    CI = "true"
+CI = "true"
 {{ end }}
+
+[data]
+is_work_machine: {{ hasPrefix "GG" .chezmoi.hostname }}
