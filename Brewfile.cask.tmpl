@@ -11,9 +11,6 @@ cask 'font-source-serif-4'
 # Core casks
 cask "iterm2"
 cask "firefox-developer-edition"
-cask "little-snitch"
-cask "micro-snitch"
-cask "vlc"
 cask "dash"
 cask "alfred"
 cask "bartender"
@@ -22,7 +19,6 @@ cask "istat-menus"
 cask "postgres-unofficial"  # postgres.app
 cask "deckset"
 cask "jetbrains-toolbox"
-cask "mullvadvpn"
 cask "1password-cli"
 
 # Data utils
@@ -41,20 +37,26 @@ cask "quicklook-json"
 # GPG stuff
 cask "gpg-suite-no-mail"
 
-{{ if (not (hasPrefix "GG" .chezmoi.fqdnHostname)) }}
-cask "1password", args: {"adopt": true}
-{{ end }}
-
-{{ if (hasPrefix "GG" .chezmoi.fqdnHostname) }}
-cask "linear-linear"
-{{ end }}
-
 # App Store Apps
 brew "mas"
 mas "Magnet", id: 441258766
 mas "ShellHistory", id: 1564015476
-mas "UTM Virtual Machines", id: 1538878817
-
 
 # Docker stuff
 cask "docker"
+
+# Personal deps:
+{{- if (not (.is_work_machine)) }}
+cask "1password", args: {"adopt": true}
+cask "mullvadvpn"
+cask "little-snitch"
+cask "micro-snitch"
+cask "vlc"
+
+mas "UTM Virtual Machines", id: 1538878817
+{{- end }}
+
+# Work deps:
+{{- if (.is_work_machine) }}
+cask "linear-linear"
+{{- end }}
