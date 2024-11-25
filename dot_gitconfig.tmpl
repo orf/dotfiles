@@ -1,5 +1,5 @@
 # This is Git's per-user configuration file.
-{{- not if .is_work_machine }}
+{{- if not .is_work_machine }}
 [user]
   name = Tom Forbes
   email = {{ .email | quote }}
