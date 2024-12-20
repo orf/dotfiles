@@ -10,8 +10,3 @@ rust = 'stable'
 "cargo:sccache" = "latest"
 
 "pipx:ipython" = "latest"
-
-[settings]
-
-[settings.rust]
-cargo_home = "~/.config/cargo"
