@@ -48,10 +48,6 @@ end
 
 fish_add_path -mP $CARGO_HOME/bin/
 
-if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
-end
-
 set -g async_prompt_functions _pure_prompt_git
 set -g pure_enable_container_detection false
 set -g pure_separate_prompt_on_error true

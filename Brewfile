@@ -11,9 +11,9 @@ brew "bat"
 brew "fd"
 brew "httpie"
 brew "chezmoi"
-brew "asdf"
 brew "nushell"
 brew "starship"
+brew "mise"
 
 # Fish utils
 brew "fish"
@@ -85,7 +85,6 @@ brew "libmagic"
 brew "trash"
 
 # Cargo plugins
-brew "rust", link: false  # Don't link, as it clashes with rustup.
 brew "cargo-watch"
 brew "cargo-release"
 brew "cargo-outdated"

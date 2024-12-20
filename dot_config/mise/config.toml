@@ -1,0 +1,9 @@
+[tools]
+node = 'lts'
+python = ['3.10', '3.11', '3.12']
+rust = 'stable'
+"cargo:cargo-watch" = "latest"
+"cargo:cargo-release" = "latest"
+"cargo:cargo-outdated" = "latest"
+"cargo:flamegraph" = "latest"
+"cargo:parquet" = { version = "latest", features = "cli" }

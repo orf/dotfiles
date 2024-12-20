@@ -16,4 +16,4 @@ if ! [[ "${PROMPT_COMMAND}" =~ .*__shhist_prompt.* ]]; then
   PROMPT_COMMAND="__shhist_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 fi
 
-. {{ (joinPath .chezmoi.homeDir ".config/cargo/env") | quote }}
+eval "$(/opt/homebrew/bin/mise activate bash)"

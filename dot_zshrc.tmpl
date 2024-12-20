@@ -25,3 +25,5 @@ __shhist_prompt() {
 precmd_functions=(__shhist_prompt $precmd_functions)
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
+eval "$(/opt/homebrew/bin/mise activate zsh)"
