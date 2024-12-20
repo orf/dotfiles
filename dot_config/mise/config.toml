@@ -1,7 +1,7 @@
 [tools]
 node = 'lts'
 python = ['3.10', '3.11', '3.12']
-rust = 'stable'
+rust = {version='stable', cargo_home='~/.config/cargo'}
 "cargo:cargo-watch" = "latest"
 "cargo:cargo-release" = "latest"
 "cargo:cargo-outdated" = "latest"
@@ -10,6 +10,3 @@ rust = 'stable'
 "cargo:sccache" = "latest"
 
 "pipx:ipython" = "latest"
-
-[rust]
-cargo_home = "~/.config/cargo"
