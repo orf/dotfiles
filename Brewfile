@@ -2,10 +2,8 @@ tap "derailed/k9s"
 tap "noborus/tap"
 
 # Core brews
-brew "python"
-brew "poetry"
-brew "ipython"
 brew "pipx"
+brew "uv"
 brew "eza"
 brew "bat"
 brew "fd"
@@ -83,6 +81,8 @@ brew "duckdb"
 brew "unar"
 brew "libmagic"
 brew "trash"
+brew "hyperfine"
+brew "yq"
 
 # Cargo plugins
 brew "cargo-watch"
@@ -95,6 +95,7 @@ brew "stern"
 brew "kubectx"
 brew "dive"
 brew "derailed/k9s/k9s"
+brew "helm"
 
 # Other
 brew "defaultbrowser"
