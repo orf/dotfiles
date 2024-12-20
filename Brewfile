@@ -1,5 +1,6 @@
 tap "derailed/k9s"
 tap "noborus/tap"
+tap "hashicorp/tap"
 
 # Core brews
 brew "pipx"
@@ -96,6 +97,7 @@ brew "kubectx"
 brew "dive"
 brew "derailed/k9s/k9s"
 brew "helm"
+brew "hashicorp/tap/terraform"
 
 # Other
 brew "defaultbrowser"
