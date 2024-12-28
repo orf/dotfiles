@@ -1,7 +1,12 @@
 [tools]
+# Languages
 node = 'lts'
 python = ['3.10', '3.11', '3.12']
 rust = 'stable'
+terraform = 'latest'
+go = "latest"
+
+# Required for all Rust builds
 sccache = { version = "latest", install_env = { RUSTC_WRAPPER = "" }, postinstall = "mise reshim" }
 
 # Python tools
@@ -11,7 +16,22 @@ uv = "latest"
 "aqua:duckdb/duckdb" = "latest"
 
 # Dev tools
-"aqua:noborus/ov" = "latest"
+"aqua:noborus/ov" = "latest"  # Terminal pager
+jq = 'latest'
+fzf = 'latest'
+pre-commit = "latest"
+gh = "latest"
+shellcheck = "latest"
+yq = "latest"
+awscli = "latest"
+
+# K8s / Docker stuff
+kubectl = "latest"
+stern = "latest"
+kubectx = "latest"
+k9s = "latest"
+helm = "latest"
+dive = "latest"
 
 # Cargo dev tools
 "cargo:eza" = "latest"
@@ -32,6 +52,10 @@ uv = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:flamegraph" = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
+
+# Useful utils
+ffmpeg = 'latest'
+glow = "latest"
 
 [settings]
 cache_prune_age = "7d"
