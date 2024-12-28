@@ -11,6 +11,8 @@ rust = 'stable'
 
 "pipx:ipython" = "latest"
 
+"aqua:astral-sh/uv" = "latest"
+
 [settings]
 
 [settings.python]
