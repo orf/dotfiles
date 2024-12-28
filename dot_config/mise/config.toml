@@ -10,3 +10,8 @@ rust = 'stable'
 "cargo:sccache" = "latest"
 
 "pipx:ipython" = "latest"
+
+[settings]
+
+[settings.python]
+uv_venv_auto = true
