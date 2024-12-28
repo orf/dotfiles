@@ -2,6 +2,7 @@
 node = 'lts'
 python = ['3.10', '3.11', '3.12']
 rust = 'stable'
+sccache = "latest"
 
 # Python tools
 uv = "latest"
@@ -31,7 +32,6 @@ uv = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:flamegraph" = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
-"cargo:sccache" = "latest"
 
 [settings]
 

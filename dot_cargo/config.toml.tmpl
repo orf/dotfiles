@@ -4,5 +4,5 @@ email = {{ .email | quote }}
 vcs = "git"
 
 [build]
-rustc-wrapper = "sccache"
+rustc-wrapper = {{ joinPath .chezmoi.homeDir ".local/share/mise/shims/sccache" | quote}}
 rustflags = ["-C", "target-cpu=native"]
