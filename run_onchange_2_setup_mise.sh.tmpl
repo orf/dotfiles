@@ -1,7 +1,0 @@
-#!/bin/zsh
-set -uo pipefail
-
-# mise hash: {{ include (joinPath "dot_config" "mise" "config.toml") | sha256sum }}
-
-echo Mise Hash: '{{ include (joinPath "dot_config" "mise" "config.toml") | sha256sum }}'
-mise install
