@@ -36,7 +36,8 @@ uv = "latest"
 [settings]
 
 [settings.python]
-uv_venv_auto = true
+# Experimental: Disabled for now
+#uv_venv_auto = true
 
 [settings.pipx]
 uvx = true
