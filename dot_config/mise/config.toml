@@ -4,8 +4,8 @@ python = ['3.10', '3.11', '3.12']
 rust = 'stable'
 
 # Python tools
+uv = "latest"
 "pipx:ipython" = "latest"
-"aqua:astral-sh/uv" = "latest"
 
 # Cargo tools
 "cargo:cargo-watch" = "latest"
@@ -19,3 +19,6 @@ rust = 'stable'
 
 [settings.python]
 uv_venv_auto = true
+
+[settings.pipx]
+uv = true
