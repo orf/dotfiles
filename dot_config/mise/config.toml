@@ -39,4 +39,4 @@ uv = "latest"
 uv_venv_auto = true
 
 [settings.pipx]
-uv = true
+uvx = true
