@@ -34,6 +34,8 @@ uv = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
 
 [settings]
+cache_prune_age = "7d"
+jobs = 1
 
 [settings.python]
 # Experimental: Disabled for now
