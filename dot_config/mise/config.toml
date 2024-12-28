@@ -60,6 +60,10 @@ glow = "latest"
 cache_prune_age = "7d"
 jobs = 1
 
+[settings.status]
+show_tools = true
+missing_tools = false
+
 [settings.python]
 # Experimental: Disabled for now
 #uv_venv_auto = true
