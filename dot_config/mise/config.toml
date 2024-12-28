@@ -15,7 +15,7 @@ uv = "latest"
 # Cargo dev tools
 "cargo:eza" = "latest"
 "cargo:bat" = "latest"
-"cargo:fd" = "latest"
+"cargo:fd-find" = "latest"
 "cargo:tokei" = "latest"
 "cargo:starship" = "latest"
 "cargo:ripgrep" = "latest"
