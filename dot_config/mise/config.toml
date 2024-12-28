@@ -2,7 +2,7 @@
 node = 'lts'
 python = ['3.10', '3.11', '3.12']
 rust = 'stable'
-sccache = "latest"
+sccache = { version = "latest", install_env = { RUSTC_WRAPPER = "" }, postinstall = "mise reshim" }
 
 # Python tools
 uv = "latest"
