@@ -61,7 +61,7 @@ cache_prune_age = "7d"
 jobs = 1
 
 [settings.status]
-show_tools = true
+show_tools = false
 missing_tools = "never"
 
 [settings.python]
