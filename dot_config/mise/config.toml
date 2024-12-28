@@ -62,7 +62,7 @@ jobs = 1
 
 [settings.status]
 show_tools = true
-missing_tools = false
+missing_tools = "never"
 
 [settings.python]
 # Experimental: Disabled for now
