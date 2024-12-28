@@ -6,8 +6,26 @@ rust = 'stable'
 # Python tools
 uv = "latest"
 "pipx:ipython" = "latest"
+"pipx:pgcli" = "latest"
+"aqua:duckdb/duckdb" = "latest"
 
-# Cargo tools
+# Dev tools
+"aqua:noborus/ov" = "latest"
+
+# Cargo dev tools
+"cargo:eza" = "latest"
+"cargo:bat" = "latest"
+"cargo:fd" = "latest"
+"cargo:tokei" = "latest"
+"cargo:starship" = "latest"
+"cargo:ripgrep" = "latest"
+"cargo:tealdeer" = "latest"
+"cargo:xsv" = "latest"
+"cargo:hexyl" = "latest"
+"cargo:hyperfine" = "latest"
+"cargo:git-delta" = "latest"
+
+# Cargo dev tools
 "cargo:cargo-watch" = "latest"
 "cargo:cargo-release" = "latest"
 "cargo:cargo-outdated" = "latest"
