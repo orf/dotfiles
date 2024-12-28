@@ -32,6 +32,7 @@ brew "git-workspace"
 brew "hq"
 
 # Useful utilities
+brew "ffmpeg"
 brew "ncdu"
 brew "pv"
 brew "tree"

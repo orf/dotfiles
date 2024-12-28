@@ -54,7 +54,6 @@ dive = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
 
 # Useful utils
-ffmpeg = 'latest'
 glow = "latest"
 
 [settings]
