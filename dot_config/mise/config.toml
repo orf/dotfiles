@@ -1,7 +1,7 @@
 [tools]
 # Languages
 node = 'lts'
-python = ['3.10', '3.11', '3.12']
+python = ['3.10', '3.11', '3.12', '3.13']
 rust = 'stable'
 terraform = 'latest'
 go = "latest"
