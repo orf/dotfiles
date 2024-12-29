@@ -46,7 +46,7 @@ dive = "latest"
 "cargo:hexyl" = "latest"
 "cargo:hyperfine" = "latest"
 "cargo:git-delta" = "latest"
-"cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross" }
+"cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross", locked=false }
 
 # Cargo dev tools
 "cargo:cargo-watch" = "latest"
