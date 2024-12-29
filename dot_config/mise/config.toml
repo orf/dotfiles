@@ -13,7 +13,7 @@ sccache = { version = "latest", install_env = { RUSTC_WRAPPER = "" }, postinstal
 uv = "latest"
 "pipx:ipython" = "latest"
 "pipx:pgcli" = "latest"
-"pipx:maturin" = "latest"
+"pipx:maturin" = {version = "latest", extras = "zig" }
 "aqua:duckdb/duckdb" = "latest"
 
 # Dev tools
