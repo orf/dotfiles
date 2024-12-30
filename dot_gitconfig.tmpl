@@ -85,7 +85,7 @@
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
     side-by-side = true
     hyperlinks = true
-    hyperlinks-file-link-format = "pycharm://{path}:{line}"
+    hyperlinks-file-link-format = "pycharm://open?file={path}&line={line}"
 
 [diff "plist"]
   textconv = zsh -c 'plutil -convert json -o - | jq'
