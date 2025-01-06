@@ -22,9 +22,12 @@ jq = 'latest'
 fzf = 'latest'
 pre-commit = "latest"
 gh = "latest"
-#shellcheck = "latest"
+shellcheck = "latest"
 yq = "latest"
 awscli = "latest"
+
+# Utilities
+"ubi:orf/trash" = "latest"
 
 # K8s / Docker stuff
 kubectl = "latest"
