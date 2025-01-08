@@ -5,4 +5,4 @@ vcs = "git"
 
 [build]
 rustc-wrapper = {{ joinPath .chezmoi.homeDir ".local/share/mise/shims/sccache" | quote}}
-rustflags = ["-C", "target-cpu=native"]
+# rustflags = ["-C", "target-cpu=native"]
