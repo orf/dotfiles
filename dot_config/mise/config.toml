@@ -37,7 +37,7 @@ k9s = "latest"
 helm = "latest"
 dive = "latest"
 
-# Cargo dev tools
+# Rust dev tools
 "cargo:eza" = "latest"
 "cargo:bat" = "latest"
 "cargo:fd-find" = "latest"
@@ -52,6 +52,7 @@ dive = "latest"
 "cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross", locked=false }
 
 # Cargo dev tools
+"cargo:cargo-bloat" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:cargo-release" = "latest"
 "cargo:cargo-outdated" = "latest"
