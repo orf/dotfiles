@@ -46,8 +46,6 @@ else
     eval "$(/usr/local/bin/brew shellenv fish)"
 end
 
-fish_add_path -mP $CARGO_HOME/bin/
-
 set -g async_prompt_functions _pure_prompt_git
 set -g pure_enable_container_detection false
 set -g pure_separate_prompt_on_error true
