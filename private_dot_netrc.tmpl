@@ -1,5 +1,5 @@
 {{- if .is_work_machine }}
-machine {{ onepasswordRead "op://chezmoi/gg-gitlab/gitlab-host" }}
+machine {{ onepasswordRead "op://chezmoi/work-gitlab/pypi-host" }}
      login __token__
-     password {{ onepasswordRead "op://chezmoi/gg-gitlab/pypi-key" }}
+     password {{ onepasswordRead "op://chezmoi/work-gitlab/pypi-key" }}
 {{- end }}
