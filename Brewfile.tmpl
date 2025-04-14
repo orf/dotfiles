@@ -70,10 +70,7 @@ cask "iterm2"
 cask "firefox@developer-edition"
 cask "dash"
 cask "alfred"
-cask "bartender"
-cask "batteries"
 cask "istat-menus"
-cask "postgres-unofficial"  # postgres.app
 cask "deckset"
 cask "jetbrains-toolbox"
 cask "1password-cli"
@@ -87,9 +84,6 @@ cask "clickhouse"
 # Other apps
 cask "claude"
 
-# Default apps changing
-cask "swiftdefaultappsprefpane"
-
 # Quicklook plugins
 cask "qlmarkdown"
 cask "quicklook-json"
@@ -97,10 +91,6 @@ cask "quicklook-json"
 # App Store Apps
 brew "mas"
 mas "Magnet", id: 441258766
-mas "ShellHistory", id: 1564015476
-
-# Docker stuff
-cask "docker"
 
 # Personal deps:
 {{- if (not (.is_work_machine)) }}
@@ -109,11 +99,14 @@ cask "mullvadvpn"
 cask "little-snitch"
 cask "micro-snitch"
 cask "vlc"
+cask "bartender"
+cask "batteries"
+cask "postgres-unofficial"  # postgres.app
 
 mas "UTM Virtual Machines", id: 1538878817
 {{- end }}
 
 # Work deps:
 {{- if (.is_work_machine) }}
-cask "linear-linear"
+
 {{- end }}
