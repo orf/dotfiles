@@ -4,4 +4,4 @@ set -o xtrace
 
 # Brewfile hash: {{ include "Brewfile.tmpl" | sha256sum }}
 
-HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-lock --no-upgrade --file={{ (joinPath .chezmoi.homeDir "Brewfile") | quote }}
+HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-upgrade --file={{ (joinPath .chezmoi.homeDir "Brewfile") | quote }}
