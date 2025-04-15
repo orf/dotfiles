@@ -21,7 +21,7 @@
   autocrlf = input
   pager = "delta"
   attributesfile = {{ (joinPath .chezmoi.homeDir ".gitattributes") | quote }}
-  fsmonitor = false
+  fsmonitor = true
   untrackedcache = true
 
 [filter "lfs"]
