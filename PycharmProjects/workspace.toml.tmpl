@@ -9,6 +9,7 @@ exclude = [
     "pypi-data/pypi-json-data",
 ]
 
+{{- if (not (.is_work_machine)) }}
 [[provider]]
 provider = "github"
 name = "pypi-data"
@@ -19,3 +20,4 @@ exclude = [
     "pypi-data/pypi-mirror-.*",
     "pypi-data/pypi-json-data",
 ]
+{{- end }}
