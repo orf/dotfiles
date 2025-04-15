@@ -2,7 +2,7 @@
 [user]
   name = Tom Forbes
   email = {{ .email | quote }}
-  signingKey = {{ template "ssh_pub" . | quote }}
+  signingKey = {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519.pub" | quote}}
 
 [gpg]
   format = ssh
