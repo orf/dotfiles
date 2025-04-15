@@ -1,5 +1,4 @@
 # This is Git's per-user configuration file.
-{{- if not .is_work_machine }}
 [user]
   name = Tom Forbes
   email = {{ .email | quote }}
@@ -16,21 +15,6 @@
 
 [tag]
   gpgsign = true
-
-{{- else }}
-[user]
-    name = Thomas Forbes
-    email = tom.forbes@gitguardian.com
-    signingkey = 30A656298213BA4B
-
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
-[gpg]
-	format = openpgp
-{{- end }}
-
 
 [core]
   excludesfile = {{ (joinPath .chezmoi.homeDir ".gitignore") | quote }}
