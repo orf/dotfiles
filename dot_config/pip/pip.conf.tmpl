@@ -1,4 +1,4 @@
 {{- if .is_work_machine }}
 [global]
-index-url = https://{{ onepasswordRead "op://chezmoi/work-gitlab/pypi-host" }}/simple
+index-url = https://pypi-token:{{ onepasswordRead "op://chezmoi/work-gitlab/pypi-key" }}@{{ onepasswordRead "op://chezmoi/work-gitlab/pypi-host" }}
 {{- end }}
