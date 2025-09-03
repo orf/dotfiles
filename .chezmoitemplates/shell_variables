@@ -31,7 +31,3 @@ export SCCACHE_CONF="$XDG_CONFIG_HOME/sccache/config.toml"
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_AUTO_UPDATE_SECS=86400
 export HOMEBREW_CASK_OPTS="--no-quarantine"
-
-{{ if .is_work_machine }}
-export PYPI_HOST={{ onepasswordRead "op://chezmoi/work-gitlab/pypi-host" | quote }}
-{{ end }}
