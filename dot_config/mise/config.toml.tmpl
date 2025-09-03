@@ -48,7 +48,6 @@ dive = "latest"
 "cargo:hexyl" = "latest"
 "cargo:hyperfine" = "latest"
 "cargo:git-delta" = "latest"
-"cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross", locked=false }
 
 {{- if (not (.is_work_machine)) }}
 # Cargo dev tools
@@ -59,6 +58,7 @@ dive = "latest"
 "cargo:flamegraph" = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
 "cargo:cargo-expand" = "latest"
+"cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross", locked=false }
 {{- end }}
 
 # Useful utils
