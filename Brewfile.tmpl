@@ -109,5 +109,25 @@ mas "UTM Virtual Machines", id: 1538878817
 
 # Work deps:
 {{- if (.is_work_machine) }}
+tap "datawire/blackbird"
+tap "derailed/k9s"
+tap "microsoft/git"
 
+brew "aws-iam-authenticator"
+brew "aws-shell"
+brew "awscli"
+brew "azure-cli"
+
+brew "gimme-aws-creds"
+brew "git-extras"
+
+brew "kubernetes-cli"
+
+brew "clang-format"
+brew "flyway"
+brew "go-task"
+
+cask "docker"
+cask "git-credential-manager"
+cask "google-cloud-sdk"
 {{- end }}
