@@ -73,3 +73,12 @@
 
 [diff "plist"]
   textconv = zsh -c 'plutil -convert json -o - | jq'
+
+
+{{- if (.is_work_machine) }}
+[credential]
+    helper =
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+    useHttpPath = true
+{{- end }}
