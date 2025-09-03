@@ -90,14 +90,16 @@ cask "quicklook-json"
 brew "mas"
 mas "Magnet", id: 441258766
 
+# Desktop Stuff
+cask "bartender"
+cask "1password", args: {"adopt": true}
+
 # Personal deps:
 {{- if (not (.is_work_machine)) }}
-cask "1password", args: {"adopt": true}
 cask "mullvadvpn"
 cask "little-snitch"
 cask "micro-snitch"
 cask "vlc"
-cask "bartender"
 cask "batteries"
 cask "postgres-unofficial"  # postgres.app
 cask "wireshark"
