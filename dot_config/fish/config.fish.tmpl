@@ -67,3 +67,5 @@ fish_add_path ~/.local/bin
 for f in ~/.config/fish/work/*.{fish,sh}
     test -f "$f" && source $f
 end
+
+ulimit -S -n 2048
