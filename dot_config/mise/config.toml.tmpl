@@ -6,9 +6,6 @@ rust = 'stable'
 terraform = 'latest'
 go = "latest"
 
-# Required for all Rust builds
-sccache = { version = "latest", install_env = { RUSTC_WRAPPER = "" }, postinstall = "mise reshim" }
-
 # Python tools
 uv = "latest"
 "pipx:ipython" = "latest"
