@@ -1,0 +1,29 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[golang]
+disabled = true
+
+[git_status]
+disabled = true
+
+[buf]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[[battery.display]]
+threshold = 15
+style = 'bold red'
+
+[status]
+disabled = false
+pipestatus = true
+format = '[$symbol $status]($style)'
