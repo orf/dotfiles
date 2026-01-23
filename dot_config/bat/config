@@ -24,4 +24,4 @@
 #--map-syntax "*.ino:C++"
 #--map-syntax ".ignore:Git Ignore"
 
---style=changes,header-filename,header-filesize,grid
+--style=changes,header-filename,header-filesize
