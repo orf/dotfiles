@@ -59,7 +59,6 @@ dive = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"
-"cargo:https://github.com/cross-rs/cross" = { version = "branch:main", crate = "cross", locked=false }
 {{- end }}
 
 # Useful utils
@@ -72,10 +71,6 @@ jobs = 1
 [settings.status]
 show_tools = false
 missing_tools = "never"
-
-[settings.python]
-# Experimental: Disabled for now
-#uv_venv_auto = true
 
 [settings.pipx]
 uvx = true
