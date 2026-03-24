@@ -90,13 +90,13 @@ cask "1password", args: {"adopt": true}
 
 # Personal deps:
 {{- if (not (.is_work_machine)) }}
-cask "mullvadvpn"
+cask "mullvad-vpn"
 cask "little-snitch"
 cask "micro-snitch"
 cask "vlc"
 cask "batteries"
-cask "postgres-unofficial"  # postgres.app
-cask "wireshark"
+cask "postgres-app"
+cask "wireshark-app"
 
 mas "UTM Virtual Machines", id: 1538878817
 {{- end }}
