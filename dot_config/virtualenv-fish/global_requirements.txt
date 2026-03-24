@@ -1,6 +1,0 @@
-ipython
-wheel
-requests
-boto3
-numpy
-
