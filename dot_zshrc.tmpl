@@ -2,12 +2,6 @@
 
 {{ template "shell_variables" . }}
 
-export ZSH="$HOME/.config/oh-my-zsh"
-ZSH_THEME="robbyrussell"
-
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
