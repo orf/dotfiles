@@ -2,7 +2,6 @@ README.md
 preferences/
 .gitignore
 .github/
-mock_onepassword/
 
 {{- if .is_work_machine }}
 .ssh/config
