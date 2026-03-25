@@ -2,7 +2,7 @@
 command = "op"
 
 [data]
-is_work_machine = {{ hasPrefix "JN" .chezmoi.hostname }}
+is_work_machine = {{ promptBool "Setup as work machine?" false }}
 
 [merge]
 command = "git"
