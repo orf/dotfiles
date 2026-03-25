@@ -1,11 +1,6 @@
 [secret]
 command = "op"
 
-{{ if eq .chezmoi.username "runner" }}
-[scriptEnv]
-CI = "true"
-{{ end }}
-
 [data]
 is_work_machine = {{ hasPrefix "JN" .chezmoi.hostname }}
 

@@ -17,11 +17,3 @@ defaults write com.apple.finder AppleShowAllFiles -boolean true
 
 # Fix key permissions
 chmod 600 ~/.ssh/id_ed25519*
-
-# # Enable locate
-# if [[ ! -v CI ]]; then
-#   if ! sudo launchctl print system/com.apple.locate &>/dev/null; then
-#     sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
-#   fi
-#   sudo launchctl kickstart system/com.apple.locate
-# fi

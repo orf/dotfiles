@@ -10,8 +10,3 @@ set -uo pipefail
 #   print "Fish not in /etc/shells, adding"
 #   echo "$PREFIX/bin/fish" | sudo tee -a /etc/shells
 # fi
-
-# if [[ ! -v CI ]]; then
-#   chsh -s "$PREFIX"/bin/fish
-# fi
-
