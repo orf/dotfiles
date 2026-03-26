@@ -642,16 +642,17 @@ backend = "pipx:httpie"
 version = "9.11.0"
 backend = "pipx:ipython"
 
-[[tools."pipx:maturin"]]
-version = "1.12.6"
-backend = "pipx:maturin"
-
-[tools."pipx:maturin".options]
-extras = "zig"
-
 [[tools."pipx:pgcli"]]
 version = "4.4.0"
 backend = "pipx:pgcli"
+
+[[tools.pnpm]]
+version = "10.33.0"
+backend = "aqua:pnpm/pnpm"
+
+[tools.pnpm."platforms.macos-arm64"]
+checksum = "sha256:ed8a1f140f4de457b01ebe0be3ae28e9a7e28863315dcd53d22ff1e5a32d63ae"
+url = "https://github.com/pnpm/pnpm/releases/download/v10.33.0/pnpm-macos-arm64"
 
 [[tools.pre-commit]]
 version = "4.5.1"
