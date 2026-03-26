@@ -1,6 +1,7 @@
 [tools]
 # Languages
 node = 'lts'
+pnpm = "10.33"
 python = ['3.10', '3.11', '3.12', '3.13']
 rust = 'stable'
 terraform = 'latest'
@@ -57,13 +58,11 @@ dive = "latest"
 "cargo:samply" = "latest"
 "cargo:parquet" = { version = "latest", features = "cli" }
 
-{{- if (not (.is_work_machine)) }}
 # Cargo dev tools
 "cargo:cargo-bloat" = "latest"
 "cargo:cargo-watch" = "latest"
 "cargo:cargo-outdated" = "latest"
 "cargo:cargo-expand" = "latest"
-{{- end }}
 
 # Useful utils
 glow = "latest"
