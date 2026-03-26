@@ -1,7 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
   name = Tom Forbes
+{{- if not .is_work_machine }}
   email = {{ .email | quote }}
+{{ else }}
+  email = {{ (onepasswordRead "op://chezmoi/work-email/username") | quote }}
+{{- end }}
   signingKey = {{ joinPath .chezmoi.homeDir ".ssh/id_ed25519.pub" | quote}}
 
 [gpg]
