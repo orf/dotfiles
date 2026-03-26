@@ -4,8 +4,8 @@ command = "op"
 {{- $choices := list "personal" "work" -}}
 {{- $hosttype := promptChoice "Setup type" $choices -}}
 [data]
-    hosttype = {{- $hosttype | quote -}}
-    is_work_machine = {{- promptBool "Setup as work machine?" false -}}
+hosttype = {{- $hosttype | quote -}}
+is_work_machine = {{- promptBool "Setup as work machine?" false -}}
 
 [merge]
 command = "git"
