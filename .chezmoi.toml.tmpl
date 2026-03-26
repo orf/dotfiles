@@ -1,10 +1,7 @@
 [secret]
 command = "op"
 
-{{ $choices := list "personal" "work" }}
-{{ $hosttype := promptChoice "Setup type" $choices "personal" }}
 [data]
-hosttype = {{ $hosttype | quote }}
 is_work_machine = {{ promptBool "Setup as work machine?" false }}
 
 [merge]
