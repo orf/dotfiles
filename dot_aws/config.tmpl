@@ -1,7 +1,3 @@
-
-# .is_work_machine = {{ .is_work_machine }}
-# .hosttype = {{ .hosttype }}
-
 {{- if not (.is_work_machine) }}
 [profile personal]
 aws_access_key_id = {{ onepasswordRead "op://AWS/IAM User/access key" }}
