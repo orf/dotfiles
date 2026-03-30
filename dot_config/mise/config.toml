@@ -11,7 +11,6 @@ go = "latest"
 uv = "latest"
 "pipx:httpie" = "latest"
 "pipx:ipython" = "latest"
-"pipx:pgcli" = "latest"
 "aqua:duckdb/duckdb" = "latest"
 
 # Dev tools
