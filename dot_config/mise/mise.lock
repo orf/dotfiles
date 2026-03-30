@@ -86,6 +86,13 @@ url = "https://awscli.amazonaws.com/AWSCLIV2-2.34.15.pkg"
 [tools.awscli."platforms.macos-x64"]
 url = "https://awscli.amazonaws.com/AWSCLIV2-2.34.15.pkg"
 
+[[tools.awscli]]
+version = "2.34.19"
+backend = "aqua:aws/aws-cli"
+
+[tools.awscli."platforms.macos-arm64"]
+url = "https://awscli.amazonaws.com/AWSCLIV2-2.34.19.pkg"
+
 [[tools."cargo:bat"]]
 version = "0.26.1"
 backend = "cargo:bat"
@@ -106,6 +113,10 @@ backend = "cargo:cargo-outdated"
 version = "1.1.1"
 backend = "cargo:cargo-release"
 
+[[tools."cargo:cargo-release"]]
+version = "1.1.2"
+backend = "cargo:cargo-release"
+
 [[tools."cargo:cargo-watch"]]
 version = "8.5.3"
 backend = "cargo:cargo-watch"
@@ -120,6 +131,10 @@ backend = "cargo:fd-find"
 
 [[tools."cargo:git-delta"]]
 version = "0.19.1"
+backend = "cargo:git-delta"
+
+[[tools."cargo:git-delta"]]
+version = "0.19.2"
 backend = "cargo:git-delta"
 
 [[tools."cargo:hexyl"]]
@@ -181,6 +196,13 @@ url = "https://github.com/ClickHouse/ClickHouse/releases/download/v26.2.5.45-sta
 
 [tools.clickhouse."platforms.windows-x64"]
 url = "https://github.com/ClickHouse/ClickHouse/releases/download/v26.2.5.45-stable/clickhouse-common-static-26.2.5.45-arm64.tgz"
+
+[[tools.clickhouse]]
+version = "26.3.2.3-lts"
+backend = "vfox:mise-plugins/vfox-clickhouse"
+
+[tools.clickhouse."platforms.macos-arm64"]
+url = "https://github.com/ClickHouse/ClickHouse/releases/download/v26.3.2.3-lts/clickhouse-macos-aarch64"
 
 [[tools.dive]]
 version = "0.13.1"
@@ -249,6 +271,14 @@ url = "https://github.com/cli/cli/releases/download/v2.88.1/gh_2.88.1_macOS_amd6
 [tools.gh."platforms.windows-x64"]
 checksum = "sha256:8fdaac525d8919f9f8c265f99ffa26189e5f1fd3a35636adad4fd890a141a555"
 url = "https://github.com/cli/cli/releases/download/v2.88.1/gh_2.88.1_windows_amd64.zip"
+
+[[tools.gh]]
+version = "2.89.0"
+backend = "aqua:cli/cli"
+
+[tools.gh."platforms.macos-arm64"]
+checksum = "sha256:2423d02ec0a2094898c378703a1b28a5846c08700f87461363857cb8cb3fda94"
+url = "https://github.com/cli/cli/releases/download/v2.89.0/gh_2.89.0_macOS_arm64.zip"
 
 [[tools."github:go-task/task"]]
 version = "3.49.1"
@@ -602,6 +632,14 @@ url = "https://github.com/ahmetb/kubectx/releases/download/v0.10.2/kubectx_v0.10
 checksum = "sha256:c410e4f9eabaa56594a613ffb21c00cbe573fc952ad3d9487c8ba761c609947d"
 url = "https://github.com/ahmetb/kubectx/releases/download/v0.10.2/kubectx_v0.10.2_windows_x86_64.zip"
 
+[[tools.kubectx]]
+version = "0.11.0"
+backend = "aqua:ahmetb/kubectx"
+
+[tools.kubectx."platforms.macos-arm64"]
+checksum = "sha256:b8c9b5150ca6d902474a115cf7e535831081b9ae10cbe561ea36c82bb3823d02"
+url = "https://github.com/ahmetb/kubectx/releases/download/v0.11.0/kubectx_v0.11.0_darwin_arm64.tar.gz"
+
 [[tools.node]]
 version = "24.14.0"
 backend = "core:node"
@@ -642,9 +680,9 @@ backend = "pipx:httpie"
 version = "9.11.0"
 backend = "pipx:ipython"
 
-[[tools."pipx:pgcli"]]
-version = "4.4.0"
-backend = "pipx:pgcli"
+[[tools."pipx:ipython"]]
+version = "9.12.0"
+backend = "pipx:ipython"
 
 [[tools.pnpm]]
 version = "10.33.0"
@@ -910,6 +948,14 @@ url = "https://releases.hashicorp.com/terraform/1.14.7/terraform_1.14.7_darwin_a
 checksum = "sha256:e81958c47acde7bb64e0126c5c45c3919da1ecd51042d84e79030835cbbfdd0c"
 url = "https://releases.hashicorp.com/terraform/1.14.7/terraform_1.14.7_windows_amd64.zip"
 
+[[tools.terraform]]
+version = "1.14.8"
+backend = "aqua:hashicorp/terraform"
+
+[tools.terraform."platforms.macos-arm64"]
+checksum = "sha256:5593670a2d42323847bfb216db17c73a44df201a62f7587928bae16adeabba23"
+url = "https://releases.hashicorp.com/terraform/1.14.8/terraform_1.14.8_darwin_arm64.zip"
+
 [[tools.uv]]
 version = "0.11.0"
 backend = "aqua:astral-sh/uv"
@@ -942,6 +988,18 @@ url = "https://github.com/astral-sh/uv/releases/download/0.11.0/uv-x86_64-apple-
 checksum = "sha256:e21d00b172df83531564a95e75a2bdc0c59b471dbb3515f0c1b4d6ef657dc451"
 url = "https://github.com/astral-sh/uv/releases/download/0.11.0/uv-x86_64-pc-windows-msvc.zip"
 
+[[tools.uv]]
+version = "0.11.2"
+backend = "aqua:astral-sh/uv"
+
+[tools.uv."platforms.macos-arm64"]
+checksum = "sha256:4beaa9550f93ef7f0fc02f7c28c9c48cd61fe30db00f5ac8947e0a425c3fb282"
+url = "https://github.com/astral-sh/uv/releases/download/0.11.2/uv-aarch64-apple-darwin.tar.gz"
+
 [[tools.yq]]
 version = "4.52.4"
+backend = "ubi:mikefarah/yq"
+
+[[tools.yq]]
+version = "4.52.5"
 backend = "ubi:mikefarah/yq"
