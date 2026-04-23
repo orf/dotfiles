@@ -22,6 +22,7 @@ gh = "latest"
 shellcheck = "latest"
 yq = "latest"
 awscli = "latest"
+aws-vault = "latest"
 
 # Data tools
 clickhouse = "latest"
