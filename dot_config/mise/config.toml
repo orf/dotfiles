@@ -20,7 +20,7 @@ fzf = 'latest'
 pre-commit = "latest"
 gh = "latest"
 shellcheck = "latest"
-yq = "latest"
+'aqua:mikefarah/yq' = "latest"
 awscli = "latest"
 aws-vault = "latest"
 
@@ -32,12 +32,12 @@ clickhouse = "latest"
 "github:go-task/task" = "latest"
 
 # K8s / Docker stuff
-kubectl = "latest"
+'aqua:kubernetes/kubernetes/kubectl' = "latest"
 stern = "latest"
 kubectx = "latest"
-k9s = "latest"
+'aqua:derailed/k9s' = "latest"
 helm = "latest"
-dive = "latest"
+'aqua:wagoodman/dive' = "latest"
 
 # Go stuff
 "github:golangci/golangci-lint" = "latest"

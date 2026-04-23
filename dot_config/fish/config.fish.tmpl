@@ -22,6 +22,7 @@ fish_add_path -mP {$HOME}/"Library/Application Support/JetBrains/Toolbox/scripts
 fish_add_path -mP /Applications/Postgres.app/Contents/Versions/latest/bin
 fish_add_path -mP {{ (joinPath .chezmoi.homeDir ".config/pipx/bin/") | quote }}
 fish_add_path -mP {{ (joinPath .chezmoi.homeDir "bin/") | quote }}
+fish_add_path -mP {{ (joinPath .chezmoi.homeDir ".local/share/mise/shims/") | quote }}
 
 fish_add_path -mP /usr/sbin
 
@@ -54,9 +55,6 @@ set -g pure_show_subsecond_command_duration true
 set -g pure_threshold_command_duration 2
 
 source ~/.config/fish/pure.fish
-
-# Disabled, causes issues with pure shell.
-#source ~/.config/iterm2/shell_integration.fish
 
 starship init fish | source
 fzf --fish | source
