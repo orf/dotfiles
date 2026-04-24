@@ -22,7 +22,6 @@ gh = "latest"
 shellcheck = "latest"
 'aqua:mikefarah/yq' = "latest"
 awscli = "latest"
-aws-vault = "latest"
 
 # Data tools
 clickhouse = "latest"
