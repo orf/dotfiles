@@ -21,7 +21,7 @@ pre-commit = "latest"
 gh = "latest"
 shellcheck = "latest"
 'aqua:mikefarah/yq' = "latest"
-awscli = "latest"
+#awscli = "latest"
 
 # Data tools
 clickhouse = "latest"
