@@ -67,7 +67,7 @@ glow = "latest"
 
 [settings]
 cache_prune_age = "7d"
-#lockfile = true
+lockfile = false
 
 [settings.status]
 show_tools = false
