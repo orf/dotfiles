@@ -7,4 +7,4 @@ set -o xtrace
 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --verbose --no-upgrade --file={{ (joinPath .chezmoi.homeDir "Brewfile") | quote }}
 
 echo "Differing packages:"
-diff -u <(cat ~/Brewfile | grep -vE '^\s*$|^\s*#' | sort) <(brew bundle dump --file=- | sort)  || true
+diff -d -y <(cat ~/Brewfile | grep -vE '^\s*$|^\s*#' | sort) <(brew bundle dump --file=- | sort)  || true
