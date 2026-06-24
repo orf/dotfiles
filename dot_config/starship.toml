@@ -13,6 +13,9 @@ disabled = true
 [git_status]
 disabled = true
 
+[git_branch]
+symbol = ''
+
 [buf]
 disabled = true
 
