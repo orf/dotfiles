@@ -30,3 +30,27 @@ style = 'bold red'
 disabled = false
 pipestatus = true
 format = '[$symbol $status]($style)'
+
+[profiles]
+claude-code = "$claude_model$directory$git_branch$claude_context$claude_cost"
+
+[claude_context]
+# tok:↑<in> ↓<out>  cw:<cache-create> cr:<cache-read>  <gauge> <pct> ctx
+format = "[tok:↑$input_tokens ↓$output_tokens cw:$curr_cache_creation_tokens cr:$curr_cache_read_tokens $gauge $percentage]($style) ctx "
+# Default display thresholds hide the module at low context usage; show it from 0%
+# (like the script always did) and color it as usage climbs.
+[[claude_context.display]]
+threshold = 0
+style = "bold green"
+[[claude_context.display]]
+threshold = 70
+style = "bold yellow"
+[[claude_context.display]]
+threshold = 90
+style = "bold red"
+
+[claude_model]
+format = "[$symbol$model]($style) "
+
+[claude_cost]
+format = "[$symbol\\$$cost]($style) "
