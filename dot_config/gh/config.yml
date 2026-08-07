@@ -26,3 +26,5 @@ accessible_colors: disabled
 accessible_prompter: disabled
 # Whether to use an animated spinner as a progress indicator. If disabled, a textual progress indicator is used instead. Supported values: enabled, disabled
 spinner: enabled
+
+telemetry: disabled
