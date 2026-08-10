@@ -32,7 +32,7 @@ pipestatus = true
 format = '[$symbol $status]($style)'
 
 [profiles]
-claude-code = "$claude_model$directory$git_branch$claude_context$claude_cost"
+claude-code = "$claude_model$directory$git_branch\n$claude_context$claude_cost"
 
 [claude_context]
 # tok:↑<in> ↓<out>  cw:<cache-create> cr:<cache-read>  <gauge> <pct> ctx
